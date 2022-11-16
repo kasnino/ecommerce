@@ -1,0 +1,21 @@
+.raffles-form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+
+  button {
+    background: #171717;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: 0;
+    padding: 11px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.03em;
+    margin-top: 55px;
+  }
+}
