@@ -1,9 +1,45 @@
 @use "../variables" as *;
+
 .profile {
   padding-block: 59px;
   background-color: $section-color;
   min-height: 100vh;
 
+  .btn-circle {
+    width: 31px;
+    height: 31px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    background: #FFFFFF;
+    border: 1px solid #ECECEC;
+}
+
+.system_nav_profiles{
+  border-bottom: 1px solid #ECECEC; 
+  background: #FFFFFF;
+}
+.social_redes{
+  img{
+    width:14px;
+    height: 14px;
+  }
+}
+
+.container-profile{
+  height: 156px;
+  border-bottom: 1px solid #EDEDED;
+  background: #ffffff;
+}
+.system_followers{
+  
+  .text-followers{
+ color: #A5A5A5;
+ font-size: 12px;
+  }
+}
   figure{
       width: 100%;
 

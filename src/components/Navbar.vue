@@ -17,7 +17,7 @@
          <div class="d-flex justify-content-center text-lowercase fw-bold align-items-center " v-if="show && !showLogo && !name"> {{ username }} 
         <!-- User verification -->
         <span v-if="isVerificate" >
-          <img class="ms-1" width="18" height="18" src="../assets/Verificate.svg" alt="verificate_user">
+          <img class="ms-1" width="18" height="18" src="../assets/profile/Verificate.svg" alt="verificate_user">
           </span>
        </div> 
 
