@@ -19,6 +19,7 @@ import Naming from '../views/Naming.vue';
 import Brand from '../views/Brand.vue';
 import TopProducts from '../views/TopProducts.vue';
 import ProductOld from '../views/Product_info.vue';
+import Profile from '../views/Profile.vue';
 
 
 
@@ -129,6 +130,11 @@ const router = createRouter({
       path: "/top-products",
       name: "top products",
       component: TopProducts
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      component: Profile
     },
   ]
 });

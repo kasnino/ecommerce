@@ -1,6 +1,6 @@
 <template>
   <section class="top-products">
-    <Navbar :show="true" name="TOP CHOLLOS" />
+    <Navbar :show="true" name="TOP CHOLLOS" height="60px" />
     <ul class="button-group">
       <li>
         <button class="active" type="button">

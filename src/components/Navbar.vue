@@ -1,16 +1,26 @@
 <template>
   <nav :class="{navbar: true, white: white,'shadow':show}" class="" :style="'align-items: center;height:'+height+';'">
     <div :class="{bg: true, show: show}" :style="style"></div>
-    <button :class="{white: !show && white}" style="width: 54px;">
+    <button :class="{white: !show && white}" class="" style="width: 54px; ">
       <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M0 6.96165C0 7.22911 0.102262 7.45723 0.314651 7.66175L6.45034 13.6637C6.61554 13.8368 6.83579 13.9233 7.08751 13.9233C7.59882 13.9233 8 13.53 8 13.0108C8 12.7591 7.89774 12.531 7.72468 12.3579L2.19469 6.96165L7.72468 1.56539C7.89774 1.38446 8 1.15634 8 0.904621C8 0.393314 7.59882 0 7.08751 0C6.83579 0 6.61554 0.086529 6.45034 0.259587L0.314651 6.26155C0.102262 6.46608 0.00786627 6.6942 0 6.96165Z"
           :fill="white && !show ? 'white' : 'black'" />
       </svg>
+      <span style="font-size:12px;">Atrás</span>
       <!-- Atras -->
     </button>
-    <span class="navbar-title clip-text">
-      <div class="" v-if="show && !showLogo"> {{ name }}</div> 
+    <span class="navbar-title clip-text d-flex  align-items-center text-center">
+      <div class="d-flex justify-content-center align-items-center " v-if="show && !showLogo"> {{ name }} 
+       </div> 
+
+         <div class="d-flex justify-content-center text-lowercase fw-bold align-items-center " v-if="show && !showLogo && !name"> {{ username }} 
+        <!-- User verification -->
+        <span v-if="isVerificate" >
+          <img class="ms-1" width="18" height="18" src="../assets/Verificate.svg" alt="verificate_user">
+          </span>
+       </div> 
+
       <div class="" v-if="show && showLogo"> <img :src="imgLogo" alt="" class="rounded-circle" style="max-width:50px;max-height:50px;"> </div> 
     </span>
     <div>
@@ -55,7 +65,7 @@ export default {
   components: {
     NavbarButton,
   },
-  props: ['secondary', 'show', 'name', 'white','showLogo','imgLogo','accion','button_right','height'],
+  props: ['secondary', 'show', 'name', 'white','showLogo','imgLogo','accion','button_right','height', 'style', 'isVerificate', 'username'],
 };
 
 </script>

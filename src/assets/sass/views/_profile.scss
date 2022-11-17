@@ -1,0 +1,53 @@
+@use "../variables" as *;
+.profile {
+  padding-block: 59px;
+  background-color: $section-color;
+  min-height: 100vh;
+
+  figure{
+      width: 100%;
+
+      .box_Infoprofile{
+       
+        font-size: 10px;
+        width: 62%;
+        background:#FFFFFFE5;
+      
+        line-height: 12px;
+      }
+  }
+  .button-group {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    width: 100%;
+    border-top: 1px solid #EDEDED;
+
+    li {
+      flex: 1;
+
+      button {
+        width: 100%;
+        padding-block: 8px;
+        background-color: #fff;
+        border: 0;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        &.active {
+          color: #D43D43;
+        }
+      }
+    }
+    hr {
+      border: 0;
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
+      height: 20px;
+    }
+  }
+}
