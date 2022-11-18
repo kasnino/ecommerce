@@ -8,8 +8,9 @@
       <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
       <img :src="item.image" alt="grid item" :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''} width: 100%;height: 100%;object-fit: cover;`">
       <span class="offer-grid-item-img-company" v-html="item.label_top" 
-      :style="'background:'+item.label_top_bg+'; color:'+item.label_top_color+';'+
-      item.cupon.agotado ? 'filter: grayscale(.8);':''"></span>
+      :style="` background:${item.label_top_bg}; 
+       color:${item.label_top_color};
+      ${item.cupon.agotado ? 'filter: grayscale(.8);':''} `"></span>
       <span v-if="item.black_friday" class="black_friday fw-bold" v-html="item.black_friday_top" :style="'  color:'+item.black_friday_color+';' "></span>
       <span :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''}`" :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
       <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
