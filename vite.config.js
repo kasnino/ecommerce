@@ -7,6 +7,14 @@ export default defineConfig({
   plugins: [vue(), pluginRewriteAll()],
   server: {
     host: true
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        nested: resolve(__dirname, 'nested/index.html')
+      }
+    }
   } 
   
 })
