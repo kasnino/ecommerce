@@ -62,17 +62,27 @@
 
           <!-- Navigations selections -->
             <div class="system_nav_profiles  p-0 m-0" >
-              <div class="row   pt-0 m-0" >
+              <div class="row  pt-0 m-0" >
                 <div class="col-3 d-flex justify-content-start p-3 align-content-center align-items-center text-center" >
                   <img src="../assets/profile/activity.svg" class="m-0" alt="" style="width:15px; height:15px;" >
-                  <p class="fw-bold p-0 m-0 ms-1 text-uppercase" style="font-size:12px;">actividad</p>
+                  <p v-on:click="onTab(data)" class="fw-bold p-0 m-0 ms-1 text-uppercase" 
+                     :style="`font-size:12px; color:${color_tab};`">
+                     actividad</p>
                 </div>
                 <div class="col-7 d-flex p-0 m-0 justify-content-end align-content-center align-items-center text-left">
-                  <img class="m-0 p-0" src="../assets/profile/fire.svg" alt="" style="width:15px; height:15px;" >
-                  <p class="fw-bold p-0 ms-1 m-0  text-uppercase d-flex " style="font-size:12px;">892 chollos publicados</p>
+                  <!-- <img class="m-0 p-0" src="../assets/profile/fire.svg" alt="" 
+                  :style="`width:15px; height:15px; font-size:12px; stroke:${color_tab ? '#000' : '#F4C90C'} !important, fill:${color_tab ? '#000' : '#F4C90C'} !important;`
+                   "> -->
+                   <FireIcon width="16" height="20" :color="color_tab"></FireIcon>
+                  <p class="fw-bold p-0 ms-1 m-0  text-uppercase d-flex " 
+                  v-on:click="onTab(data)"
+                  
+                  :style="`font-size:12px; color:${color_tab};`">892 chollos publicados</p>
                 </div> 
-                <div class="col-2 d-flex justify-content-center align-content-center align-items-center text-center" style="border-bottom: 2px solid #F4C90C;">
-                  <img src="../assets/profile/diamante.svg" class="ms-1" alt="" style="width:15px; height:15px; " >
+                <div class="col-2 d-flex justify-content-center align-content-center align-items-center text-center" 
+                style="border-bottom: 2px solid #F4C90C;">
+                  <img src="../assets/profile/diamante.svg" class="ms-1" alt="" 
+                  style="width:15px; height:15px; " >
                 </div>
               </div>
             </div>
@@ -86,20 +96,22 @@
 <script>
 import Navbar from '../components/Navbar.vue';
 import Menubar from '../components/Menubar.vue';
+import FireIcon from '../components/svg/fire.vue';
 import SwiperHome from '../components/SwiperHome.vue';
-
 import prod1 from '../assets/product_1.webp';
 import prod2 from '../assets/product_2.webp';
 export default {
   components: {
     Navbar,
     Menubar,
-    SwiperHome
+    SwiperHome,
+    FireIcon
       },
 
       data()
       {
         return { 
+          color_tab:'black',
           profile_info:"Hola, me encantan las zapatillas y los chollos,intentaré publicar mucho contenido de ofertas de zapatillas, asi que sígueme :).",
           products: [{
                 name : 'JACKET SILVER',
@@ -135,7 +147,15 @@ export default {
                 }
              ]          
           }
-    }
+         
+    },
+     methods: {
+        onTab(data){
+
+          return this.color_tab = (data)?'black':'black';
+          
+        }
+          }
 }
 </script>
 
