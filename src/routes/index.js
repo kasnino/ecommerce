@@ -99,11 +99,6 @@ const router = createRouter({
       component: Categories
     },
 
-
-
-
-
-
     {
       path: "/products_old/:id",
       name: "products_old",

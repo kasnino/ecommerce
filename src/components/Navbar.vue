@@ -1,5 +1,6 @@
 <template>
-  <nav :class="{navbar: true, white: white,'shadow':show}" class="" :style="'align-items: center;height:'+height+';'">
+  <nav :class="{navbar: true, white: white,'shadow':show}" class="" 
+  :style="'align-items: center;height:'+height+';'">
     <div :class="{bg: true, show: show}" :style="style"></div>
     <button :class="{white: !show && white}" class="" style="width: 54px; ">
       <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
