@@ -28,6 +28,20 @@
   }
 }
 
+.black_friday{
+  position:absolute;
+  right:0px;
+  top: 0px;
+  width: 72px;
+  height: 24px;
+  font-size: 8px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  background:linear-gradient(90deg, #1D33FF 0%, rgba(154, 27, 232, 0.82) 55.73%, #CB36FF 100%);
+}
+
 .container-profile{
   height: 156px;
   border-bottom: 1px solid #EDEDED;

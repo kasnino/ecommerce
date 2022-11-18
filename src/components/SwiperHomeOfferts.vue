@@ -1,13 +1,44 @@
 <template>
 <div class="row mx-0 px-0 py-2">
-  <div class="col-6 mx-0 px-0  my-1" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}" v-for="(item, index) in prodcuts" :key="index">
-    <figure class="offer-grid-item-img text-center">
+  <div class="col-6 mx-0 px-0  my-1" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}" v-for="(item, index) in prodcuts" :key="index" 
+  >
+    <figure class="offer-grid-item-img position-relative text-center "
+   
+    >
       <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
-      <img :src="item.image" alt="grid item" style="width: 100%;height: 100%;object-fit: cover;">
-      <span class="offer-grid-item-img-company" v-html="item.label_top" :style="'opacity: 80%; background:'+item.label_top_bg+'; color:'+item.label_top_color+';'"></span>
-      <span :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
+      <img :src="item.image" alt="grid item" :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''} width: 100%;height: 100%;object-fit: cover;`">
+      <span class="offer-grid-item-img-company" v-html="item.label_top" 
+      :style="'background:'+item.label_top_bg+'; color:'+item.label_top_color+';'+
+      item.cupon.agotado ? 'filter: grayscale(.8);':''"></span>
+      <span v-if="item.black_friday" class="black_friday fw-bold" v-html="item.black_friday_top" :style="'  color:'+item.black_friday_color+';' "></span>
+      <span :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''}`" :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
       <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
+      <div v-if="item.cupon.agotado" class="agotado_container d-flex justify-content-center align-items-center"
+     style="background: rgb(0 0 0 / 51%);
+        mix-blend-mode: normal;
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0px;
+        ">
+     
+       <button 
+                v-if="item.cupon.agotado"
+                class="btn " style="background: #CC2323;
+                padding:0px;
+                border-radius:0px;
+                width: 80%;
+                height:12%;
+                color: #fff;
+                " >
+                AGOTADO
+              </button>
+              </div>
       </figure>
+     
+    
+
+     
       <div class="offer-grid-item-body">
         <div class="offer-grid-item-body-prices">
           <span class="offer-grid-item-body-prices-price">€{{item.cost_end}}</span>

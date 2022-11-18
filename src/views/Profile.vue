@@ -86,8 +86,12 @@
                 </div>
               </div>
             </div>
-              <SwiperHome :slides="products"/>
-              <SwiperHome :slides="products"/>
+
+              <transition-group name="slide-up">
+        <template v-if="view=='0'">
+              <SwiperHomeOfferts :prodcuts="products"/>
+        </template>
+              </transition-group>
             <Menubar :showMenu="true" />
   </section>
 </template>
@@ -96,53 +100,151 @@
 import Navbar from '../components/Navbar.vue';
 import Menubar from '../components/Menubar.vue';
 import FireIcon from '../components/svg/fire.vue';
-import SwiperHome from '../components/SwiperHome.vue';
-import prod1 from '../assets/product_1.webp';
-import prod2 from '../assets/product_2.webp';
+import SwiperHomeOfferts from '../components/SwiperHomeOfferts.vue';
+import oferta1 from '../assets/image_1.png';
+import oferta2 from '../assets/image_2.png';
+import oferta3 from '../assets/image_3.png';
+import oferta4 from '../assets/image_4.png';
+import logo3 from '../assets/logos/vans.svg';
 export default {
   components: {
     Navbar,
     Menubar,
-    SwiperHome,
+    SwiperHomeOfferts,
     FireIcon
       },
 
       data()
       {
         return { 
+          view: '0',
           color_tab:'black',
           profile_info:"Hola, me encantan las zapatillas y los chollos,intentaré publicar mucho contenido de ofertas de zapatillas, asi que sígueme :).",
           products: [{
-                name : 'JACKET SILVER',
-                label_top : 'Amazon',
-                label_top_bg : '#FAE7CB',
-                label_top_color : '#E4B408',
-                cost_init : '250',
-                cost_end : '150',
-                discount : '35',
-                categories : [{
-                  id : '112',
-                  name : 'Black'
+                  is_cupon : false,
+                  name : 'Black / Silver Metallic',
+                  label_top : 'Amazon',
+                  label_top_bg : '#FAE7CB',
+                  label_top_color : '#E4B408',
+                  cost_init : '78.50',
+                  cost_end : '69.90',
+                  discount : '15',
+                  categories : [{
+                    id : '112',
+                    name : 'moda'
+                  },{
+                    id : '112',
+                    name : 'sueters'
+                  }],
+                    cupon:{
+                    visible : false,
+                    name : '',
+                    color_bg : '#232323',
+                    color_text : '#FFFFFF',
+                    agotado : true,
+                    codigo : '',
+                    fecha: ''
+                  },
+                  image: oferta1,
+                  image_width:'192.87px',
+                  image_height:'220px',
+                  date: '1 Febrero',
+                  oclock: false,
+                  colours : ['#b3ac9f','#296118']
                 },{
-                  id : '112',
-                  name : 'Silver Metallic'
-                }],
-                image: prod1,
-                date: '1 Febrero'
+                  is_cupon : false,
+                  name : 'Camiseta Theo',
+                  label_top : 'About you',
+                  label_top_bg : '#FFFFFF',
+                  label_top_color : '#000000',
+                  cost_init : '34.50',
+                  cost_end : '29.90',
+                  discount : '18',
+                  categories : [{
+                    id : '112',
+                    name : 'moda'
+                  },{
+                    id : '112',
+                    name : 'sueters'
+                  }],
+                    cupon:{
+                    visible : false,
+                    name : '',
+                    color_bg : '#232323',
+                    color_text : '#FFFFFF',
+                    agotado : false,
+                    codigo : '',
+                    fecha: ''
+                  },
+                  image: oferta2,
+                  image_width:'192.87px',
+                  image_height:'220px',
+                  date: '1 Febrero',
+                   oclock: true,
+                  colours : ['#F2F2F2','#171717']
+                }, {
+                  is_cupon : false,
+                  name : 'Zapatillas bajas Enzo',
+                  label_top : 'Deportes Outlet ',
+                  label_top_bg : '#C5E8F8',
+                  label_top_color : '#288ED8',
+                  black_friday_top: 'black friday',
+                  black_friday_color: '#FFFFFF',
+                  black_friday: true,
+                  cost_init : '98.50',
+                  cost_end : '89.90',
+                  discount : '18',
+                  categories : [{
+                    id : '112',
+                    name : 'moda'
+                  },{
+                    id : '112',
+                    name : 'sueters'
+                  }],
+                    cupon:{
+                    visible : false,
+                    name : '',
+                    color_bg : '#232323',
+                    color_text : '#FFFFFF',
+                    agotado : false,
+                    codigo : '',
+                    fecha: ''
+                  },
+                  image: oferta3,
+                  image_width:'192.87px',
+                  image_height:'220px',
+                  date: '1 Febrero',
+                  colours : ['#EDEBEC','#4A4A4A']
                 },{
-                name : 'TIRO TKJKT VIP',
-                label_top : 'ABOUT YOU',
-                label_top_bg : '#FFF',
-                label_top_color : '#000',
-                cost_init : '35',
-                cost_end : '30',
-                discount : '10',
-                categories : [{
-                  id : '112', 
-                  name : 'Legend Ink'
-                }],
-                image: prod2,
-                date: '2 Febrero'
+                  is_cupon : false,
+                  name : 'Chaqueta Christopher',
+                  label_top : 'SHEIN',
+                  label_top_bg : '#1D2E35',
+                  label_top_color : '#FFFFFF',
+                  cost_init : '88.50',
+                  cost_end : '59.90',
+                  discount : '25',
+                  categories : [{
+                    id : '112',
+                    name : 'moda'
+                  },{
+                    id : '112',
+                    name : 'sueters'
+                  }],
+                   cupon:{
+                    visible : false,
+                    name : '',
+                    color_bg : '#232323',
+                    color_text : '#FFFFFF',
+                    agotado : false,
+                    codigo : '',
+                    fecha: ''
+                  },
+                  image: oferta4,
+                  image_width:'192.87px',
+                  image_height:'220px',
+                  date: '1 Febrero',
+                  colours : ['#EDEBEC','#4A4A4A']
                 }
              ]          
           }

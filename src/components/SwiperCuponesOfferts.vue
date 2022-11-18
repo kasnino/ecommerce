@@ -10,7 +10,7 @@
     width: 100%;">
           <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
           <img :src="item.image" alt="grid item" style="width: 100%;height: 100%;object-fit: cover;">
-          <span class="offer-grid-item-img-company" v-html="item.label_top" :style="'opacity: 80%; background:'+item.label_top_bg+'; color:'+item.label_top_color+';'"></span>
+          <span class="offer-grid-item-img-company" v-html="item.label_top" :style="' background:'+item.label_top_bg+'; color:'+item.label_top_color+';'"></span>
           <span :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
           <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
         </figure>
@@ -20,7 +20,7 @@
             <span class="offer-grid-item-body-prices-price">€{{item.cost_end}}</span>
             <span class="offer-grid-item-body-prices-old-price">€{{item.cost_init}}</span>
           </div>
-          <!-- <h2><span v-for="(cat, index) in item.categories" :key="index">{{cat.name}}<span v-if="index+1<item.categories.length"> / </span> </span></h2> -->
+           <h2><span v-for="(cat, index) in item.categories" :key="index">{{cat.name}}<span v-if="index+1<item.categories.length"> / </span> </span></h2> 
           <h2>{{item.name}}</h2>
           <div class="offer-grid-item-body-footer promotion-date-offer mb-2">
             <div style="width: 50%; display: flex;">
@@ -87,20 +87,24 @@ color: #A5A5A5;">
                 ¿Funciona el cupón?
               </span>
 
-              <button class="btn" style="background: #CC2323;
+              <button 
+                v-if="item.cupon.agotado"
+                class="btn" style="background: #CC2323;
                 padding:0px;
                 border-radius:0px;
                 width: 100px;
                 color: #fff;
-                gap: 10px;" v-if="item.cupon.agotado">
+                gap: 10px;" >
                 AGOTADO
               </button>
-              <button class="btn" style="background: transparent;
+              <button 
+              v-else
+              class="btn" style="background: transparent;
                 padding:0px;
                 border-radius:0px;
                 width: 100px;
                 color: #fff;
-                gap: 10px;" v-else>
+                gap: 10px;" >
                
                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="8" cy="8" r="6" fill="#DF1A1A"/>
