@@ -35,7 +35,7 @@
   </div>
 
    <div class="col-6 mx-0 px-0  my-1" v-else>
-        <figure class="offer-grid-item-img col-6 mx-0 px-0  my-1" 
+        <figure class="offer-grid-item-img  mx-0 px-0  my-1" 
         :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
           <img :src="bg_white" style="width: 100%;min-height: 310px;object-fit: cover;">
           <span class="offer-grid-item-img-company" v-html="item.label_top" :style="'left: '+((index%2==0)?'0px':'5px')+';opacity: 80%; background:'+item.label_top_bg+'; color:'+item.label_top_color+';'"></span>
