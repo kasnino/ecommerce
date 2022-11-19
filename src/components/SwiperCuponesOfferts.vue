@@ -1,5 +1,5 @@
 <template>
-<div class="row mx-0 px-0 py-2">
+<div class="row mx-0 px-0 py-1">
 
   <template  v-for="(item, index) in prodcuts" :key="index">
 {{is_cupon}}
@@ -34,7 +34,7 @@
         </div>
   </div>
 
-   <div class="col-6 mx-0 px-0  my-1" v-else>
+   <div class="col-6 mx-0 px-0  my-0" v-else>
         <figure class="offer-grid-item-img  mx-0 px-0  my-1" 
         :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
           <img :src="bg_white" style="width: 100%;min-height: 310px;object-fit: cover;">

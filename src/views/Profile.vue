@@ -59,19 +59,17 @@
   </div>
 
               <!-- Navigations tabs -->
-              <div class="system_nav_profiles  p-0 m-0" >
-                <ProfileNav  :tabs="nav_profile" style="position:relative" />
+              <div class="system_nav_profiles p-0 m-0" >
+                <ProfileNav :tabs="nav_profile" style="position:relative" />
               </div>
-
               <transition-group name="slide-up">
-              <template v-if="view=='0'">
-                    <SwiperHomeOfferts :prodcuts="products"/>
-              </template>
-              <template v-if="view=='0'">
-              <SwiperCuponesOfferts :prodcuts="products_offers"/>
-               </template>
+                <template v-if="view=='0'">
+                   <SwiperHomeOfferts :prodcuts="products"/>
+                </template>
+                <template v-if="view=='0'">
+                   <SwiperCuponesOfferts :prodcuts="products_offers"/>
+                </template>
               </transition-group>
-
               <Menubar :showMenu="true" />
   </section>
 </template>

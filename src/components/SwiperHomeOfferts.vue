@@ -1,5 +1,5 @@
 <template>
-<div class="row mx-0 px-0 py-2">
+<div class="row mx-0 px-0 py-1">
   <div class="col-6 mx-0 px-0  my-1" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}" v-for="(item, index) in prodcuts" :key="index" 
   >
     <figure class="offer-grid-item-img position-relative text-center "
