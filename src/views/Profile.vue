@@ -67,6 +67,9 @@
               <template v-if="view=='0'">
                     <SwiperHomeOfferts :prodcuts="products"/>
               </template>
+              <template v-if="view=='0'">
+              <SwiperCuponesOfferts :prodcuts="products_offers"/>
+               </template>
               </transition-group>
 
               <Menubar :showMenu="true" />
@@ -80,11 +83,20 @@ import ProfileNav from '../components/ProfileNav.vue';
 import Menubar from '../components/Menubar.vue';
 import FireIcon from '../components/svg/fire.vue';
 import SwiperHomeOfferts from '../components/SwiperHomeOfferts.vue';
-import oferta1 from '../assets/image_1.png';
-import oferta2 from '../assets/image_2.png';
-import oferta3 from '../assets/image_3.png';
-import oferta4 from '../assets/image_4.png';
+import SwiperCuponesOfferts from '../components/SwiperCuponesOfferts.vue';
+import oferta7 from '../assets/image_1.png';
+import oferta8 from '../assets/image_2.png';
+import oferta9 from '../assets/image_3.png';
+import oferta10 from '../assets/image_4.png';
 import logo3 from '../assets/logos/vans.svg';
+import oferta1 from '../assets/prenda1.webp';
+import oferta2 from '../assets/prenda2.webp';
+import oferta3 from '../assets/prenda3.webp';
+import oferta4 from '../assets/prenda4.webp';
+import oferta5 from '../assets/prenda5.webp';
+import oferta6 from '../assets/prenda6.webp';
+import oferta11 from '../assets/zapatilla_new.png';
+import oferta12 from '../assets/cinturon.png';
 
 
 
@@ -99,6 +111,7 @@ export default {
     Menubar,
     ProfileNav,
     SwiperHomeOfferts,
+    SwiperCuponesOfferts,
     FireIcon
       },
     setup() {
@@ -152,7 +165,7 @@ export default {
                     cupon:{
                     agotado : true,
                   },
-                  image: oferta1,
+                  image: oferta7,
                   image_width:'192.87px',
                   image_height:'220px',
                   date: '1 Febrero',
@@ -177,7 +190,7 @@ export default {
                     cupon:{
                     agotado : false,
                   },
-                  image: oferta2,
+                  image: oferta8,
                   image_width:'192.87px',
                   image_height:'220px',
                   date: '1 Febrero',
@@ -205,7 +218,7 @@ export default {
                     cupon:{
                     agotado : false,
                   },
-                  image: oferta3,
+                  image: oferta9,
                   image_width:'192.87px',
                   image_height:'220px',
                   date: '1 Febrero',
@@ -229,13 +242,387 @@ export default {
                    cupon:{
                     agotado : false,
                   },
-                  image: oferta4,
+                  image: oferta10,
                   image_width:'192.87px',
                   image_height:'220px',
                   date: '1 Febrero',
                   colours : ['#EDEBEC','#4A4A4A']
-                }
-             ]          
+                },
+                {
+          name : 'Black / Silver Metallic',
+          label_top : 'Amazon',
+          label_top_bg : '#FAE7CB',
+          label_top_color : '#E4B408',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+          cupon:{
+            agotado : false,
+          },
+          image: oferta1,
+          image_width:'192.87px',
+          image_height:'220px',
+          date: '1 Febrero',
+          colours : ['#b3ac9f','#296118']
+        },{
+          name : "Camiseta 'Theo'",
+          label_top : 'About You',
+          label_top_bg : '#FFF',
+          label_top_color : '#000',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+            cupon:{
+            agotado : false,
+          },
+          image: oferta2,
+          image_width:'192.87px',
+          image_height:'220px',
+          date: '1 Febrero',
+          colours : ['#000'],
+          oclock:false
+        },{
+          name : 'Zapatillas bajas Enzo',
+          label_top : 'Deportes Outlet',
+          label_top_bg : '#C5E8F8',
+          label_top_color : '#288ED8',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+            cupon:{
+            agotado : false,
+          },
+          image: oferta3,
+          image_width:'192.87px',
+          image_height:'220px',
+          date: '1 Febrero',
+          colours : ['#edebec','#4a4a4a'],
+          oclock:false
+        },{
+          name : "Chaqueta 'Christopher'",
+          label_top : 'SHEIN',
+          label_top_bg : '#1D2E35',
+          label_top_color : '#FFF',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+            cupon:{
+            agotado : false,
+          },
+          image: oferta4,
+          image_width:'192.87px',
+          image_height:'220px',
+          date: '1 Febrero',
+          colours : ['#dad8d9','#4a4a4a'],
+          oclock:true
+        },{
+          name : 'Black / Silver Metallic',
+          label_top : 'Amazon',
+          label_top_bg : '#FAE7CB',
+          label_top_color : '#E4B408',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+            cupon:{
+            agotado : true,
+          },
+          image: oferta5,
+          image_width:'192.87px',
+          image_height:'220px',
+          date: '1 Febrero',
+          colours : ['#b3ac9f','#296118'],
+          oclock:false
+        },{
+          name : "Camiseta 'Theo'",
+          label_top : 'About You',
+          label_top_bg : '#FFF',
+          label_top_color : '#000',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+            cupon:{
+            agotado : false,
+          },
+          image: oferta6,
+          image_width:'192.87px',
+          image_height:'220px',
+          date: '1 Febrero',
+          colours : ['#000'],
+          oclock:true
+        },
+        {
+          name : "Zapatilla 'Running'",
+          label_top : 'About You',
+          label_top_bg : '#FFF',
+          label_top_color : '#000',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+            cupon:{
+            agotado : false,
+          },
+          image: oferta11,
+          image_width:'192.87px',
+          image_height:'220px',
+          date: '1 Febrero',
+          colours : ['#000'],
+          oclock:true
+        },
+          {
+          name : "Cinturon 'Theo'",
+          label_top : 'Amazon',
+          label_top_bg : '#FAE7CB',
+          label_top_color : '#E4B408',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+            cupon:{
+            agotado : false,
+          },
+          image: oferta12,
+          image_width:'192.87px',
+          image_height:'220px',
+          date: '1 Febrero',
+          colours : ['#000'],
+          oclock:true
+        }
+             ],
+      products_offers : [
+        {
+          is_cupon : true,
+          name : "-35% MENOS",
+          label_top : 'About You',
+          label_top_bg : '#FFF',
+          label_top_color : '#000',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          cupon:{
+            visible : false,
+            name : '',
+            color_bg : '#232323',
+            color_text : '#FFFFFF',
+            agotado : true,
+            codigo : '',
+            fecha: ''
+          },
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+          image: logo3,
+          image_width:'55px',
+          image_height:'40px',
+          date: '1 Febrero',
+          colours : ['#000'],
+          oclock:false
+        } ,{
+          is_cupon : true,
+          name : "5€ DE DESCUENTO",
+          label_top : 'About You',
+          label_top_bg : '#FFF',
+          label_top_color : '#000',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          cupon:{
+            visible : true,
+            name : 'EXTRADSCTO5',
+            color_bg : '#1E4D68',
+            color_text : '#FFFFFF',
+            agotado : true,
+            codigo : '',
+            fecha: ''
+          },
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+          image: logo3,
+          image_width:'55px',
+          image_height:'40px',
+          date: '1 Febrero',
+          colours : ['#000'],
+          oclock:false
+        }, {
+          is_cupon : true,
+          name : "5€ DE DESCUENTO",
+          label_top : 'Deportes Outlet',
+          label_top_bg : '#C5E8F8',
+          label_top_color : '#288ED8',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          cupon:{
+            visible : false,
+            name : '',
+            color_bg : '#1E4D68',
+            color_text : '#FFFFFF',
+            agotado : false,
+            codigo : '5237',
+            fecha: 'Hace 2 horas'
+          },
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+          image: logo3,
+          image_width:'55px',
+          image_height:'40px',
+          date: '1 Febrero',
+          colours : ['#000'],
+          oclock:false
+        },{
+          is_cupon : true,
+          name : "ENVÍO GRATIS",
+          label_top : 'About You',
+          label_top_bg : '#FFF',
+          label_top_color : '#000',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          cupon:{
+            visible : true,
+            name : 'EXTRADSCTO5',
+            color_bg : '#1E4D68',
+            color_text : '#FFFFFF',
+            agotado : false,
+            codigo : '5237',
+            fecha: 'Desde 2 febrero'
+          },
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+          image: logo3,
+          image_width:'55px',
+          image_height:'40px',
+          date: '1 Febrero',
+          colours : ['#000'],
+          oclock:false
+        },
+        {
+          is_cupon : false,
+          name : 'Black / Silver Metallic',
+          label_top : 'Amazon',
+          label_top_bg : '#FAE7CB',
+          label_top_color : '#E4B408',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+          image: oferta1,
+          image_width:'192.87px',
+          image_height:'220px',
+          date: '1 Febrero',
+          colours : ['#b3ac9f','#296118']
+        },{
+          is_cupon : true,
+          name : "5€ DE DESCUENTO",
+          label_top : 'Deportes Outlet',
+          label_top_bg : '#C5E8F8',
+          label_top_color : '#288ED8',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          cupon:{
+            visible : false,
+            name : '',
+            color_bg : '#232323',
+            color_text : '#FFFFFF',
+            agotado : false,
+            codigo : '5237',
+            fecha: 'Hace 2 horas'
+          },
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+          image: logo3,
+          image_width:'55px',
+          image_height:'40px',
+          date: '1 Febrero',
+          colours : ['#000'],
+          oclock:false
+        }
+      ],          
           }
     },
      methods: {

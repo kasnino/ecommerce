@@ -2,8 +2,9 @@
 <div class="row mx-0 px-0 py-2">
 
   <template  v-for="(item, index) in prodcuts" :key="index">
-
-      <div class="col-6 mx-0 px-0  my-1" v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
+{{is_cupon}}
+      <div class="col-6 mx-0 px-0  my-1" 
+      v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
         <figure class="offer-grid-item-img text-center" style="display: flex;
     height: -webkit-fill-available;
     align-items: center;
@@ -32,7 +33,10 @@
             </div>       
         </div>
   </div>
-        <figure class="offer-grid-item-img col-6 mx-0 px-0  my-1" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}" v-else>
+
+   <div class="col-6 mx-0 px-0  my-1" v-else>
+        <figure class="offer-grid-item-img col-6 mx-0 px-0  my-1" 
+        :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
           <img :src="bg_white" style="width: 100%;min-height: 310px;object-fit: cover;">
           <span class="offer-grid-item-img-company" v-html="item.label_top" :style="'left: '+((index%2==0)?'0px':'5px')+';opacity: 80%; background:'+item.label_top_bg+'; color:'+item.label_top_color+';'"></span>
           <div style="font-weight: 600;
@@ -164,7 +168,7 @@ color: #232323;">
           <!-- <span :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
           <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span> -->
         </figure>
-
+   </div>
 
       </template>
   </div>
