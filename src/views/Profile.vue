@@ -19,12 +19,14 @@
   <div class="container-profile d-flex flex-column justify-content-between">
           <div class="social_redes  p-0 m-0" >
             <div class="row d-flex p-0 m-0 justify-content-end align-items-center " >
-              <div class="col-7 d-flex justify-content-end align-items-end p-3 pe-0 gap-2 " >
-                <img src="../assets/profile/redes_sociales/logos_youtube-icon.svg" width="14" height="10"  alt="" >
-                  <img src="../assets/profile/redes_sociales/akar-icons_instagram-fill.svg" width="14" height="10"  alt="" >
-                    <img src="../assets/profile/redes_sociales/entypo-social_twitter-with-circle.svg" width="14" height="10"  alt="" >
-                      <img src="../assets/profile/redes_sociales/akar-icons_facebook-fill.svg" width="14" height="10"  alt="" >
-                        <img src="../assets/profile/redes_sociales/logos_tiktok-icon.svg" width="14" height="10"  alt="" >
+              <div 
+              
+              class="col-7 d-flex justify-content-end align-items-end p-3 pe-0 gap-2 " >
+              <span v-for="(logo, index) in logos_redes" :key="index.id">
+            <img :src="getImageUrl(logo)" width="14" height="10"  alt="" >
+              </span>
+              
+                 
               </div>
                   <div class="col-5 d-flex justify-content-end  ">
                       <div class="col d-flex justify-content-end">
@@ -61,30 +63,9 @@
   </div>
 
           <!-- Navigations selections -->
+          
             <div class="system_nav_profiles  p-0 m-0" >
-              <div class="row  pt-0 m-0" >
-                <div class="col-3 d-flex justify-content-start p-3 align-content-center align-items-center text-center" >
-                  <img src="../assets/profile/activity.svg" class="m-0" alt="" style="width:15px; height:15px;" >
-                  <p v-on:click="onTab(data)" class="fw-bold p-0 m-0 ms-1 text-uppercase" 
-                     :style="`font-size:12px; color:${color_tab};`">
-                     actividad</p>
-                </div>
-                <div class="col-7 d-flex p-0 m-0 justify-content-end align-content-center align-items-center text-left">
-                  <!-- <img class="m-0 p-0" src="../assets/profile/fire.svg" alt="" 
-                  :style="`width:15px; height:15px; font-size:12px; stroke:${color_tab ? '#000' : '#F4C90C'} !important, fill:${color_tab ? '#000' : '#F4C90C'} !important;`
-                   "> -->
-                   <FireIcon width="16" height="20" :color="color_tab"></FireIcon>
-                  <p class="fw-bold p-0 ms-1 m-0  text-uppercase d-flex " 
-                  v-on:click="onTab(data)"
-                  
-                  :style="`font-size:12px; color:${color_tab};`">892 chollos publicados</p>
-                </div> 
-                <div class="col-2 d-flex justify-content-center align-content-center align-items-center text-center" 
-                style="border-bottom: 2px solid #F4C90C;">
-                  <img src="../assets/profile/diamante.svg" class="ms-1" alt="" 
-                  style="width:15px; height:15px; " >
-                </div>
-              </div>
+               <ProfileNav  :tabs="nav_profile" style="position:relative" />
             </div>
 
               <transition-group name="slide-up">
@@ -97,7 +78,9 @@
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'swiper/vue';
 import Navbar from '../components/Navbar.vue';
+import ProfileNav from '../components/ProfileNav.vue';
 import Menubar from '../components/Menubar.vue';
 import FireIcon from '../components/svg/fire.vue';
 import SwiperHomeOfferts from '../components/SwiperHomeOfferts.vue';
@@ -106,18 +89,52 @@ import oferta2 from '../assets/image_2.png';
 import oferta3 from '../assets/image_3.png';
 import oferta4 from '../assets/image_4.png';
 import logo3 from '../assets/logos/vans.svg';
+
+
+
+
+
+
 export default {
   components: {
+    Swiper,
+    SwiperSlide,
     Navbar,
     Menubar,
+    ProfileNav,
     SwiperHomeOfferts,
     FireIcon
       },
-
+    setup() {
+  const getImageUrl = (name_logo) => {
+        return new URL(`../assets/profile/redes_sociales/${name_logo}.svg`, import.meta.url).href
+    }
+  return { getImageUrl }
+},
       data()
       {
         return { 
+              brands: [
+        {
+          text: 'hols'
+        },
+        {
+          text: 'Chollos',
+          amount: 312
+        },
+        {
+          text: 'Cupones',
+          amount: 123
+        },
+        {
+          text: 'Opiniones',
+          amount: 123
+        },
+      ],
           view: '0',
+          logos_redes:['logo_youtube','logo_instagram','logo_twitter','logo_facebook','logo_tiktok'],
+          nav_profile:['actividad','892 chollos publicados', '', 'tab 3', 'tab 4', 'tab 5' ],
+          name_icon:['activity','fire','diamante','activity','fire','diamante'],
           color_tab:'black',
           profile_info:"Hola, me encantan las zapatillas y los chollos,intentaré publicar mucho contenido de ofertas de zapatillas, asi que sígueme :).",
           products: [{

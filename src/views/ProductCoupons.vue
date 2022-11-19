@@ -28,7 +28,7 @@
 
     <hr style="color:#b4aeae">
 
-    <BrandNav :style="{ position: showBrandNav ? 'fixed' : '' }" @changeView="changeView" />
+    <BrandNav :brands="brands" :style="{ position: showBrandNav ? 'fixed' : '' }" @changeView="changeView" />
 
     <!-- <Button2Swiper :alerts="MoreLikeCardsSwiperItems"></Button2Swiper> -->
 
@@ -197,6 +197,23 @@ export default {
   },
   data() {
     return {
+        brands: [
+        {
+          text: 'Todo'
+        },
+        {
+          text: 'Chollos',
+          amount: 312
+        },
+        {
+          text: 'Cupones',
+          amount: 123
+        },
+        {
+          text: 'Opiniones',
+          amount: 123
+        },
+      ],
       MoreLikeCardsSwiperItems: [{
         name: "Todos",
         img_plus:false
