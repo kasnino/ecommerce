@@ -1,13 +1,13 @@
 <template>
   <nav class="">
-           <swiper :slidesPerView="'auto'" :spaceBetween="4" class="nav_profiles"
+           <swiper :slidesPerView="'auto'" :spaceBetween="2" class="nav_profiles"
            style="gap:1px;"
            >
             <swiper-slide v-for="(items, i) in tabs" :key="i.id"  
             :class=" + 'd-flex'" @click="active = i">
                  <div   
                  :class="active === i ? 'activo' : ''"
-                 style="height:20px;box-sizing:content-box; padding:10px 7px 10px 6px; margin-left:3px;"
+                 style="height:20px;box-sizing:content-box; padding:10px 8px 8px 10px; margin-left:3px;"
                  >
          <div 
         class="d-flex  w-100" 

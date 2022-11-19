@@ -178,6 +178,9 @@ import oferta6 from '../assets/prenda6.webp';
             id : '112',
             name : 'sueters'
           }],
+          cupon:{
+            agotado : false,
+          },
           image: oferta1,
           image_width:'192.87px',
           image_height:'220px',
@@ -198,6 +201,9 @@ import oferta6 from '../assets/prenda6.webp';
             id : '112',
             name : 'sueters'
           }],
+            cupon:{
+            agotado : false,
+          },
           image: oferta2,
           image_width:'192.87px',
           image_height:'220px',
@@ -219,6 +225,9 @@ import oferta6 from '../assets/prenda6.webp';
             id : '112',
             name : 'sueters'
           }],
+            cupon:{
+            agotado : false,
+          },
           image: oferta3,
           image_width:'192.87px',
           image_height:'220px',
@@ -240,6 +249,9 @@ import oferta6 from '../assets/prenda6.webp';
             id : '112',
             name : 'sueters'
           }],
+            cupon:{
+            agotado : false,
+          },
           image: oferta4,
           image_width:'192.87px',
           image_height:'220px',
@@ -261,6 +273,9 @@ import oferta6 from '../assets/prenda6.webp';
             id : '112',
             name : 'sueters'
           }],
+            cupon:{
+            agotado : false,
+          },
           image: oferta5,
           image_width:'192.87px',
           image_height:'220px',
@@ -282,6 +297,9 @@ import oferta6 from '../assets/prenda6.webp';
             id : '112',
             name : 'sueters'
           }],
+            cupon:{
+            agotado : false,
+          },
           image: oferta6,
           image_width:'192.87px',
           image_height:'220px',

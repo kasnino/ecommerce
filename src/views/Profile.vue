@@ -19,14 +19,10 @@
   <div class="container-profile d-flex flex-column justify-content-between">
           <div class="social_redes  p-0 m-0" >
             <div class="row d-flex p-0 m-0 justify-content-end align-items-center " >
-              <div 
-              
-              class="col-7 d-flex justify-content-end align-items-end p-3 pe-0 gap-2 " >
+              <div class="col-7 d-flex justify-content-end align-items-end p-3 pe-0 gap-2 " >
               <span v-for="(logo, index) in logos_redes" :key="index.id">
-            <img :src="getImageUrl(logo)" width="14" height="10"  alt="" >
+                 <img :src="getImageUrl(logo)" width="14" height="10"  alt="" >
               </span>
-              
-                 
               </div>
                   <div class="col-5 d-flex justify-content-end  ">
                       <div class="col d-flex justify-content-end">
@@ -62,18 +58,18 @@
 
   </div>
 
-          <!-- Navigations selections -->
-          
-            <div class="system_nav_profiles  p-0 m-0" >
-               <ProfileNav  :tabs="nav_profile" style="position:relative" />
-            </div>
+              <!-- Navigations tabs -->
+              <div class="system_nav_profiles  p-0 m-0" >
+                <ProfileNav  :tabs="nav_profile" style="position:relative" />
+              </div>
 
               <transition-group name="slide-up">
-        <template v-if="view=='0'">
-              <SwiperHomeOfferts :prodcuts="products"/>
-        </template>
+              <template v-if="view=='0'">
+                    <SwiperHomeOfferts :prodcuts="products"/>
+              </template>
               </transition-group>
-            <Menubar :showMenu="true" />
+
+              <Menubar :showMenu="true" />
   </section>
 </template>
 
@@ -114,7 +110,7 @@ export default {
       data()
       {
         return { 
-              brands: [
+        brands: [
         {
           text: 'hols'
         },
@@ -154,13 +150,7 @@ export default {
                     name : 'sueters'
                   }],
                     cupon:{
-                    visible : false,
-                    name : '',
-                    color_bg : '#232323',
-                    color_text : '#FFFFFF',
                     agotado : true,
-                    codigo : '',
-                    fecha: ''
                   },
                   image: oferta1,
                   image_width:'192.87px',
@@ -185,13 +175,7 @@ export default {
                     name : 'sueters'
                   }],
                     cupon:{
-                    visible : false,
-                    name : '',
-                    color_bg : '#232323',
-                    color_text : '#FFFFFF',
                     agotado : false,
-                    codigo : '',
-                    fecha: ''
                   },
                   image: oferta2,
                   image_width:'192.87px',
@@ -219,13 +203,7 @@ export default {
                     name : 'sueters'
                   }],
                     cupon:{
-                    visible : false,
-                    name : '',
-                    color_bg : '#232323',
-                    color_text : '#FFFFFF',
                     agotado : false,
-                    codigo : '',
-                    fecha: ''
                   },
                   image: oferta3,
                   image_width:'192.87px',
@@ -249,13 +227,7 @@ export default {
                     name : 'sueters'
                   }],
                    cupon:{
-                    visible : false,
-                    name : '',
-                    color_bg : '#232323',
-                    color_text : '#FFFFFF',
                     agotado : false,
-                    codigo : '',
-                    fecha: ''
                   },
                   image: oferta4,
                   image_width:'192.87px',
