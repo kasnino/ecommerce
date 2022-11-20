@@ -162,7 +162,7 @@
                <img :src="oclock" alt="" class="mx-1 img-fluid" style="height: 10px;width:10px;margin-top: 1px;">
                 <span style="justify-self: flex-end;font-weight: 400;font-size: 10px;line-height: 12px;color: #9b9b9b;">
                   <span class="me-1" v-if="item.cupon.agotado">Caducado</span>
-                  <span class="me-1" v-else> {{item.cupon.fecha}} </span>
+                  <span class="me-0" v-else> {{item.cupon.fecha}} </span>
                   
                 </span>
                </div>
