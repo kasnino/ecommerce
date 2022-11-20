@@ -9,7 +9,7 @@
           </span>
 
        <div class="content-box ">
-         <div class="card_interno border border-primary">           
+         <div class="card_interno ">           
       <div class="col-md-offset-12 p-2 mt-2 " style="">    
     </div>  
               <div class="col-12 mt-1  position-relative content-box p-0  d-flex flex-column">
