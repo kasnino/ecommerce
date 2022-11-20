@@ -151,7 +151,7 @@ export default {
           color_tab:'black',
           profile_info:"Hola, me encantan las zapatillas y los chollos,intentaré publicar mucho contenido de ofertas de zapatillas, asi que sígueme :).",
           products: [{
-                  is_cupon : false,
+                  is_cupon : true,
                   name : 'Black / Silver Metallic',
                   label_top : 'Amazon',
                   label_top_bg : '#FAE7CB',
@@ -253,6 +253,7 @@ export default {
                   colours : ['#EDEBEC','#4A4A4A']
                 },
                 {
+          is_cupon : false,
           name : 'Black / Silver Metallic',
           label_top : 'Amazon',
           label_top_bg : '#FAE7CB',
@@ -276,6 +277,7 @@ export default {
           date: '1 Febrero',
           colours : ['#b3ac9f','#296118']
         },{
+          is_cupon : false,
           name : "Camiseta 'Theo'",
           label_top : 'About You',
            label_top_bg : '#D8D8D8',
@@ -300,6 +302,7 @@ export default {
           colours : ['#000'],
           oclock:false
         },{
+            is_cupon : false,
           name : 'Zapatillas bajas Enzo',
           label_top : 'Deportes Outlet',
           label_top_bg : '#C5E8F8',
@@ -324,6 +327,7 @@ export default {
           colours : ['#edebec','#4a4a4a'],
           oclock:false
         },{
+            is_cupon : false,
           name : "Chaqueta 'Christopher'",
           label_top : 'SHEIN',
           label_top_bg : '#1D2E35',
@@ -348,6 +352,7 @@ export default {
           colours : ['#dad8d9','#4a4a4a'],
           oclock:true
         },{
+            is_cupon : false,
           name : 'Black / Silver Metallic',
           label_top : 'Amazon',
           label_top_bg : '#FAE7CB',
@@ -372,6 +377,7 @@ export default {
           colours : ['#b3ac9f','#296118'],
           oclock:false
         },{
+            is_cupon : false,
           name : "Camiseta 'Theo'",
           label_top : 'About You',
            label_top_bg : '#D8D8D8',
@@ -397,6 +403,7 @@ export default {
           oclock:true
         },
         {
+            is_cupon : false,
           name : "Zapatilla 'Running'",
           label_top : 'About You',
           label_top_bg : '#D8D8D8',
@@ -422,6 +429,7 @@ export default {
           oclock:true
         },
           {
+              is_cupon : false,
           name : "Cinturon 'Theo'",
           label_top : 'Amazon',
           label_top_bg : '#FAE7CB',

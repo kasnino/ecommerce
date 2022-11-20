@@ -12,37 +12,19 @@
 
     
     
- <span :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''}`" :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
-   
-     
-         <div class="badget-discount ps-1 pe-1">
-       
+ <span :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''}`" 
+ :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
+         <span :class="{'badget-discount ps-1 pe-1 badget-static':!item.oclock,'badget-discount ps-1 pe-1 badget-buttom':item.oclock + 'badget-discount ps-1 pe-1'}">
         <div class="countdown  d-flex js-article-detail-countdown-container ">
-          <div class="countdown--icon ">
-            
-              </div>
-              
               <div class="countdown--date js-article-detail-countdown">
                  <Timer/>
                 <small class="ms-1">00:29:44</small></div>
               </div>
-              </div>
-     
-     
-     
-    
-
-      
+              </span>
       
       <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
       <div v-if="item.cupon.agotado" class="agotado_container d-flex justify-content-center align-items-center"
-     style="background: rgb(0 0 0 / 51%);
-        mix-blend-mode: normal;
-        position:absolute;
-        width:100%;
-        height:100%;
-        top:0px;
-        ">
+     style="">
      
        <button 
                 v-if="item.cupon.agotado"
@@ -130,12 +112,26 @@ export default {
     padding: 1.5px;
     margin: 0px;
     font-size: 0.7rem;
-    bottom: 0;
+   
   
     font-weight: 700;
 }
 
-.countdown {
-  
+.badget-buttom{
+  bottom: 30px !important;
+}
+
+.badget-static{
+  bottom: 0px !important;
+}
+
+
+.agotado_container {
+  background: rgb(0 0 0 / 51%);
+        mix-blend-mode: normal;
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0px;
 }
 </style>
