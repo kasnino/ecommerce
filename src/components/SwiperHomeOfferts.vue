@@ -1,18 +1,39 @@
 <template>
 <div class="row mx-0 px-0 py-1">
   <div class="col-6 mx-0 px-0  my-1" 
-  :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}" v-for="(item, index) in prodcuts" :key="index" 
-  >
-    <figure class="offer-grid-item-img position-relative text-center "
-   
-    >
+  :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}" v-for="(item, index) in prodcuts" :key="index">
+    <figure class="offer-grid-item-img position-relative text-center">
       <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
       <img :src="item.image" alt="grid item" :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''} width: 100%;height: 100%;object-fit: cover;`">
       <span class="offer-grid-item-img-company  opacity-75" v-html="item.label_top" 
       :style="` background:${item.label_top_bg}; 
        color:${item.label_top_color}; + ${item.cupon.agotado ? 'filter: grayscale(.8);':''} `"></span>
       <span v-if="item.black_friday" class="black_friday fw-bold" v-html="item.black_friday_top" :style="'  color:'+item.black_friday_color+';' "></span>
-      <span :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''}`" :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
+
+    
+    
+ <span :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''}`" :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
+   
+     
+         <div class="badget-discount ps-1 pe-1">
+       
+        <div class="countdown  d-flex js-article-detail-countdown-container ">
+          <div class="countdown--icon ">
+            
+              </div>
+              
+              <div class="countdown--date js-article-detail-countdown">
+                 <Timer/>
+                15:29:44</div>
+              </div>
+              </div>
+     
+     
+     
+    
+
+      
+      
       <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
       <div v-if="item.cupon.agotado" class="agotado_container d-flex justify-content-center align-items-center"
      style="background: rgb(0 0 0 / 51%);
@@ -62,9 +83,13 @@
 </template>
 <script>
 
+import Timer from '../components/svg/oclock.vue';
 import oclock from '../assets/oclock.svg';
 export default {
   props: ["prodcuts"],
+  components: {
+      Timer
+  },
   data() {
     return { 
       oclock : oclock
@@ -79,6 +104,24 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.badget-discount {
+    position: absolute;
+    left: 41px;
+    background:#cc2323;
+    color:#FFF;
+   
+    border: 1px solid #cc2323;
+    padding: 0.5px;
+    margin: 0px;
+    font-size: .8rem;
+   
+    bottom: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 
+.countdown {
+  
+}
 </style>

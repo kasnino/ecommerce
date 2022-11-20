@@ -451,7 +451,7 @@ export default {
         {
           is_cupon : true,
           name : "-35% MENOS",
-          label_top : 'About You',
+          label_top : 'Deportes Outlet',
          label_top_bg : '#D8D8D8',
           label_top_color : '#000',
           cost_init : '250',
@@ -482,7 +482,7 @@ export default {
         } ,{
           is_cupon : true,
           name : "5€ DE DESCUENTO",
-          label_top : 'About You',
+          label_top : 'Deportes Outlet',
          label_top_bg : '#D8D8D8',
           label_top_color : '#000',
           cost_init : '250',
