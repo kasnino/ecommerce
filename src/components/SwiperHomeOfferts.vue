@@ -1,7 +1,7 @@
 <template>
-<div class="row mx-0 px-0 py-1">
-  <div class="col-6 mx-0 px-0  my-1" 
-  :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}" v-for="(item, index) in prodcuts" :key="index">
+<div class="row mx-0 px-0 py-1"  >
+  <template v-for="(item, index) in prodcuts" :key="index" >
+  <div  v-if="!item.is_cupon" class="col-6 mx-0 px-0  my-1"   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
     <figure class="offer-grid-item-img position-relative text-center">
       <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
       <img class="img_card--products" :src="item.image" alt="grid item" :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''} `">
@@ -10,38 +10,24 @@
        color:${item.label_top_color}; + ${item.cupon.agotado ? 'filter: grayscale(.8);':''} `"></span>
       <span v-if="item.black_friday" class="black_friday fw-bold" v-html="item.black_friday_top" :style="'  color:'+item.black_friday_color+';' "></span>
 
-    
-    
+     
  <span :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''}`" 
  :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
          <span :class="{'badget-discount ps-1 pe-1 badget-static':!item.oclock,'badget-discount ps-1 pe-1 badget-buttom':item.oclock + 'badget-discount ps-1 pe-1'}">
-        <div class="countdown  d-flex js-article-detail-countdown-container ">
-              <div class="countdown--date js-article-detail-countdown">
+        <div class="countdown  d-flex  ">
+              <div class="countdown--date ">
                  <Timer/>
                 <small class="ms-1">00:29:44</small></div>
               </div>
               </span>
       
-      <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
-      <div v-if="item.cupon.agotado" class="agotado_container d-flex justify-content-center align-items-center"
-     style="">
-     
-       <button 
-                v-if="item.cupon.agotado"
-                class="btn " style="background: #CC2323;
-                padding:0px;
-                border-radius:0px;
-                width: 80%;
-                height:12%;
-                color: #fff;
-                " >
+        <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
+        <div v-if="item.cupon.agotado" class="agotado_container d-flex justify-content-center align-items-center">
+            <button   v-if="item.cupon.agotado" class="btn buttom_agotado">
                 AGOTADO
               </button>
-              </div>
-      </figure>
-     
-    
-
+        </div>
+    </figure>
      
       <div class="offer-grid-item-body " >
         <div class="offer-grid-item-body-prices">
@@ -60,17 +46,28 @@
           </div>       
       </div>
   </div>
+
+
+    <CuponesOfferts v-else :datos="item" :index="index"/>
+   </template>
+
+  
 </div>
     
 </template>
 <script>
-
+import CuponesOfferts from '../components/CuponsOffers.vue';
 import Timer from '../components/svg/oclock.vue';
 import oclock from '../assets/oclock.svg';
+import Cupons from '../components/svg/cupons.vue';
+import CuponsCode from '../components/svg/cupons_code.vue';
 export default {
   props: ["prodcuts"],
   components: {
-      Timer
+      Timer,
+      CuponesOfferts,
+      Cupons,
+      CuponsCode
   },
   data() {
     return { 
@@ -90,30 +87,37 @@ export default {
 
 .img_card--products{
   width: 100%;
-  height: 220px;
+  height: auto;
           // object-fit: contain;
     background-size: contain;
 }
 
+
+.buttom_agotado{
+  background: #CC2323;
+                padding:0px;
+                border-radius:0px;
+                width: 80%;
+                height:12%;
+                color: #fff;
+}
 .countdown--date{
-  text-align: center;
-    justify-content: center;
+text-align: center;
+    justify-content: flex-end;
     align-items: center;
     align-content: center;
     display: flex;
 }
 
 .badget-discount {
-    position: absolute;
+     position: absolute;
     left: 40px;
     background: #f8f9fa;
     color: #cc2323;
     border: 2px solid #CC2323;
-    padding: 1.5px;
-    margin: 0px;
-    font-size: 0.7rem;
-   
-  
+    padding: 0.12rem;
+    margin: 0;
+    font-size: .67rem;
     font-weight: 700;
 }
 

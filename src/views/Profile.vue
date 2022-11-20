@@ -151,7 +151,7 @@ export default {
           color_tab:'black',
           profile_info:"Hola, me encantan las zapatillas y los chollos,intentaré publicar mucho contenido de ofertas de zapatillas, asi que sígueme :).",
           products: [{
-                  is_cupon : true,
+                  is_cupon : false,
                   name : 'Black / Silver Metallic',
                   label_top : 'Amazon',
                   label_top_bg : '#FAE7CB',
@@ -200,7 +200,40 @@ export default {
                   date: '1 Febrero',
                    oclock: true,
                   colours : ['#F2F2F2','#171717']
-                }, {
+                },{
+                     is_cupon : true,
+                  name : "ENVÍO GRATIS",
+                  label_top : 'About You',
+                  label_top_bg : '#D8D8D8',
+                  label_top_color : '#000',
+                  cost_init : '250',
+                  cost_end : '150',
+                  discount : '35',
+                  cupon:{
+                    visible : true,
+                    name : 'EXTRADSCTO5',
+                    color_bg : '#1E4D68',
+                    color_text : '#FFFFFF',
+                    agotado : false,
+                    codigo : '5237',
+                    fecha: 'Desde 2 febrero'
+                  },
+                  categories : [{
+                    id : '112',
+                    name : 'moda'
+                  },{
+                    id : '112',
+                    name : 'sueters'
+                  }],
+                  image: logo3,
+                  image_width:'55px',
+                  image_height:'40px',
+                  date: '1 Febrero',
+                  colours : ['#000'],
+                  oclock:false
+                }, 
+                
+                {
                   is_cupon : false,
                   name : 'Zapatillas bajas Enzo',
                   label_top : 'Deportes Outlet ',
@@ -453,7 +486,38 @@ export default {
           date: '1 Febrero',
           colours : ['#000'],
           oclock:true
-        }
+        }, {
+          is_cupon : true,
+          name : "-35% MENOS",
+          label_top : 'Deportes Outlet',
+         label_top_bg : '#D8D8D8',
+          label_top_color : '#000',
+          cost_init : '250',
+          cost_end : '150',
+          discount : '35',
+          cupon:{
+            visible : false,
+            name : '',
+            color_bg : '#232323',
+            color_text : '#FFFFFF',
+            agotado : true,
+            codigo : '',
+            fecha: ''
+          },
+          categories : [{
+            id : '112',
+            name : 'moda'
+          },{
+            id : '112',
+            name : 'sueters'
+          }],
+          image: logo3,
+          image_width:'55px',
+          image_height:'40px',
+          date: '1 Febrero',
+          colours : ['#000'],
+          oclock:false
+        } 
              ],
       products_offers : [
         {
