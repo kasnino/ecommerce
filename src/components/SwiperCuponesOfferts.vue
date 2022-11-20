@@ -2,7 +2,8 @@
 <div class="row mx-0 px-0 py-1">
 
   <template  v-for="(item, index) in prodcuts" :key="index">
-      <div class="col-6 mx-0 px-0  my-1" 
+      <div class="col-6 mx-0 px-0  my-1"
+     
       v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
         <figure class=" offer-grid-item-img text-center" style="display: flex;
               height: -webkit-fill-available;
@@ -38,11 +39,13 @@
         </div>
   </div>
 
-   <div class="col-6 d-grid gap-2 mx-0 px-0  my-0" v-else>
+   <div class="col-6 d-grid gap-2 mx-0 px-0  my-0" v-else
+   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}"
+   >
 
 
-     <div class="card_cuponds  m-1 position-relative" 
-     style=" ">
+     <div class="card_cuponds  m-0 position-relative" 
+      >
 
     
         
