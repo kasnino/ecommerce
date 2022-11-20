@@ -9,7 +9,7 @@
           </span>
 
        <div class="content-box ">
-         <div class="card_interno ">           
+         <div class="card_interno border border-primary">           
       <div class="col-md-offset-12 p-2 mt-2 " style="">    
     </div>  
               <div class="col-12 mt-1  position-relative content-box p-0  d-flex flex-column">
@@ -46,7 +46,7 @@
 
               <button 
                 v-if="datos.cupon.agotado"
-                class="btn" style="background: #CC2323;
+                class="btn my-1" style="background: #CC2323;
                 padding:0px;
                 border-radius:0px;
                 width: 100px;
@@ -85,7 +85,7 @@
               </div>
               </div>
 </div>
-  <div class="col-12 text-center  p-0 m-0" style=" position: relative;" 
+        <div class="col-12 text-center  p-0 m-0" style=" position: relative;" 
               :class="{'pe-0':(index%2==0),'ps-0':(index%2!=0)}" v-if="!datos.cupon.visible">              
                 <Cupons :color_bg="datos.cupon.color_bg" :color_text="datos.cupon.color_text"/>
               </div>
@@ -214,6 +214,6 @@ color: #A5A5A5;
 }
 
 .card_interno{
-  height: 237px;
+  height: 261px;
 }
 </style>

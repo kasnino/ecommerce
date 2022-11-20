@@ -108,7 +108,7 @@ text-align: center;
 
 .img_card--products{
   width: 100%;
-  height: 220px;
+  // height: 220px;
           object-fit: contain;
     background-size: contain;
 }
