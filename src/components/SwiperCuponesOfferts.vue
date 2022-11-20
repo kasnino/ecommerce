@@ -12,7 +12,6 @@
           <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
           <img :src="item.image" alt="grid item" 
           style="width: 100%;height: 220px;
-    object-fit: contain;
     background-size: contain;">
           <span class="offer-grid-item-img-company " v-html="item.label_top" :style="' background:'+item.label_top_bg+'; color:'+item.label_top_color+';'"></span>
           <span :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
@@ -39,7 +38,7 @@
         </div>
   </div>
 
-   <div class="col-6 d-grid gap-2 mx-0 px-0  my-0" v-else
+   <div class="col-6 d-grid gap-2 mx-0 px-0  my-1" v-else
    :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}"
    >
 
@@ -171,37 +170,7 @@
          </div>   
        
           
-          
-            <div class="row mx-0 px-0 " style="">
-              <!-- <div class="col-12 py-1">
-                <span style="font-weight: 800;
-font-size: 16px;
-line-height: 19px;">
-                  {{item.name}}
-                </span>
-              </div> -->
-              <!-- <div class="col-12" style="max-height: 72px;">
-                <span style="font-weight: 400;display: inline-table;
-font-size: 11px;
-line-height: 12px;
-text-align: justify;">
-                  ¡Rebaja exclusiva! 35% de ahorro en la gama veganos al canjear el código de descuento...
-                </span>
-              </div> -->
-              <!-- <div class="col-12 text-center py-1">
-                <span style="font-weight: 400;
-font-size: 10px;
-line-height: 12px;
-text-align: justify;">
-                  <img :src="item.image" alt="" :style="'object-fit: contain !important;width:'+item.image_width+';'">
-                </span>
-              </div> -->
-        
-              
-            
 
-
-            </div>
 
           
           
