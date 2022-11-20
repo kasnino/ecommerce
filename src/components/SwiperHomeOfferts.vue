@@ -39,7 +39,7 @@
     
 
      
-      <div class="offer-grid-item-body">
+      <div class="offer-grid-item-body" >
         <div class="offer-grid-item-body-prices">
           <span class="offer-grid-item-body-prices-price">€{{item.cost_end}}</span>
           <span class="offer-grid-item-body-prices-old-price">€{{item.cost_init}}</span>

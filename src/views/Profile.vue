@@ -3,8 +3,12 @@
     <Navbar :show="true"  name="" username="@daniellem418" height="60px" :isVerificate="true"/>
     <figure class="figure position-relative p-0 m-0">
         <img src="../assets/profile/profile_fondo.png" class=" position-relative img-responsive "  height="140"  alt="" style="width:100%;">
-        <img class="position-absolute bottom-0 top-50 ms-2 mt-3 start-0" width="97" height="97" 
-        src="../assets/profile/user-profile.png" alt="">
+   
+        <Avatar/>
+     
+     
+        <!-- <img class="position-absolute bottom-0 top-50 ms-2 mt-3 start-0" width="97" height="97" 
+        src="../assets/profile/user-profile.png" alt=""> -->
         <div class="box_Infoprofile position-absolute bottom-0 mb-4 me-2 end-0 ">
            <div class="box-container_Infoprofile position-relative m-0 p-0 ">
           <p class="m-1 position-relative" v-html="profile_info">
@@ -64,7 +68,7 @@
               </div>
               <transition-group name="slide-up">
                 <template v-if="view=='0'">
-                   <SwiperHomeOfferts :prodcuts="products"/>
+                   <SwiperHomeOfferts :prodcuts="products"/> 
                 </template>
                 <template v-if="view=='0'">
                    <SwiperCuponesOfferts :prodcuts="products_offers"/>
@@ -74,9 +78,13 @@
   </section>
 </template>
 
-<script>
+
+
+
+<script >
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import Navbar from '../components/Navbar.vue';
+import Avatar from '../components/Avatar.vue';
 import ProfileNav from '../components/ProfileNav.vue';
 import Menubar from '../components/Menubar.vue';
 import FireIcon from '../components/svg/fire.vue';
@@ -93,12 +101,8 @@ import oferta3 from '../assets/prenda3.webp';
 import oferta4 from '../assets/prenda4.webp';
 import oferta5 from '../assets/prenda5.webp';
 import oferta6 from '../assets/prenda6.webp';
-import oferta11 from '../assets/zapatilla_new.png';
-import oferta12 from '../assets/cinturon.png';
-
-
-
-
+import oferta11 from '../assets/test_zapatilla.webp';
+import oferta12 from '../assets/test_cinturon.webp';
 
 
 export default {
@@ -106,6 +110,7 @@ export default {
     Swiper,
     SwiperSlide,
     Navbar,
+    Avatar,
     Menubar,
     ProfileNav,
     SwiperHomeOfferts,
@@ -113,13 +118,14 @@ export default {
     FireIcon
       },
     setup() {
-  const getImageUrl = (name_logo) => {
+   const getImageUrl = (name_logo) => {
         return new URL(`../assets/profile/redes_sociales/${name_logo}.svg`, import.meta.url).href
     }
+  
   return { getImageUrl }
 },
       data()
-      {
+      { 
         return { 
         brands: [
         {
@@ -173,7 +179,7 @@ export default {
                   is_cupon : false,
                   name : 'Camiseta Theo',
                   label_top : 'About you',
-                  label_top_bg : '#FFFFFF',
+                  label_top_bg : '#D8D8D8',
                   label_top_color : '#000000',
                   cost_init : '34.50',
                   cost_end : '29.90',
@@ -272,7 +278,7 @@ export default {
         },{
           name : "Camiseta 'Theo'",
           label_top : 'About You',
-          label_top_bg : '#FFF',
+           label_top_bg : '#D8D8D8',
           label_top_color : '#000',
           cost_init : '250',
           cost_end : '150',
@@ -368,7 +374,7 @@ export default {
         },{
           name : "Camiseta 'Theo'",
           label_top : 'About You',
-          label_top_bg : '#FFF',
+           label_top_bg : '#D8D8D8',
           label_top_color : '#000',
           cost_init : '250',
           cost_end : '150',
@@ -393,7 +399,7 @@ export default {
         {
           name : "Zapatilla 'Running'",
           label_top : 'About You',
-          label_top_bg : '#FFF',
+          label_top_bg : '#D8D8D8',
           label_top_color : '#000',
           cost_init : '250',
           cost_end : '150',
@@ -446,7 +452,7 @@ export default {
           is_cupon : true,
           name : "-35% MENOS",
           label_top : 'About You',
-          label_top_bg : '#FFF',
+         label_top_bg : '#D8D8D8',
           label_top_color : '#000',
           cost_init : '250',
           cost_end : '150',
@@ -477,7 +483,7 @@ export default {
           is_cupon : true,
           name : "5€ DE DESCUENTO",
           label_top : 'About You',
-          label_top_bg : '#FFF',
+         label_top_bg : '#D8D8D8',
           label_top_color : '#000',
           cost_init : '250',
           cost_end : '150',
@@ -485,7 +491,7 @@ export default {
           cupon:{
             visible : true,
             name : 'EXTRADSCTO5',
-            color_bg : '#1E4D68',
+            color_bg : '#F3F3F3',
             color_text : '#FFFFFF',
             agotado : true,
             codigo : '',
@@ -539,7 +545,7 @@ export default {
           is_cupon : true,
           name : "ENVÍO GRATIS",
           label_top : 'About You',
-          label_top_bg : '#FFF',
+          label_top_bg : '#D8D8D8',
           label_top_color : '#000',
           cost_init : '250',
           cost_end : '150',
@@ -623,10 +629,11 @@ export default {
       ],          
           }
     },
+
      methods: {
         onTab(data){
           return this.color_tab = (data)?'black':'black';
-        }
+        },
       }
 }
 </script>
