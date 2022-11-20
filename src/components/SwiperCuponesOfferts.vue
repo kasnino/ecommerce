@@ -2,14 +2,20 @@
 <div class="row mx-0 px-0 py-1">
 
   <template  v-for="(item, index) in prodcuts" :key="index">
-      <div class="col-6 mx-0 px-0  my-1"
-     
+      <div class="col-6 mx-0 px-0  my-1 "
       v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
         <figure class="img_card--products offer-grid-item-img text-center" style="display: flex;     object-fit: contain !important;">
           <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
           <img :src="item.image" alt="grid item img_card--products" 
           style=" ">
           <span class="offer-grid-item-img-company " v-html="item.label_top" :style="' background:'+item.label_top_bg+'; color:'+item.label_top_color+';'"></span>
+                   <span :class="{'badget-discount ps-1 pe-1 badget-static':!item.oclock,'badget-discount ps-1 pe-1 badget-buttom':item.oclock + 'badget-discount ps-1 pe-1'}">
+        <div class="countdown  d-flex js-article-detail-countdown-container ">
+              <div class="countdown--date js-article-detail-countdown">
+                 <Timer/>
+                <small class="ms-1">00:29:44</small></div>
+              </div>
+              </span>
           <span :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
           <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
         </figure>
@@ -198,6 +204,27 @@ export default {
 
 <style lang="scss" scoped>
 
+.badget-discount {
+    position: absolute;
+    left: 40px;
+    background: #f8f9fa;
+    color: #cc2323;
+    border: 2px solid #CC2323;
+    padding: 1.3px;
+    margin: 0px;
+    font-size: 0.64rem;
+   
+  
+    font-weight: 700;
+}
+
+.badget-buttom{
+  bottom: 30px !important;
+}
+
+.badget-static{
+  bottom: 0px !important;
+}
 
 .img_card--products{
   width: 100%;
@@ -238,8 +265,8 @@ font-weight: 600;
 
 .img_card--cupon{
   font-weight: 400;
-                font-size: 10px;
-                line-height: 12px;
+  font-size: 10px;
+  line-height: 12px;
                 text-align: justify;
 }
 
