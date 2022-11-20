@@ -90,10 +90,10 @@ import Menubar from '../components/Menubar.vue';
 import FireIcon from '../components/svg/fire.vue';
 import SwiperHomeOfferts from '../components/SwiperHomeOfferts.vue';
 import SwiperCuponesOfferts from '../components/SwiperCuponesOfferts.vue';
-import oferta7 from '../assets/image_1.png';
-import oferta8 from '../assets/image_2.png';
-import oferta9 from '../assets/image_3.png';
-import oferta10 from '../assets/image_4.png';
+import oferta7 from '../assets/images/short.webp';
+import oferta8 from '../assets/images/hansen.webp';
+import oferta9 from '../assets/images/heekpek-bufandas.webp';
+import oferta10 from '../assets/images/michael-kors.webp';
 import logo3 from '../assets/logos/vans.svg';
 import oferta1 from '../assets/prenda1.webp';
 import oferta2 from '../assets/prenda2.webp';
@@ -101,7 +101,7 @@ import oferta3 from '../assets/prenda3.webp';
 import oferta4 from '../assets/prenda4.webp';
 import oferta5 from '../assets/prenda5.webp';
 import oferta6 from '../assets/prenda6.webp';
-import oferta11 from '../assets/test_zapatilla.webp';
+import oferta11 from '../assets/images/levis-batwing.webp';
 import oferta12 from '../assets/test_cinturon.webp';
 
 

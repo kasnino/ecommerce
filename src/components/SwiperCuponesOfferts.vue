@@ -5,10 +5,7 @@
       <div class="col-6 mx-0 px-0  my-1"
      
       v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
-        <figure class=" offer-grid-item-img text-center" style="display: flex;
-              height: -webkit-fill-available;
-              align-items: center;
-              width: 100%;">
+        <figure class="img_card--products offer-grid-item-img text-center" style="display: flex;     object-fit: contain !important;">
           <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
           <img :src="item.image" alt="grid item img_card--products" 
           style=" ">
@@ -203,7 +200,8 @@ export default {
 
 
 .img_card--products{
-  width: 100%;height: 220px;
+  width: 100%;
+  height: 220px;
           object-fit: contain;
     background-size: contain;
 }

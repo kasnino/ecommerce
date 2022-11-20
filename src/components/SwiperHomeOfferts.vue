@@ -4,7 +4,7 @@
   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}" v-for="(item, index) in prodcuts" :key="index">
     <figure class="offer-grid-item-img position-relative text-center">
       <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
-      <img :src="item.image" alt="grid item" :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''} width: 100%;height: 100%;object-fit: cover;`">
+      <img class="img_card--products" :src="item.image" alt="grid item" :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''} `">
       <span class="offer-grid-item-img-company  opacity-75" v-html="item.label_top" 
       :style="` background:${item.label_top_bg}; 
        color:${item.label_top_color}; + ${item.cupon.agotado ? 'filter: grayscale(.8);':''} `"></span>
@@ -24,7 +24,7 @@
               
               <div class="countdown--date js-article-detail-countdown">
                  <Timer/>
-                15:29:44</div>
+                <small class="ms-1">00:29:44</small></div>
               </div>
               </div>
      
@@ -105,20 +105,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.img_card--products{
+  width: 100%;
+  height: 220px;
+          // object-fit: contain;
+    background-size: contain;
+}
+
+.countdown--date{
+  text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+}
+
 .badget-discount {
     position: absolute;
-    left: 41px;
-    background:#cc2323;
-    color:#FFF;
-   
-    border: 1px solid #cc2323;
-    padding: 0.5px;
+    left: 40px;
+    background: #f8f9fa;
+    color: #cc2323;
+    border: 2px solid #CC2323;
+    padding: 1.5px;
     margin: 0px;
-    font-size: .8rem;
-   
+    font-size: 0.7rem;
     bottom: 0;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+  
+    font-weight: 700;
 }
 
 .countdown {
