@@ -1,13 +1,14 @@
 <template>
 <div class="row mx-0 px-0 py-1">
-  <div class="col-6 mx-0 px-0  my-1" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}" v-for="(item, index) in prodcuts" :key="index" 
+  <div class="col-6 mx-0 px-0  my-1" 
+  :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}" v-for="(item, index) in prodcuts" :key="index" 
   >
     <figure class="offer-grid-item-img position-relative text-center "
    
     >
       <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
       <img :src="item.image" alt="grid item" :style="`${item.cupon.agotado ? 'filter: grayscale(.9);':''} width: 100%;height: 100%;object-fit: cover;`">
-      <span class="offer-grid-item-img-company" v-html="item.label_top" 
+      <span class="offer-grid-item-img-company  opacity-75" v-html="item.label_top" 
       :style="` background:${item.label_top_bg}; 
        color:${item.label_top_color}; + ${item.cupon.agotado ? 'filter: grayscale(.8);':''} `"></span>
       <span v-if="item.black_friday" class="black_friday fw-bold" v-html="item.black_friday_top" :style="'  color:'+item.black_friday_color+';' "></span>

@@ -14,7 +14,7 @@
           style="width: 100%;height: 220px;
     object-fit: contain;
     background-size: contain;">
-          <span class="offer-grid-item-img-company" v-html="item.label_top" :style="' background:'+item.label_top_bg+'; color:'+item.label_top_color+';'"></span>
+          <span class="offer-grid-item-img-company " v-html="item.label_top" :style="' background:'+item.label_top_bg+'; color:'+item.label_top_color+';'"></span>
           <span :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
           <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
         </figure>
@@ -52,7 +52,7 @@
     
            
        <span 
-              class="offer-grid-item-img-company" 
+              class="offer-grid-item-img-company opacity-75" 
               v-html="item.label_top" 
               :style="`background:${item.label_top_bg}; border_2px solid purple; color:${item.label_top_color};`">
           </span>
@@ -67,8 +67,8 @@
     </div>  
               <div class="col-12 mt-1  position-relative content-box p-0  d-flex flex-column">
                
-               <small class="title_card--cupon  ms-2 ps-1 pt-2" style="">
-                    Código
+                <small class="title_card--cupon  ms-0 ps-1 pt-2" style="">
+                   <span class="ms-2">Código</span>
               </small>
                 <span class="ms-1 mt-2 p-2" style="font-weight: 800;
                 font-size: 16px;
