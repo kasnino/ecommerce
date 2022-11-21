@@ -12,14 +12,13 @@
 <script>
 import CuponesOfferts from '../components/CuponsOffers.vue';
 import ProductsOfferts from '../components/ProductsOfferts.vue';
-import Timer from '../components/svg/oclock.vue';
+
 import oclock from '../assets/oclock.svg';
 import Cupons from '../components/svg/cupons.vue';
 import CuponsCode from '../components/svg/cupons_code.vue';
 export default {
   props: ["prodcuts"],
   components: {
-      Timer,
       CuponesOfferts,
       ProductsOfferts,
       Cupons,

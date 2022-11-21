@@ -4,7 +4,7 @@
   <template  v-for="(item, index) in prodcuts" :key="index">
       <div class="col-6 mx-0 px-0  my-1 "
       v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
-        <figure class="img_card--products offer-grid-item-img text-center" style="display: flex;     object-fit: contain !important;">
+        <figure class="img_card--products offer-grid-item-img text-center" style="display: flex; object-fit: contain !important;">
           <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
           <img :src="item.image" alt="grid item img_card--products" 
           style=" ">
@@ -40,15 +40,8 @@
             </div>
             </div>       
         </div>
-  </div>
-
-  
-    <CuponesOfferts v-else :datos="item" :index="index"/>
- 
-
-
-   
-
+      </div>
+        <CuponesOfferts v-else :datos="item" :index="index"/>
       </template>
   </div>
     
@@ -58,11 +51,13 @@
 import oclock from '../assets/oclock.svg';
 import bg_white from '../assets/bg-white.svg';
 import CuponesOfferts from '../components/CuponsOffers.vue';
+import Timer from '../components/svg/oclock.vue';
 
 export default {
   props: ["prodcuts"],
   components: {
-    CuponesOfferts  
+    CuponesOfferts,
+    Timer  
   },
   data() {
     return { 

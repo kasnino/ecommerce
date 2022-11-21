@@ -2,7 +2,7 @@
   <section class="brands">
     <Navbar :show="showNav" :white="true" height="55px"/>
     <figure :style=" {transform: `translate(${xPos}px, -${yPos}px) scale(${scale})`, 'box-shadow' : shadow ? ''
-    : 'none' }" class="brand-pic">
+    : 'none' }" class="brand-pic border border-danger">
       <img src="../assets/amazone.png" alt="amazone">
     </figure>
     <header class="brands-top">
@@ -23,13 +23,15 @@
         <NavbarButton :white="true" :shadow="true"><img src="../assets/upload.svg" alt="upload" style="width:15px"></NavbarButton>
       </div>
     </header>
+    <div class="border border-danger">
+<BrandHeader  :style="{ paddingBottom: showBrandNav ? `${16 + 39}px` : '' }" :views="views" :brandName="brandName" />
+    </div>
     
-    <BrandHeader :style="{ paddingBottom: showBrandNav ? `${16 + 39}px` : '' }" :views="views" :brandName="brandName" />
 
     <hr style="color:#b4aeae">
-
+  <div class="border border-warning">
     <BrandNav :brands="brands" :style="{ position: showBrandNav ? 'fixed' : '' }" @changeView="changeView" />
-
+  </div>
     <!-- <Button2Swiper :alerts="MoreLikeCardsSwiperItems"></Button2Swiper> -->
 
     <hr style="color:#b4aeae">

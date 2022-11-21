@@ -2,13 +2,9 @@
     <section class="profile">
     <Navbar :show="true"  name="" username="@daniellem418" height="60px" :isVerificate="true"/>
     <figure class="figure position-relative p-0 m-0">
-        <img src="../assets/profile/profile_fondo.png" class=" position-relative img-responsive "  height="140"  alt="" style="width:100%;">
-   
+        <img src="../assets/profile/profile_fondo.png" class=" position-relative img-responsive "  
+        height="140"  alt="" style="width:100%;">
         <Avatar/>
-     
-     
-        <!-- <img class="position-absolute bottom-0 top-50 ms-2 mt-3 start-0" width="97" height="97" 
-        src="../assets/profile/user-profile.png" alt=""> -->
         <div class="box_Infoprofile position-absolute bottom-0 mb-4 me-2 end-0 ">
            <div class="box-container_Infoprofile position-relative m-0 p-0 ">
           <p class="m-1 position-relative" v-html="profile_info">
@@ -63,8 +59,13 @@
   </div>
 
               <!-- Navigations tabs -->
-              <div class="system_nav_profiles p-0 m-0" >
-                <ProfileNav :tabs="nav_profile" style="position:relative" />
+              <div class="system_nav_profiles p-0 m-0"
+                     
+               >
+                <ProfileNav 
+             :class="showProfileNav ? 'profile_nav' : ''"
+                    :tabs="nav_profile" 
+                    :style="{ position: showProfileNav ? 'fixed' : '' }"  />
               </div>
               <transition-group name="slide-up">
                 <template v-if="view=='0'">
@@ -74,7 +75,7 @@
                    <SwiperCuponesOfferts :prodcuts="products_offers"/>
                 </template>
               </transition-group>
-              <Menubar :showMenu="true" />
+              <Menubar :showMenu="showMenu" />
   </section>
 </template>
 
@@ -117,6 +118,14 @@ export default {
     SwiperCuponesOfferts,
     FireIcon
       },
+
+        mounted() {
+        window.addEventListener('scroll', this.scrollHandler);
+      },
+    destroyed() {
+      window.removeEventListener('scroll', this.scrollHandler);
+    },
+
     setup() {
    const getImageUrl = (name_logo) => {
         return new URL(`../assets/profile/redes_sociales/${name_logo}.svg`, import.meta.url).href
@@ -144,6 +153,8 @@ export default {
           amount: 123
         },
       ],
+         showProfileNav: false,
+         showMenu: true,
           view: '0',
           logos_redes:['logo_youtube','logo_instagram','logo_twitter','logo_facebook','logo_tiktok'],
           nav_profile:['actividad','892 chollos publicados', '', 'tab 3', 'tab 4', 'tab 5' ],
@@ -706,10 +717,60 @@ export default {
         onTab(data){
           return this.color_tab = (data)?'black':'black';
         },
+            scrollHandler() {
+      this.lastKnownScrollPosition = window.scrollY;
+
+      if (!this.ticking) {
+        window.requestAnimationFrame(() => {
+          this.calculateOffset(this.lastKnownScrollPosition);
+          this.ticking = false;
+        });
+        this.ticking = true;
+        }
+      },
+          calculateOffset(scrollPos) {
+      const width = window.innerWidth / 2 / 2;
+      const maxHeigth = 180 - 32;
+      if (scrollPos > 0 && scrollPos < maxHeigth) {
+        this.yPos = scrollPos;
+        this.xPos = scrollPos * width / maxHeigth;
+        this.scale = 1 - scrollPos * 0.5 / maxHeigth;
+        this.shadow = true
+      } else if (scrollPos === 0) {
+        this.yPos = 0;
+        this.xPos = 0;
+        this.scale = 1;
+      } else {
+        this.yPos = maxHeigth;
+        this.xPos = maxHeigth * width / maxHeigth;
+        this.scale = 1 - maxHeigth * 0.5 / maxHeigth;
+        this.shadow = false;
+      }
+
+      if (scrollPos > maxHeigth) {
+        this.showNav = true
+      } else {
+        this.showNav = false;
+      }
+
+      if (scrollPos > maxHeigth + 74) {
+        this.showProfileNav = true;
+      } else {
+        this.showProfileNav = false;
+      }
+    }
       }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+.profile_nav{
+
+  z-index: 10;
+  top:6%;
+  background:#FFF;
+   transition: all 0.1s linear 0.2s;
+}
 
 </style>

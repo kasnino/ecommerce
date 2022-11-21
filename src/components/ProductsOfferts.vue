@@ -3,8 +3,8 @@
     <figure class="offer-grid-item-img position-relative text-center">
       <!-- <img :src="products_offers.image" alt="grid item" style="height:220px; width: 170px;"> -->
       <img class="img_card--products" :src="products_offers.image" alt="grid item" :style="`${products_offers.cupon.agotado ? 'filter: grayscale(.9);':''} `">
-      <span class="offer-grid-item-img-company  opacity-75" v-html="products_offers.label_top" 
-      :style="` background:${products_offers.label_top_bg}; 
+      <span class="offer-grid-item-img-company" v-html="products_offers.label_top" 
+      :style="` opacity:85%; background:${products_offers.label_top_bg}; 
        color:${products_offers.label_top_color}; + ${products_offers.cupon.agotado ? 'filter: grayscale(.8);':''} `"></span>
       <span v-if="products_offers.black_friday" class="black_friday fw-bold" v-html="products_offers.black_friday_top" :style="'  color:'+products_offers.black_friday_color+';' "></span>
 
@@ -51,13 +51,15 @@
 
 <script>
 import Cupons from '../components/svg/cupons.vue';
+import Timer from '../components/svg/oclock.vue';
 import CuponsCode from '../components/svg/cupons_code.vue';
 import oclock from '../assets/oclock.svg';
 export default {
   props: ["products_offers", "index"],
   components: {
       Cupons,
-      CuponsCode
+      CuponsCode,
+      Timer
   },
   data(){
     return{

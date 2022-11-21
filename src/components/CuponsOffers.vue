@@ -22,9 +22,13 @@
                   {{datos.name}}
                 </span>
               </div>
-              <div class="col-12  d-flex flex-column" style="max-height: 72px;">
-                <span style="" class="textoinfo_card--cupon me-2 ms-2 p-1">
-                  ¡Rebaja exclusiva! 35% de ahorro en la gama veganos al canjear el código de descuento...
+              <div class="col-12 d-flex flex-column" style="max-height: 72px;">
+                <span style="height: 50px;
+                  overflow-y: scroll;" 
+                  class="overflow-auto textoinfo_card--cupon me-2 ms-2 p-1"  >
+                  <p>¡Rebaja exclusiva! 35% de ahorro en la gama veganos al canjear el código de descuento...
+                  Lorem ipsum dolor sit amet...
+                  </p>
                 </span>
               </div>
               <div class="col-12 text-center pt-1 ps-3 pe-3 pb-1 ">
@@ -82,8 +86,8 @@
               </button>
               </div>
               </div>
-</div>
-<div class="">
+      </div>
+      <div class="">
         <div class="  p-0 m-0" style=" position: relative;" 
               :class="{'pe-0':(index%2==0),'ps-0':(index%2!=0)}" v-if="!datos.cupon.visible">              
                 <Cupons :color_bg="datos.cupon.color_bg" :color_text="datos.cupon.color_text"/>
@@ -124,11 +128,13 @@
 import Cupons from '../components/svg/cupons.vue';
 import CuponsCode from '../components/svg/cupons_code.vue';
 import oclock from '../assets/oclock.svg';
+import Timer from '../components/svg/oclock.vue';
 export default {
   props: ["datos", "index"],
   components: {
       Cupons,
-      CuponsCode
+      CuponsCode,
+      Timer
   },
   data(){
     return{
@@ -212,7 +218,7 @@ font-weight: 600;
 .textoinfo_card--cupon{
   font-weight: 400;
   display: inline-table;
-  font-size: 10px;
+  font-size: 0.67rem;
   line-height: 12px;
   text-align: justify;
 }
