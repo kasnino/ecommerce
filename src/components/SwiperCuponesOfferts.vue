@@ -19,8 +19,8 @@
           <span :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
           <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
         </figure>
-        <div class="offer-grid-item-body">
-
+        <div class="offer-grid-item-body pe-0 pb-1 d-flex flex-column justify-content-between ">
+          <div class="">
           <div class="offer-grid-item-body-prices">
             <span class="offer-grid-item-body-prices-price">€{{item.cost_end}}</span>
             <span class="offer-grid-item-body-prices-old-price">€{{item.cost_init}}</span>
@@ -29,12 +29,14 @@
              <span v-if="index+1<item.categories.length"> / </span> 
              </span></h2>  -->
           <h2>{{item.name}}</h2>
-          <div class="offer-grid-item-body-footer promotion-date-offer mb-2">
-            <div style="width: 50%; display: flex;">
-                <div v-for="(colour, index) in item.colours" :key="index" :style="'margin-right:5px;background-color:'+colour"></div>            
+          </div>
+          <div class=" d-flex  justify-content-between justify-content-center align-items-end pe-1">
+            <div style="width: 50%; display: flex;" class=" offer-grid-item-body-footer ">
+                <div v-for="(colour, index) in item.colours" :key="index" :style="'background-color:'+colour"></div>            
             </div> 
-            <div style="width: 50%;" class="d-block align-items-end d-flex justify-content-end offer-grid-item-body-footer promotion-date-offer">
-            <span class=""> <img :src="oclock" alt="" class="mx-1 img-fluid" style="height: 10px;width:10px;margin-top: -4px;"> 22 marzo</span>
+            <div style=" m-0 p-0" class="d-flex ">
+              <img :src="oclock" alt="" class="me-1 img-fluid" style="">
+               <span class="d-flex p-0 m-0 text_footer--cupons">Desde 22 marzo</span>
             </div>
             </div>       
         </div>
@@ -78,7 +80,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.text_footer--cupons{
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  color: #9B9B9B;
+}
 .badget-discount {
 position: absolute;
     left: 40px;
