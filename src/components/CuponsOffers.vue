@@ -8,10 +8,10 @@
               :style="`background:${datos.label_top_bg}; border_2px solid purple; color:${datos.label_top_color};`">
           </span>
 
-       <div class="content-box d-flex flex-column justify-content-between h-100">
-         <div class="card_interno d-flex flex-column justify-content-between ">           
-      <div class="col-md-offset-12 p-2 mt-2 " style="">    
-    </div>  
+          <div class="content-box d-flex flex-column justify-content-between h-100">
+            <div class="card_interno d-flex flex-column justify-content-between ">           
+          <div class="col-md-offset-12 p-2 mt-2 " style="">    
+        </div>  
               <div class="col-12 mt-1  position-relative content-box p-0  d-flex flex-column">
                 <small class="title_card--cupon  ms-0 ps-1 " style="">
                    <span class="ms-2">Código</span>
@@ -79,41 +79,33 @@
               <circle cx="8" cy="8" r="6" fill="#0FB734"/>
               <path d="M7.99996 14.6667C11.676 14.6667 14.6666 11.676 14.6666 7.99999C14.6666 4.32399 11.676 1.33332 7.99996 1.33332C4.32329 1.33332 1.33329 4.32399 1.33329 7.99999C1.33329 11.676 4.32329 14.6667 7.99996 14.6667ZM7.99996 5.33332L11.3333 9.33332L4.66663 9.33332L7.99996 5.33332Z" fill="#D2F5DB"/>
               </svg>
-
-
               </button>
               </div>
               </div>
 </div>
 <div class="">
-
-
-        <div class="col-12 text-center border  p-0 m-0" style=" position: relative;" 
+        <div class="  p-0 m-0" style=" position: relative;" 
               :class="{'pe-0':(index%2==0),'ps-0':(index%2!=0)}" v-if="!datos.cupon.visible">              
                 <Cupons :color_bg="datos.cupon.color_bg" :color_text="datos.cupon.color_text"/>
               </div>
-              <div class="col-12 text-center  p-0 m-0" style=" position: relative;" v-else>              
+              <div class=" text-center  p-0 m-0" style=" position: relative;" v-else>              
                 <CuponsCode :color_bg="datos.cupon.color_bg" :color_text="datos.cupon.color_text"/>
               </div>
 
 
-              <div class="col-12 text-center  p-0 m-0 my-1 d-flex px-1" 
-              style=" justify-content: space-between;align-datoss: flex-end;">              
+              <div class="col-12 my-1 h-auto text-center d-flex justify-content-between justify-content-between align-items-center align-content-center p-0 m-0 my-1 d-flex px-1" >              
                <div class="d-flex justify-content-center align-items-center">
-                <span style="font-weight: 600;font-size: 10px;line-height: 12px;color: #999999;" >
+                <span class="text_footer" >
                   Condiciones
                 </span>
                 <svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 0L4 4L7.5 0H0.5Z" fill="#999999"/>
                   </svg>
                </div>
-               <div class="d-flex">
-               <img :src="oclock" alt="" class="mx-1 img-fluid" style="height: 10px;width:10px;margin-top: 1px;">
-                <span style="justify-self: flex-end;font-weight: 400;font-size: 10px;line-height: 12px;color: #9b9b9b;">
-                  <span class="me-1" v-if="datos.cupon.agotado">Caducado</span>
-                  <span class="me-0" v-else> {{datos.cupon.fecha}} </span>
-                  
-                </span>
+               <div class="d-flex  justify-content-around align-items-center">
+               <img :src="oclock" alt="" class="me-1 img-fluid">
+                  <span class="me-1 text_footer" v-if="datos.cupon.agotado">Caducado</span>
+                  <span class="m-0 p-0 d-flex box-content text_footer" v-else>{{datos.cupon.fecha}}</span>
                </div>
               </div>
 
@@ -147,6 +139,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+.text_footer{
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  color: #999999;
+}
+.footer_card--cupons{
+  justify-self: flex-end;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #9b9b9b;
+}
 .badget-discount {
 position: absolute;
     left: 40px;

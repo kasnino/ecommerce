@@ -85,7 +85,7 @@ position: absolute;
     background: #f8f9fa;
     color: #cc2323;
     border: 2px solid #CC2323;
-    padding: 0.12rem;
+    padding: 0.13rem;
     margin: 0;
     font-size: .60rem;
     font-weight: 700;
