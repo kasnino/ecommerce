@@ -1,6 +1,6 @@
 <template>
-     <div class="col-6 d-grid gap-2 mx-0 px-0  my-1" 
-   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
+     <div class="col-6 d-grid gap-2 mx-0 px-0  my-1 " 
+   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}"> 
      <div class="card_cuponds  m-0 position-relative">
        <span 
               class="offer-grid-item-img-company opacity-75" 
@@ -8,12 +8,12 @@
               :style="`background:${datos.label_top_bg}; border_2px solid purple; color:${datos.label_top_color};`">
           </span>
 
-       <div class="content-box ">
-         <div class="card_interno ">           
+       <div class="content-box d-flex flex-column justify-content-between h-100">
+         <div class="card_interno d-flex flex-column justify-content-between ">           
       <div class="col-md-offset-12 p-2 mt-2 " style="">    
     </div>  
               <div class="col-12 mt-1  position-relative content-box p-0  d-flex flex-column">
-                <small class="title_card--cupon  ms-0 ps-1 pt-2" style="">
+                <small class="title_card--cupon  ms-0 ps-1 " style="">
                    <span class="ms-2">Código</span>
               </small>
                 <span class="ms-1 mt-2 p-2" style="font-weight: 800;
@@ -85,7 +85,10 @@
               </div>
               </div>
 </div>
-        <div class="col-12 text-center  p-0 m-0" style=" position: relative;" 
+<div class="">
+
+
+        <div class="col-12 text-center border  p-0 m-0" style=" position: relative;" 
               :class="{'pe-0':(index%2==0),'ps-0':(index%2!=0)}" v-if="!datos.cupon.visible">              
                 <Cupons :color_bg="datos.cupon.color_bg" :color_text="datos.cupon.color_text"/>
               </div>
@@ -94,9 +97,9 @@
               </div>
 
 
-              <div class="col-12 text-center  p-0 m-0 d-flex px-1" 
+              <div class="col-12 text-center  p-0 m-0 my-1 d-flex px-1" 
               style=" justify-content: space-between;align-datoss: flex-end;">              
-               <div class="">
+               <div class="d-flex justify-content-center align-items-center">
                 <span style="font-weight: 600;font-size: 10px;line-height: 12px;color: #999999;" >
                   Condiciones
                 </span>
@@ -104,7 +107,7 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 0L4 4L7.5 0H0.5Z" fill="#999999"/>
                   </svg>
                </div>
-               <div class="">
+               <div class="d-flex">
                <img :src="oclock" alt="" class="mx-1 img-fluid" style="height: 10px;width:10px;margin-top: 1px;">
                 <span style="justify-self: flex-end;font-weight: 400;font-size: 10px;line-height: 12px;color: #9b9b9b;">
                   <span class="me-1" v-if="datos.cupon.agotado">Caducado</span>
@@ -113,6 +116,9 @@
                 </span>
                </div>
               </div>
+
+              </div>
+
             </div>
          </div>   
           
@@ -125,11 +131,17 @@
 <script>
 import Cupons from '../components/svg/cupons.vue';
 import CuponsCode from '../components/svg/cupons_code.vue';
+import oclock from '../assets/oclock.svg';
 export default {
   props: ["datos", "index"],
   components: {
       Cupons,
       CuponsCode
+  },
+  data(){
+    return{
+          oclock : oclock,
+    }
   }
 }
 </script>
@@ -214,6 +226,6 @@ color: #A5A5A5;
 }
 
 .card_interno{
-  height: 261px;
+  height: 100%;
 }
 </style>

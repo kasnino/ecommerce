@@ -1,5 +1,6 @@
 <template>
-<svg  viewBox="0 0 192 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<div class="d-flex p-0 m-0">
+<svg  class="w-100 p-0 m-0" viewBox="0 0 192 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.5" y="-0.5" width="191" height="31" transform="matrix(1 0 0 -1 0 31)" fill="#F3F3F3" stroke="black" stroke-dasharray="2 2"/>
 
   <foreignObject class="foreign_class" x="0" y="0" width="160" height="160">
@@ -14,7 +15,7 @@
       </div>
   </foreignObject>
 </svg>
-
+</div>
 </template>
 
 <script>
