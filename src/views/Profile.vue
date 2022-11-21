@@ -59,11 +59,9 @@
   </div>
 
               <!-- Navigations tabs -->
-              <div class="system_nav_profiles p-0 m-0"
-                     
-               >
+              <div class="system_nav_profiles p-0 m-0">
                 <ProfileNav 
-             :class="showProfileNav ? 'profile_nav' : ''"
+                    :class="showProfileNav ? 'profile_nav' : ''"
                     :tabs="nav_profile" 
                     :style="{ position: showProfileNav ? 'fixed' : '' }"  />
               </div>
@@ -768,7 +766,7 @@ export default {
 .profile_nav{
 
   z-index: 10;
-  top:6%;
+  top:7.9%;
   background:#FFF;
    transition: all 0.1s linear 0.2s;
 }

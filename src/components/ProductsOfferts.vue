@@ -1,6 +1,6 @@
 <template>
-    <div   class="col-6 mx-0 px-0  my-1"   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
-    <figure class="offer-grid-item-img position-relative text-center">
+    <div   class="col-6 mx-0 px-0  my-2  d-flex justify-content-between flex-column "   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
+    <figure class="offer-grid-item-img position-relative text-center h-100">
       <!-- <img :src="products_offers.image" alt="grid item" style="height:220px; width: 170px;"> -->
       <img class="img_card--products" :src="products_offers.image" alt="grid item" :style="`${products_offers.cupon.agotado ? 'filter: grayscale(.9);':''} `">
       <span class="offer-grid-item-img-company" v-html="products_offers.label_top" 
@@ -78,7 +78,7 @@ export default {
 }
 .img_card--products{
   width: 100%;
-  height: auto;
+  height: 100%;
           // object-fit: contain;
     background-size: contain;
 }

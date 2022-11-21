@@ -2,8 +2,9 @@
 <div class="row mx-0 px-0 py-1">
 
   <template  v-for="(item, index) in prodcuts" :key="index">
-      <div class="col-6 mx-0 px-0  my-1 "
+      <div class="col-6 mx-0 px-0   d-flex justify-content-between flex-column  my-2 "
       v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
+       
         <figure class="img_card--products offer-grid-item-img text-center" style="display: flex; object-fit: contain !important;">
           <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
           <img :src="item.image" alt="grid item img_card--products" 
@@ -19,6 +20,7 @@
           <span :class="{'offer-grid-item-img-discount':!item.oclock,'offer-grid-item-img-discount-oclock':item.oclock,}">-{{item.discount}}%</span>
           <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
         </figure>
+
         <div class="offer-grid-item-body pe-0 pb-1 d-flex flex-column justify-content-between ">
           <div class="">
           <div class="offer-grid-item-body-prices">
@@ -110,7 +112,7 @@ text-align: center;
 
 .img_card--products{
   width: 100%;
-  // height: 220px;
+   height: 100%;
           object-fit: contain;
     background-size: contain;
 }

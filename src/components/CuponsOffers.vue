@@ -1,5 +1,5 @@
 <template>
-     <div class="col-6 d-grid gap-2 mx-0 px-0  my-1 " 
+     <div class="col-6 d-grid gap-2 mx-0 px-0  my-2  " 
    :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}"> 
      <div class="card_cuponds  m-0 position-relative">
        <span 
@@ -8,7 +8,8 @@
               :style="`background:${datos.label_top_bg}; border_2px solid purple; color:${datos.label_top_color};`">
           </span>
 
-          <div class="content-box d-flex flex-column justify-content-between h-100">
+          <div class="content-box border d-flex 
+            flex-column justify-content-between h-100">
             <div class="card_interno d-flex flex-column justify-content-between ">           
           <div class="col-md-offset-12 p-2 mt-2 " style="">    
         </div>  
@@ -109,7 +110,7 @@
                <div class="d-flex  justify-content-around align-items-center">
                <img :src="oclock" alt="" class="me-1 img-fluid">
                   <span style="color:#232323;"  class="me-1 text_footer" v-if="datos.cupon.agotado">Caducado</span>
-                  <span style="color:#232323;" class="m-0 p-0 d-flex  text_footer" v-else>{{datos.cupon.fecha}}</span>
+                  <span style="color:#9B9B9B" class="m-0 p-0 d-flex  text_footer" v-else>{{datos.cupon.fecha}}</span>
                </div>
               </div> 
 
