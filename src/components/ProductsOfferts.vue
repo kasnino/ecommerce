@@ -40,9 +40,9 @@
          <div style="width: 50%; display: flex;" class=" offer-grid-item-body-footer ">
               <div v-for="(colour, index) in products_offers.colours" :key="index" :style="'background-color:'+colour"></div>            
           </div> 
-         <div style=" m-0 p-0" class="d-flex ">
+         <div style="" class="p-0 m-0 justify-content-end d-flex w-100 ">
               <img :src="oclock" alt="" class="me-1 img-fluid" style="">
-               <span class="d-flex p-0 m-0 text_footer--cupons">Desde 22 marzo</span>
+               <span style=" " class="d-flex p-0 m-0 flex-inline text_footer--cupons">Desde 22 marzo</span>
             </div>
           </div>       
       </div>
