@@ -104,10 +104,10 @@
                </div>
                <div class="d-flex  justify-content-around align-items-center">
                <img :src="oclock" alt="" class="me-1 img-fluid">
-                  <span class="me-1 text_footer" v-if="datos.cupon.agotado">Caducado</span>
-                  <span class="m-0 p-0 d-flex box-content text_footer" v-else>{{datos.cupon.fecha}}</span>
+                  <span style="color:#232323;"  class="me-1 text_footer" v-if="datos.cupon.agotado">Caducado</span>
+                  <span style="color:#232323;" class="m-0 p-0 d-flex  text_footer" v-else>{{datos.cupon.fecha}}</span>
                </div>
-              </div>
+              </div> 
 
               </div>
 
