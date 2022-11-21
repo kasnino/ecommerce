@@ -207,7 +207,7 @@ export default {
                   image_width:'192.87px',
                   image_height:'220px',
                   date: '1 Febrero',
-                   oclock: true,
+                   oclock: false,
                   colours : ['#F2F2F2','#171717']
                 },{
                      is_cupon : true,
@@ -392,7 +392,7 @@ export default {
           image_height:'220px',
           date: '1 Febrero',
           colours : ['#dad8d9','#4a4a4a'],
-          oclock:true
+          oclock:false
         },{
             is_cupon : false,
           name : 'Black / Silver Metallic',
@@ -442,7 +442,7 @@ export default {
           image_height:'220px',
           date: '1 Febrero',
           colours : ['#000'],
-          oclock:true
+          oclock:false
         },
         {
             is_cupon : false,
@@ -468,7 +468,7 @@ export default {
           image_height:'220px',
           date: '1 Febrero',
           colours : ['#000'],
-          oclock:true
+          oclock:false
         },
           {
               is_cupon : false,
@@ -769,6 +769,7 @@ export default {
   top:53px !important;
   background:#FFF;
    transition: all 0.1s linear 0.2s;
+   border-top: 1px solid #EDEDED;
 }
 
 </style>
