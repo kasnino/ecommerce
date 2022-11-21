@@ -27,7 +27,7 @@
         </div>
     </figure>
      
-      <div class="offer-grid-item-body pe-0 pb-1 d-flex flex-column justify-content-between "  >
+      <div class="offer-grid-item-body  pe-0 pb-2 d-flex flex-column justify-content-between "  >
         <div class="">
         <div class="offer-grid-item-body-prices">
           <span class="offer-grid-item-body-prices-price">€{{products_offers.cost_end}}</span>
@@ -36,7 +36,8 @@
       
         <h2>{{products_offers.name}}</h2>
         </div>
-           <div class=" d-flex  justify-content-between justify-content-center align-items-end pe-1">
+           <div class=" d-flex  justify-content-between justify-content-center 
+           align-items-end pe-1">
          <div style="width: 50%; display: flex;" class=" offer-grid-item-body-footer ">
               <div v-for="(colour, index) in products_offers.colours" :key="index" :style="'background-color:'+colour"></div>            
           </div> 

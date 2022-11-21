@@ -766,7 +766,7 @@ export default {
 .profile_nav{
 
   z-index: 10;
-  top:7.9%;
+  top:53px !important;
   background:#FFF;
    transition: all 0.1s linear 0.2s;
 }

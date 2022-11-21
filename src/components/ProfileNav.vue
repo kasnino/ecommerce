@@ -1,5 +1,5 @@
 <template>
-  <nav class="" style=" position:relative; background:#FFF;">
+  <nav class="w-100" style=" position:relative; background:#FFF;">
            <swiper :slidesPerView="'auto'" :spaceBetween="3" class="nav_profiles ps-2 pe-2"
            style="gap:1px;"
            >

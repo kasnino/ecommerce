@@ -21,7 +21,7 @@
           <span class="offer-grid-item-img-oclock" v-if="item.oclock">2d : 20h : 15s</span>
         </figure>
 
-        <div class="offer-grid-item-body pe-0 pb-1 d-flex flex-column justify-content-between ">
+        <div class="offer-grid-item-body pe-0 pb-2 d-flex flex-column justify-content-between ">
           <div class="">
           <div class="offer-grid-item-body-prices">
             <span class="offer-grid-item-body-prices-price">€{{item.cost_end}}</span>
@@ -32,7 +32,8 @@
              </span></h2>  -->
           <h2>{{item.name}}</h2>
           </div>
-          <div class=" d-flex  justify-content-between justify-content-center align-items-end pe-1">
+          <div class=" d-flex  justify-content-between justify-content-center 
+          align-items-end pe-1">
             <div style="width: 50%; display: flex;" class=" offer-grid-item-body-footer ">
                 <div v-for="(colour, index) in item.colours" :key="index" :style="'background-color:'+colour"></div>            
             </div> 

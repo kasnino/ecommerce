@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex p-0 m-0">
+    <div class="d-flex p-0 m-0 mb-1">
       <svg  class="w-100 p-0 m-0" viewBox="0 0 192 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0.5" y="-0.5" width="191" height="31" transform="matrix(1 0 0 -1 0 31)" fill="white" stroke="black" stroke-dasharray="2 2"/>
       <path d="M0 32H192L179.5 14.2857L168.5 -1.43051e-06H0V32Z" :fill="color_bg"/>

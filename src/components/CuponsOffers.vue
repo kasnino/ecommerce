@@ -8,7 +8,7 @@
               :style="`background:${datos.label_top_bg}; border_2px solid purple; color:${datos.label_top_color};`">
           </span>
 
-          <div class="content-box border d-flex 
+          <div class="content-box  d-flex 
             flex-column justify-content-between h-100">
             <div class="card_interno d-flex flex-column justify-content-between ">           
           <div class="col-md-offset-12 p-2 mt-2 " style="">    
@@ -98,7 +98,10 @@
               </div>
 
 
-              <div class="col-12 my-1 h-auto text-center d-flex justify-content-between justify-content-between align-items-center align-content-center p-0 m-0 my-1 d-flex px-1" >              
+              <div class="col-12  my-0 h-auto text-center mb-2 
+              d-flex justify-content-between  align-items-center 
+              align-content-center p-0 m-0 my-1 d-flex px-1 " >       
+              <div class="p-0 m-0 d-flex mb-0 my-1 justify-content-between w-100">
                <div class="d-flex justify-content-center align-items-center">
                 <span class="text_footer" >
                   Condiciones
@@ -112,6 +115,8 @@
                   <span style="color:#232323;"  class="me-1 text_footer" v-if="datos.cupon.agotado">Caducado</span>
                   <span style="color:#9B9B9B" class="m-0 p-0 d-flex  text_footer" v-else>{{datos.cupon.fecha}}</span>
                </div>
+
+               </div>       
               </div> 
 
               </div>
