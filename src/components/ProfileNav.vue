@@ -5,27 +5,30 @@
            >
             <swiper-slide v-for="(items, i) in tabs" :key="i.id"  
             :class=" + ' d-flex gap-2 ps-2 pe-2'" @click="onStyle(i)">
+                
                  <div 
                  class="pe-2 py-2 pb-2  d-flex justify-content-center align-items-center "  
                  :class="[ (( (onbarra) && (active === i)) ? 'activo' : ''),
-                            (i == 0 ? 'ps-1 ' : 'ps-2 '), 
-                            (( (onbackground) && (relleno_on == i)) ? 'relleno' : '' )]"
-                 style="height:20px;box-sizing:content-box;  "
-                 >
+                          (i == 0 ? 'ps-1 ' : 'ps-2 '), 
+                          (( (onbackground) && (relleno_on == i)) ? 'relleno' : '' )
+                         ]"
+                 style="">
                 <div 
                 class="d-flex  w-100  justify-content-center align-items-center" 
                 style="box-sizing:content-box; "
                 >
-        
+   
                  <span  
                  :class=" (items != '') ? '' : 'w-100 '"
                  class="m-0 p-0 d-flex" >
                  <IconoTab 
-                      :name="list_iconos[i]" 
-                      :color="active === i ? '#F4C90C' : 'black'" />
+                 class="d-flex"
+                      :name_icono="name_icono[i]"
+                      :colores="colores_icons[i]" 
+                      :oncolor="active === i ? '#F4C90C' : 'black'" />
                  </span>
-                  <p v-if="items != ''" class=" fw-bold p-0 m-0 ms-1 pe-1 ps-1 text-capitalize" 
-                     :style="`font-size:12px; color:#000;`">{{items}}</p>
+                  <small v-if="items != ''" class=" fw-bold p-0 m-0 ms-1 pe-1 ps-1 text-capitalize" 
+                     :style="`font-size:12px; color:#000;`">{{items}}</small>
              </div> 
                 </div>
             </swiper-slide>
@@ -35,6 +38,7 @@
 
 <script>
 import { Swiper,  SwiperSlide } from 'swiper/vue';
+
 import IconoTab from '../components/svg/IconoTab.vue';
 export default {
   props:  {
@@ -46,14 +50,15 @@ export default {
          type:Boolean,
          default:false
        },
-        list_iconos:{
-         type:Array,
-         default:false
-       },
         tabs:{
          type:Array,
          default:false
        },
+       name_icono:{
+         type:Array,
+         default:false
+       }
+
        
   },
   components: {
@@ -67,6 +72,8 @@ export default {
      color_icon:['black','yellow'],
       active:0,
       relleno_on:0,
+       colores_icons: ['#ffbd63', '#5bc6d6', '#ff8f8f', '#ffca9d', '#ffbd63', '#5bc6d6',],
+       
     }
   },
     methods: {

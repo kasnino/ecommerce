@@ -1,17 +1,17 @@
 <template>
     <section class="profile">
     <Navbar :show="true" :shadown="false"  name="" color="#FFFFFF" username="trajes de baño para mujer" height="60px" :isVerificate="false"/>
-              <!-- Navigations tabs -->
+              <!-- Navigations tabs icono más texto -->
                  <ProfileNav 
                     class="profile_nav"
                     :tabs="name_tabs"
-                    :list_iconos="name_icon"
+                    :name_icono="name_iconos"
                     :onbarra="false"
                     :onbackground="true"
                     :style="{ position: showProfileNav ? 'fixed' : '' }"  />
                
               <BrandTiendaTag :brands="brands" />
-                
+     
               <transition-group name="slide-up">
                 <template v-if="view=='0'">
                    <SwiperHomeOfferts :prodcuts="products"/> 
@@ -27,13 +27,15 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import BrandTiendaTag from '../components/BrandTienda/BrandTiendaTag.vue';
 import scissors from '../assets/scissors.svg';
 import Navbar from '../components/Navbar.vue';
+import FormTalla from '../components/FormTalla.vue';
 import Avatar from '../components/Avatar.vue';
 import activos from '../assets/activos.svg';
 import ProfileNav from '../components/ProfileNav.vue';
 import Menubar from '../components/Menubar.vue';
-import FireIcon from '../components/svg/fire.vue';
 import SwiperHomeOfferts from '../components/SwiperHomeOfferts.vue';
 import SwiperCuponesOfferts from '../components/SwiperCuponesOfferts.vue';
+
+
 import oferta7 from '../assets/images/short.webp';
 import user from '../assets/user-plus.svg';
 import oferta8 from '../assets/images/hansen.webp';
@@ -57,11 +59,11 @@ export default {
     SwiperSlide,
     Navbar,
     Avatar,
+    FormTalla,
     Menubar,
     ProfileNav,
     SwiperHomeOfferts,
     SwiperCuponesOfferts,
-    FireIcon
       },
 
         mounted() {
@@ -74,7 +76,26 @@ export default {
       data()
       { 
         return { 
-           
+                 tallas:[{
+          name:'ue',
+          sizes : [
+            { id:'1', nro:'34', available:true },
+            { id:'2', nro:'35', available:true },
+            { id:'3', nro:'37', available:true },
+            { id:'4', nro:'38', available:true },
+            { id:'5', nro:'39', available:true },
+          ]
+        },
+        {
+          
+          name:'us',
+          sizes : [
+            { id:'6', nro:'34', available:true },
+            { id:'7', nro:'35', available:true },
+            { id:'8', nro:'37', available:true },
+          ]
+        }
+      ],
         tienda_icon:['start','fire','diamante','start','fire','diamante'],
          brands: [
         {
@@ -97,11 +118,10 @@ export default {
            views: 795,
           view: '0',
           logos_redes:['logo_youtube','logo_instagram','logo_twitter','logo_facebook','logo_tiktok'],
-         
-            name_tabs: ['Nuevo','Nuestra seleccion', 'Top Likes Hoy', 'Tu list', 'tab 4', 'tab 5' ],
-            name_icon: ['start','fire','diamante','start','fire','diamante'],
-         
-          color_tab:'black',
+          name_tabs: ['Nuevo','Nuestra seleccion', 'Top Likes Hoy', 'Tu list', 'tab 4', 'tab 5' ],
+          name_iconos: ['IconoCampana','IconoFire','IconoDiamante','IconoStart','IconoActivity','IconoDiamante'],
+          colores_icons: ['#ffbd63', '#5bc6d6', '#ff8f8f', '#ffca9d', '#ffbd63', '#5bc6d6',],
+         color_tab:'black',
           profile_info:"Hola, me encantan las zapatillas y los chollos,intentaré publicar mucho contenido de ofertas de zapatillas, asi que sígueme :).",
           products: [
                      {
