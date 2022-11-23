@@ -97,7 +97,6 @@
                 <CuponsCode :color_bg="datos.cupon.color_bg" :color_text="datos.cupon.color_text"/>
               </div>
 
-
               <div class="col-12  my-0 h-auto text-center mb-2 
               d-flex justify-content-between  align-items-center 
               align-content-center p-0 m-0 my-1 d-flex px-1 " >       

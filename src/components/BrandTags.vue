@@ -3,7 +3,13 @@
     display: flex;
     padding: 0;
 ">
-    <BrandTag v-for="brand in brands" :amount="brand.amount" :name="brand.name" :image="brand.img"></BrandTag>
+    <BrandTag 
+        v-for="brand in brands" 
+        :amount="brand.amount" 
+        :name="brand.name" 
+        :image="brand.img" 
+        :key="brand.id">
+    </BrandTag>
   </ul>
 </template>
 

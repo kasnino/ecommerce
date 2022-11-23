@@ -1,9 +1,11 @@
 <template>
-  <li class="justify-content-center" style="display: flex;width: 33%;padding: 0;">
+  <li class="justify-content-center " style="display: flex;width: 33%;padding: 0;">
+    <div class="d-flex" >
     <img :src="image" alt="tag" style="width:15px">
     <span style="font-weight: 500;line-height: 13px;font-size: 9px;margin-left: 5px;" class="d-flex ">      
       <span >{{ amount }} </span> &nbsp; {{ name }}
     </span>
+    </div>
   </li>
 </template>
 
