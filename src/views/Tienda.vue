@@ -2,24 +2,48 @@
     <section class="profile">
     <Navbar :show="true" :shadown="false"  name="" color="#FFFFFF" username="trajes de baño para mujer" height="60px" :isVerificate="false"/>
               <!-- Navigations tabs icono más texto -->
-                 <ProfileNav 
-                    class="profile_nav"
-                    :tabs="name_tabs"
-                    :name_icono="name_iconos"
-                    :onbarra="false"
-                    :onbackground="true"
-                    :style="{ position: showProfileNav ? 'fixed' : '' }"  />
+              <ProfileNav 
+                class="profile_nav my-1"
+                :tabs="name_tabs"
+                :onbarra="false"
+                :onbackground="true"
+                :name_icono="name_iconos"
+                :colores_icon="colores_icons"
+                :style="{ position: showProfileNav ? 'fixed' : '' }"  />
                
-              <BrandTiendaTag :brands="brands" />
-     
+             
+              <div class="w-100 p-0 m-0 d-flex justify-content-around">
+               <BrandTiendaTag :brands="brands" />
+                      <FormTalla 
+                      label_input="" 
+                      name_buttom="Marca" 
+                      :tallas="tallas"
+                      :border_btn="false"
+                      ></FormTalla>
+             
+                      <FormTalla 
+                      label_input="" 
+                      name_buttom="200 - 500 EUR" 
+                      :tallas="precio"
+                      :border_btn="false"
+                      ></FormTalla>
+       
+                      <FormTalla 
+                      label_input="" 
+                      name_buttom="Tienda" 
+                      :tallas="tienda"
+                      :border_btn="false"
+                      ></FormTalla>
+                
+              </div>
+            
               <transition-group name="slide-up">
                 <template v-if="view=='0'">
                    <SwiperHomeOfferts :prodcuts="products"/> 
                 </template>
               </transition-group>
               <Menubar :showMenu="showMenu" />
-              
-  </section>
+    </section>
 </template>
 <script >
 
@@ -76,9 +100,10 @@ export default {
       data()
       { 
         return { 
-                 tallas:[{
-          name:'ue',
-          sizes : [
+      tallas:[{
+        name_form:'Talla',
+        name:'UE',
+        sizes : [
             { id:'1', nro:'34', available:true },
             { id:'2', nro:'35', available:true },
             { id:'3', nro:'37', available:true },
@@ -86,27 +111,35 @@ export default {
             { id:'5', nro:'39', available:true },
           ]
         },
-        {
-          
-          name:'us',
-          sizes : [
-            { id:'6', nro:'34', available:true },
-            { id:'7', nro:'35', available:true },
-            { id:'8', nro:'37', available:true },
+      ],
+      tienda:[{
+        name_form:'Tienda',
+        name:'Mango',
+        sizes : [
+            { id:'1', nro:'34', available:true },
+            { id:'2', nro:'35', available:true },
+            { id:'3', nro:'37', available:true },
+            { id:'4', nro:'38', available:true },
+            { id:'5', nro:'39', available:true },
           ]
-        }
+        },
+      ],
+        precio:[{
+        name_form:'Precio',
+        name:'EUR',
+        sizes : [
+            { id:'1', nro:'34', available:true },
+            { id:'2', nro:'35', available:true },
+            { id:'3', nro:'37', available:true },
+            { id:'4', nro:'38', available:true },
+            { id:'5', nro:'39', available:true },
+          ]
+        },
       ],
         tienda_icon:['start','fire','diamante','start','fire','diamante'],
          brands: [
         {
-          name: 'chollos activos',
-          amount: '756',
-          img: activos,
-          index: 0,
-          checking:false
-        },
-        {
-          name: 'Ocultar expiradas',
+          name: 'Ver agotadas',
           amount: '',
           img: '',
           index: 0,
@@ -120,7 +153,7 @@ export default {
           logos_redes:['logo_youtube','logo_instagram','logo_twitter','logo_facebook','logo_tiktok'],
           name_tabs: ['Nuevo','Nuestra seleccion', 'Top Likes Hoy', 'Tu list', 'tab 4', 'tab 5' ],
           name_iconos: ['IconoCampana','IconoFire','IconoDiamante','IconoStart','IconoActivity','IconoDiamante'],
-          colores_icons: ['#ffbd63', '#5bc6d6', '#ff8f8f', '#ffca9d', '#ffbd63', '#5bc6d6',],
+         colores_icons: ['#ffbd63', '#5bc6d6', '#ff8f8f', '#ffca9d', '#ffbd63', '#5bc6d6',],
          color_tab:'black',
           profile_info:"Hola, me encantan las zapatillas y los chollos,intentaré publicar mucho contenido de ofertas de zapatillas, asi que sígueme :).",
           products: [

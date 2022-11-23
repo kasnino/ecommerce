@@ -65,8 +65,9 @@
                     :tabs="nav_profile" 
                     :list_iconos="name_icon"
                     :onbarra="true"
+                    :name_icono="name_iconos"
+                    :colores_icon="colores_icons"
                     :onbackground="false"
-
                     :style="{ position: showProfileNav ? 'fixed' : '' }"  />
               </div>
               <transition-group name="slide-up">
@@ -162,7 +163,10 @@ export default {
           logos_redes:['logo_youtube','logo_instagram','logo_twitter','logo_facebook','logo_tiktok'],
           nav_profile:['actividad','892 chollos publicados', '', 'tab 3', 'tab 4', 'tab 5' ],
           name_icon:['activity','fire','diamante','activity','fire','diamante'],
-          color_tab:'black',
+            name_iconos: ['IconoActivity','IconoFire','IconoDiamante','IconoStart','IconoActivity','IconoDiamante'],
+         colores_icons: ['black', 'black', 'black', 'black', 'black', 'black'],
+         
+         color_tab:'black',
           profile_info:"Hola, me encantan las zapatillas y los chollos,intentaré publicar mucho contenido de ofertas de zapatillas, asi que sígueme :).",
           products: [{
                   is_cupon : false,

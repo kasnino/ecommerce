@@ -1,6 +1,6 @@
 <template>
   <nav class="w-100 my-0" style=" position:relative; background:#FFF;">
-           <swiper :slidesPerView="'auto'" :spaceBetween="3" class="nav_profiles ps-2 my-2 pe-2"
+           <swiper :slidesPerView="'auto'" :spaceBetween="3" class="nav_profiles ps-2  pe-2"
            style="gap:1px;"
            >
             <swiper-slide v-for="(items, i) in tabs" :key="i.id"  
@@ -24,7 +24,7 @@
                  <IconoTab 
                  class="d-flex"
                       :name_icono="name_icono[i]"
-                      :colores="colores_icons[i]" 
+                      :colores="colores_icon[i]" 
                       :oncolor="active === i ? '#F4C90C' : 'black'" />
                  </span>
                   <small v-if="items != ''" class=" fw-bold p-0 m-0 ms-1 pe-1 ps-1 text-capitalize" 
@@ -57,6 +57,10 @@ export default {
        name_icono:{
          type:Array,
          default:false
+       },
+       colores_icon:{
+         type:Array,
+         defaul:false
        }
 
        
@@ -72,7 +76,6 @@ export default {
      color_icon:['black','yellow'],
       active:0,
       relleno_on:0,
-       colores_icons: ['#ffbd63', '#5bc6d6', '#ff8f8f', '#ffca9d', '#ffbd63', '#5bc6d6',],
        
     }
   },

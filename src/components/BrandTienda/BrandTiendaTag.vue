@@ -1,5 +1,5 @@
 <template>
-<div class="d-flex justify-content-around light">
+<div class="d-flex">
     <BrandTienda
         v-for="(brand, index) in brands" 
         :amount="brand.amount" 

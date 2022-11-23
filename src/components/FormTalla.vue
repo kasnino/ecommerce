@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group">
+  <div class="form-group d-flex justify-content-center align-items-center">
     <label
       for=""
       style="
@@ -14,20 +14,24 @@
       <button
         type="button"
         style="justify-content: space-between; align-items: center"
-        class="btn btn-outline-secondary dropdown-toggle d-flex"
+        class="btn dropdown-toggle d-flex "
+        :class="border_btn ? 'btn-outline-secondary' : 'border ps-1 pe-1'"
         ref="aqui"
         data-bs-toggle="dropdown"
         aria-expanded="false"
         data-bs-auto-close="outside"
       >
-      {{(size_selected==0)?'Seleccionar Talla':name_selected}}  
+      <small>
+   {{(size_selected==0) ? name_buttom : name_selected}} 
+      </small>
+    
       </button>
       <div class="dropdown-menu w-100" ref="dropdownMenu" v-if="visible">
         <div class="row">
           <div class="col">
             <ul class="nav nav-tabs w-100" id="myTab" role="tablist">
               <li
-                class="nav-item w-50 d-flex justify-content-center"
+                class="nav-item w-100 d-flex justify-content-center"
                 role="presentation"
                    v-for="(item, index) in tallas" :key="index"
               >
@@ -42,14 +46,14 @@
                   role="tab"
                   aria-selected="true"
                 >
-                  Talla {{item.name}}
+                  <small>{{item.name_form}} {{item.name}}</small>
                 </button>
               </li>
                           </ul>
 
             <div class="tab-content" id="myTabContent">
               <div
-                class="tab-pane fade p-3"
+                class="tab-pane fade ps-3 pe-3"
                 :class="{' show active':index==0}"
                 style="height: 200px; margin-top: 0.5rem; overflow: auto"
                 :id="item.name+'-tab-pane'"
@@ -74,7 +78,7 @@
                                 name="gender"
                                 id="female"
                                 :value="size.id"
-                                v-model="size_selected"
+                                 v-model="size_selected"
                               />
                             </li>
                           </ul>
@@ -149,6 +153,28 @@ export default {
   mounted() {
     // console.log("🚀 ~ file: FormTalla.vue ~ line 207 ~ mounted ~ tallas", this.tallas)
   },
-  props: ["role", "label_input", "tallas"],
-};
+
+    props:  {
+        tallas:{
+        type:Array,
+        default:false
+       },
+        label_input:{
+        type:String,
+        default:false
+       },
+         role:{
+         type:String,
+         default:false
+       },
+         name_buttom:{
+         type:String,
+         default:'Seleccionar Talla'
+       },
+        border_btn:{
+         type:Boolean,
+         default:true
+       }
+    }
+}
 </script>

@@ -1,7 +1,7 @@
 <template>
     <li class=" d-flex w-100 "
   
-    :class="{'align-items-end justify-content-center':(index%2==0),'justify-content-center':(index%2!=0)}" 
+    :class="{'':(index%2==0),'':(index%2!=0)}" 
           style="">
         <div class="d-flex align-items-center "
         :class="{'justify-content-center  ':(index%2==0),'justify-content-center':(index%2!=0)}">
@@ -21,7 +21,7 @@
 
 
   </li>
-  <div class="vr"></div>
+  
 </template>
 
 <script>
