@@ -2,7 +2,7 @@
     <div   class="col-6 mx-0 px-0  my-2  d-flex justify-content-between flex-column "   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
     <figure class="offer-grid-item-img position-relative text-center h-100">
       <!-- <img :src="products_offers.image" alt="grid item" style="height:220px; width: 170px;"> -->
-      <img class="img_card--products" :src="products_offers.image" alt="grid item" :style="`${products_offers.cupon.agotado ? 'filter: grayscale(.9);':''} `">
+      <img class="img_card--products" :src="products_offers.image" alt="grid item" loading="lazy" :style="`${products_offers.cupon.agotado ? 'filter: grayscale(.9);':''} `">
       <span class="offer-grid-item-img-company" v-html="products_offers.label_top" 
       :style="` opacity:85%; background:${products_offers.label_top_bg}; 
        color:${products_offers.label_top_color}; + ${products_offers.cupon.agotado ? 'filter: grayscale(.8);':''} `"></span>

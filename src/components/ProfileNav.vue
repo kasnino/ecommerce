@@ -4,7 +4,7 @@
            style="gap:1px;"
            >
             <swiper-slide v-for="(items, i) in tabs" :key="i.id"  
-            :class=" + ' d-flex gap-2 ps-2 pe-2'" @click="onStyle(i)">
+            :class=" + ' d-flex gap-2 ps-2 pe-2'" @click="onStyle(i),changeView(i)">
                 
                  <div 
                  class="pe-2 py-2 pb-2  d-flex justify-content-center align-items-center "  
@@ -62,8 +62,6 @@ export default {
          type:Array,
          defaul:false
        }
-
-       
   },
   components: {
     Swiper,

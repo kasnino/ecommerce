@@ -9,51 +9,46 @@
                 :onbackground="true"
                 :name_icono="name_iconos"
                 :colores_icon="colores_icons"
-                :style="{ position: showProfileNav ? 'fixed' : '' }"  />
-               
-             
-              <div class="w-100 p-0 m-0 d-flex justify-content-around">
-               <BrandTiendaTag :brands="brands" />
-                      <FormTalla 
-                      label_input="" 
-                      name_buttom="Marca" 
-                      :tallas="tallas"
-                      :border_btn="false"
-                      ></FormTalla>
-             
-                      <FormTalla 
-                      label_input="" 
-                      name_buttom="200 - 500 EUR" 
-                      :tallas="precio"
-                      :border_btn="false"
-                      ></FormTalla>
-       
-                      <FormTalla 
-                      label_input="" 
-                      name_buttom="Tienda" 
-                      :tallas="tienda"
-                      :border_btn="false"
-                      ></FormTalla>
-                
-              </div>
-            
-              <transition-group name="slide-up">
-                <template v-if="view=='0'">
+                :style="{ position: showProfileNav ? 'fixed' : '' }"  
+                @changeView="changeView"
+                />
+
+                <ProductsNav/>
+                 
+                <template  v-if="view=='0'">
                    <SwiperHomeOfferts :prodcuts="products"/> 
                 </template>
-              </transition-group>
+                    <template   v-if="view=='1'">
+                  Vista 1
+                </template>
+                  <template    v-if="view=='2'">
+                  Vista 2
+                </template>
+                 <template   v-if="view=='3'">
+                  Vista 3
+                </template>
+                  <template    v-if="view=='4'">
+                  Vista 4
+                </template>
+                    <template    v-if="view=='5'">
+                  Vista 5
+                </template>
+             
+                
+         
               <Menubar :showMenu="showMenu" />
     </section>
 </template>
 <script >
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import BrandTiendaTag from '../components/BrandTienda/BrandTiendaTag.vue';
+
 import scissors from '../assets/scissors.svg';
 import Navbar from '../components/Navbar.vue';
-import FormTalla from '../components/FormTalla.vue';
+
 import Avatar from '../components/Avatar.vue';
 import activos from '../assets/activos.svg';
+import ProductsNav from '../components/ProductsNav.vue';
 import ProfileNav from '../components/ProfileNav.vue';
 import Menubar from '../components/Menubar.vue';
 import SwiperHomeOfferts from '../components/SwiperHomeOfferts.vue';
@@ -78,12 +73,12 @@ import oferta12 from '../assets/test_cinturon.webp';
 
 export default {
   components: {
-    BrandTiendaTag,
+  
     Swiper,
     SwiperSlide,
     Navbar,
     Avatar,
-    FormTalla,
+    ProductsNav,
     Menubar,
     ProfileNav,
     SwiperHomeOfferts,
@@ -100,6 +95,7 @@ export default {
       data()
       { 
         return { 
+          ShowSelectiontienda:false,
       tallas:[{
         name_form:'Talla',
         name:'UE',
@@ -518,6 +514,12 @@ export default {
     },
 
      methods: {
+
+          changeView(data) {
+      console.log('sasd',data);
+      this.view = data;
+    },
+    
         onTab(data){
           return this.color_tab = (data)?'black':'black';
         },
