@@ -1,5 +1,5 @@
 <template>
-    <div   class="col-6 mx-0 px-0  my-2  d-flex justify-content-between flex-column "   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
+    <div class="col-6 mx-0 px-0  my-2  d-flex justify-content-between flex-column "   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
     <figure class="offer-grid-item-img position-relative text-center h-100">
       <!-- <img :src="products_offers.image" alt="grid item" style="height:220px; width: 170px;"> -->
       <img class="img_card--products" :src="products_offers.image" alt="grid item" loading="lazy" :style="`${products_offers.cupon.agotado ? 'filter: grayscale(.9);':''} `">
@@ -20,13 +20,13 @@
               </span>
       
         <span class="offer-grid-item-img-oclock" v-if="products_offers.oclock">2d : 20h : 15s</span>
-        <div v-if="products_offers.cupon.agotado" class="agotado_container d-flex justify-content-center align-items-center">
-            <button   v-if="products_offers.cupon.agotado" class="btn buttom_agotado">
-                AGOTADO
-              </button>
-        </div>
-    </figure>
-     
+          <div v-if="products_offers.cupon.agotado" class="agotado_container d-flex justify-content-center align-items-center">
+              <button   v-if="products_offers.cupon.agotado" class="btn buttom_agotado">
+                  AGOTADO
+                </button>
+          </div>
+      </figure>
+      
       <div class="offer-grid-item-body  pe-0 pb-2 d-flex flex-column justify-content-between "  >
         <div class="">
         <div class="offer-grid-item-body-prices">
@@ -48,6 +48,7 @@
           </div>       
       </div>
   </div>
+
 </template>
 
 <script>
@@ -57,10 +58,13 @@ import CuponsCode from '../components/svg/cupons_code.vue';
 import oclock from '../assets/oclock.svg';
 export default {
   props: ["products_offers", "index"],
+
+
   components: {
       Cupons,
       CuponsCode,
       Timer
+    
   },
   data(){
     return{
@@ -83,8 +87,6 @@ export default {
           // object-fit: contain;
     background-size: contain;
 }
-
-
 .buttom_agotado{
   background: #CC2323;
                 padding:0px;

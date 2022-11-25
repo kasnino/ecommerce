@@ -13,6 +13,7 @@
                 @changeView="changeView"
                 />
 
+            <!-- Sub navegacion de tallas/tiendas/precios -->
                 <ProductsNav/>
                  
                 <template  v-if="view=='0'">
@@ -96,52 +97,9 @@ export default {
       { 
         return { 
           ShowSelectiontienda:false,
-      tallas:[{
-        name_form:'Talla',
-        name:'UE',
-        sizes : [
-            { id:'1', nro:'34', available:true },
-            { id:'2', nro:'35', available:true },
-            { id:'3', nro:'37', available:true },
-            { id:'4', nro:'38', available:true },
-            { id:'5', nro:'39', available:true },
-          ]
-        },
-      ],
-      tienda:[{
-        name_form:'Tienda',
-        name:'Mango',
-        sizes : [
-            { id:'1', nro:'34', available:true },
-            { id:'2', nro:'35', available:true },
-            { id:'3', nro:'37', available:true },
-            { id:'4', nro:'38', available:true },
-            { id:'5', nro:'39', available:true },
-          ]
-        },
-      ],
-        precio:[{
-        name_form:'Precio',
-        name:'EUR',
-        sizes : [
-            { id:'1', nro:'34', available:true },
-            { id:'2', nro:'35', available:true },
-            { id:'3', nro:'37', available:true },
-            { id:'4', nro:'38', available:true },
-            { id:'5', nro:'39', available:true },
-          ]
-        },
-      ],
+
         tienda_icon:['start','fire','diamante','start','fire','diamante'],
-         brands: [
-        {
-          name: 'Ver agotadas',
-          amount: '',
-          img: '',
-          index: 0,
-          checking: true
-        },
-      ],
+   
          showProfileNav: false,
          showMenu: true,
            views: 795,
