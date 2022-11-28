@@ -4,7 +4,7 @@ import router from './routes'
 import './assets/sass/styles.scss'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-
+import 'vue-skeletor/dist/vue-skeletor.css';
 
 const app = createApp(App)
 

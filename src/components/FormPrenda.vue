@@ -1,6 +1,6 @@
 <template>
   <div class="form-group d-flex justify-content-center align-items-center">
-    <label
+     <label
       for=""
       style="
         font-style: normal;
@@ -9,23 +9,26 @@
         line-height: 17px;
       "
       >{{ label_input }}</label
-    >
-    <div >
+    > 
+   
+    <div v-for="(select, z) in tallas" :key="z.id">
+     
       <button
+      v-for="(selecto, k) in select" :key="k.id"
+      
         type="button"
         style="justify-content: space-between; align-items: center; font-size:0.79rem;" 
-        class="rounded-2  btn_products  d-flex "
+        class="rounded-2  dropdown-toggle d-flex d-flex "
         :class="[((border_btn)? '' : ' p-1'),
-        ( (active_on && (active == index)) ? 'active_btn p-0' : 'border')
+        (( (isShow) && (active === k)) ? 'active_btn' : 'border-btn'),
         ]"
         ref="aqui"
-        data-bs-auto-close="outside"
-      
-        @click="SelectProductForm(name_buttom),myFilter(index)"
+        aria-expanded="true"
+        @click="SelectProductForm(selecto.name_form, index),toggleSelect(k),(isShow = !isShow)"
       >
-      
+    
       <small>
-          {{(size_selected==0) ? name_buttom : name_selected}} 
+          {{ selecto.name_form}} 
       </small>
     
       </button>
@@ -47,7 +50,10 @@ export default {
       name_selected: 0,
       visible: true,
       active_on:false,
-      active:-1  
+      active:0,
+      selectionItems:[],  
+      contadorOn:0,
+      isShow:false
     };
   },
   components: {
@@ -57,28 +63,22 @@ export default {
   },
   
   methods: {
-     SelectProductForm(id){
-      this.$emit('selectProductForm', id);
+     SelectProductForm(name_btn, indice){
+      this.$emit('selectProductForm', name_btn, indice);
     },
     marcar(data) {
       this.name_selected = data.nro;
       this.size_selected = data.id;
       this.$refs.aqui.click();
     },
-     myFilter(i){
-       if(!this.active_on){
-        this.active_on = !this.active_on 
-        this.active = i
-       }
-           
-                
-                
-            
-                        
-       
-       
-        
-      }
+     toggleSelect(index) {
+       // toggle the active class
+         if(this.isShow)
+        {   
+          return this.active = index
+        }
+      
+     },
   },
   
   mounted() {
@@ -87,7 +87,7 @@ export default {
 
     props:  {
         tallas:{
-        type:Array,
+        type:Object,
         default:false
        },
         label_input:{
@@ -103,7 +103,7 @@ export default {
          default:true
        },
         index:{
-         type:String,
+         type:Number,
          default:0
        }
     }
@@ -111,7 +111,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .active_btn{
-      border: 2px solid #e8bf2e7a;
+  border: 2px solid #e8bf2e7a;
+}
+.border-btn{
+   border: 2px solid #dedede;
 }
 
 .btn_products{

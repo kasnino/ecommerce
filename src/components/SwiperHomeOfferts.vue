@@ -1,25 +1,42 @@
 <template>
-<div class="row mx-0 px-0 py-1"  >
-  <template v-for="(item, index) in prodcuts" :key="index" >
-    <ProductsOfferts v-if="!item.is_cupon" :products_offers="item" :index="index" />
-    <CuponesOfferts v-else :datos="item" :index="index"/>
-   </template>
+<div class="row mx-0 px-0 py-1 ">
+
+      
+    <template v-for="(item, index) in  prodcuts"    :key="index" >
+        <ProductsOfferts v-if="!item.is_cupon"      :products_offers="item" :index="index" />
+        <CuponesOfferts  v-else  :datos="item"      :index="index"/>
+    </template>
+
+
 </div>
     
 </template>
 <script>
 import CuponesOfferts from '../components/CuponsOffers.vue';
 import ProductsOfferts from '../components/ProductsOfferts.vue';
+import Skeleton from './Skeletone.vue';
 import oclock from '../assets/oclock.svg';
 import Cupons from '../components/svg/cupons.vue';
 import CuponsCode from '../components/svg/cupons_code.vue';
 export default {
-  props: ["prodcuts"],
+
+  props: { 
+   prodcuts: {
+      type: Array,
+      default: () => ([]),
+    },
+    isLoaded: {
+      type: Boolean,
+      default: true,
+    },
+  },
+
   components: {
       CuponesOfferts,
       ProductsOfferts,
       Cupons,
-      CuponsCode
+      CuponsCode,
+      Skeleton
   },
   data() {
     return { 

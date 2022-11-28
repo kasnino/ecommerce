@@ -1,25 +1,32 @@
 <template>
-  <nav class="w-100 my-0"  style=" position:relative; background:#FFF; transition: all 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000); /* ease (default) */
-
-transition-timing-function: cubic-bezier(0.250, 0.100, 0.250, 1.000); /* ease (default) */">
+  <nav class="w-100 my-0"  style=" position:relative; background:#FFF; ">
            <swiper  :slidesPerView="'auto'" :spaceBetween="3" class="nav_profiles ps-2 w-100  pe-2"
-           style="gap:1px; position:relative;    transition: transform 0.6s cubic-bezier(0.250, 0.100, 0.250, 1.000);"
+           style="gap:1px; position:relative;    "
            >
-         
             <swiper-slide v-for="(items, i) in tabs" :key="i.id" 
             style="position:relative;    " 
-            :class=" + ' d-flex gap-2  ps-2 pe-2'" @click="onStyle(i), changeView(i)">
-           <transition name="fade">
-                 <div 
+            :class=" + 'd-flex gap-2  ps-2 pe-2'" @click="onStyle(i), changeView(i), ConvertiHexFondoColo(colores_icon[i], i)">
+            
+           
+                 
+            <div 
                  @click="positionTab(i)"
-                  :id="`Tab-${i}`"
-                
+                 :id="`Tab-${i}`"
                  class="pe-2 py-2 pb-2  d-flex justify-content-center align-items-center "  
                  :class="[ (( (onbarra) && (active === i)) ? 'activo' : ''),
                           (i == 0 ? 'ps-1 ' : 'ps-2 '), 
-                          (( (onbackground) && (relleno_on == i)) ? 'relleno' : '' )
-                         ]"
-                 style="">
+                          (( (onbackground) && (relleno_on == i)) ? 'rellenoo' : '' )
+                         ]">
+
+          <div class=""   :id="`slider-${i}`"
+               :class="(( (onbackground) && (relleno_on == i)) ? 'slider' : '' )"
+               :style="`transform: translateX(${(0)}px) !important; transition: all 0.4s ease; `"
+               >
+          </div>
+
+          <label class="" 
+                :class="(( (onbackground) && (relleno_on == i)) ? 'relleno' : '' )"
+                :for="items">
                 <div 
                 class="d-flex  w-100  justify-content-center align-items-center" 
                 style="box-sizing:content-box; "
@@ -36,10 +43,11 @@ transition-timing-function: cubic-bezier(0.250, 0.100, 0.250, 1.000); /* ease (d
                   <small v-if="items != ''" class=" fw-bold p-0 m-0 ms-1 pe-1 ps-1 text-capitalize" 
                      :style="`font-size:12px; color:#000;`">{{items}}</small>
              </div> 
+
+             </label>
                 </div>
-                  </transition>
+                
             </swiper-slide>
-           
       </swiper>
   </nav>
 </template>
@@ -86,19 +94,33 @@ setup(){
       active:0,
       relleno_on:0,
       posejeX:0,
-      posejeY:0
-       
+      posejeY:0,
+      opacity: 30,
+      indiceColor:0,
+      colorgba:['rgba(255,189,99,0.3)']
     }
   },
 
  
     methods: {
 
+       ConvertiHexFondoColo(color, indice) {
+        color = color.replace('#', '')
+        let r = parseInt(color.substring(0, 2), 16)
+        let g = parseInt(color.substring(2, 4), 16)
+        let b = parseInt(color.substring(4, 6), 16)
+        this.colorgba[indice] = 'rgba(' + r + ',' + g + ',' + b + ',' + this.opacity / 100 + ')'
+        return this.newColor = this.colorgba[indice], this.indiceColor = indice
+      },
+
       positionTab(n){
         const elem = document.getElementById('Tab-'+n);
         var posicion = elem.getBoundingClientRect();
-         this.posejeX = posicion.left;
-        
+        let entero = posicion.left;
+        let numeroTranslateX = entero.toString();
+        let regex=/(\d*.\d{0,0})/;
+        const resultTranslateX = numeroTranslateX.match(regex)[0];
+        this.posejeX = Number(resultTranslateX);
       },
 
       onStyle(i){
@@ -124,16 +146,34 @@ setup(){
 
 <style scoped>
 .relleno{
-  background:#feeaba;
+  /* background:v-bind('colorgba[indiceColor]'); */
   border-radius: 15px;
-  
+    margin: 0.5px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: tramsform 0.4s cubic-bezier(.10, .10, .10, .84) !important;
+  transition-timing-function: cubic-bezier(.10, .10, .10, .84) !important; 
 }
-
+.slider{
+  position: absolute;
+ 
+  height: 100%;
+  width: 100%;
+  background:v-bind('colorgba[indiceColor]');
+transition: tramsform 0.4s cubic-bezier(.10, .10, .10, .84) !important;
+  transition-timing-function: cubic-bezier(.10, .10, .10, .84) !important; 
+  border-radius: 15px;
+ 
+  z-index: 1;
+}
+input[type=radio]{
+  display: none;
+}
 .activo{
     border-bottom: 2px solid #F4C90C;
-    transform: transitionX(auto);
-    transition: transform 0.8s cubic-bezier(.10, .10, .10, .84) !important;
-  transition-timing-function: cubic-bezier(.10, .10, .10, .84) !important; /* ease (default) */
+    transform: translateX(v-bind('posejeX')'px');
+/* ease (default) */
 }
 
 

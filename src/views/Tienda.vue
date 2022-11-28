@@ -1,8 +1,16 @@
 <template>
     <section class="profile">
-    <Navbar :show="true" :shadown="false"  name="" color="#FFFFFF" username="trajes de baño para mujer" height="60px" :isVerificate="false"/>
-              <!-- Navigations tabs icono más texto -->
-              <ProfileNav 
+       <Navbar 
+              :show="true" 
+              :shadown="false"  
+              name="" 
+              color="#FFFFFF" 
+              username="trajes de baño para mujer" 
+              height="60px" 
+              :isVerificate="false"/>
+
+      <!-- Navigations tabs icono más texto -->
+        <ProfileNav 
                 class="profile_nav my-1"
                 :tabs="name_tabs"
                 :onbarra="false"
@@ -15,35 +23,56 @@
 
             <!-- Sub navegacion de tallas/tiendas/precios -->
                 <ProductsNav/>
-                 
                 <template  v-if="view=='0'">
-                   <SwiperHomeOfferts :prodcuts="products"/> 
-                </template>
-                    <template   v-if="view=='1'">
-                  Vista 1
-                </template>
-                  <template    v-if="view=='2'">
-                  Vista 2
-                </template>
-                 <template   v-if="view=='3'">
-                  Vista 3
-                </template>
-                  <template    v-if="view=='4'">
-                  Vista 4
-                </template>
-                    <template    v-if="view=='5'">
-                  Vista 5
+                  <SwiperHomeOfferts :prodcuts="products" v-if="isLoaded" /> 
+                  <!-- Skeleton card funcional -->
+                      <div class="row mx-0 d-flex px-0  py-1">
+                       <template class="" 
+                       v-for="(item, index) in products" :key="index" >
+                            <div  
+                                  class="col-6  d-grid mx-0 px-0 my-1  d-flex 
+                                   justify-content-between flex-column"   
+                                  :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
+                                <skeleton
+                                    skeleton-class=" h-12 "
+                                    w="100%"
+                                    h="271px"
+                                    :is-loaded="isLoaded">
+                                </skeleton>
+                              </div> 
+                        </template> 
+                          </div>
                 </template>
              
-                
-         
+                    <template v-for="(vistas, index) in 5" :key="index" >
+                      <template  v-if="view== index+1">
+                         <SwiperHomeOfferts :prodcuts="products" v-if="isLoaded" /> 
+                          <!-- Skeleton card funcional -->
+                         <div class="row mx-0 d-flex px-0  py-1">
+                       <template class="" 
+                       v-for="(item, index) in products" :key="index" >
+                            <div  
+                                  class="col-6  d-grid mx-0 px-0 my-1  d-flex 
+                                   justify-content-between flex-column"   
+                                  :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
+                                <skeleton
+                                    skeleton-class=" h-12 "
+                                    w="100%"
+                                    h="271px"
+                                    :is-loaded="isLoaded">
+                                </skeleton>
+                              </div> 
+                        </template> 
+                          </div>
+                      </template>
+                   </template>
               <Menubar :showMenu="showMenu" />
     </section>
 </template>
 <script >
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
-
+import MyCardSkeleton from '../components/CardSkeleton.vue';
 import scissors from '../assets/scissors.svg';
 import Navbar from '../components/Navbar.vue';
 
@@ -54,7 +83,7 @@ import ProfileNav from '../components/ProfileNav.vue';
 import Menubar from '../components/Menubar.vue';
 import SwiperHomeOfferts from '../components/SwiperHomeOfferts.vue';
 import SwiperCuponesOfferts from '../components/SwiperCuponesOfferts.vue';
-
+import Skeleton from '../components/Skeletone.vue';
 
 import oferta7 from '../assets/images/short.webp';
 import user from '../assets/user-plus.svg';
@@ -74,7 +103,6 @@ import oferta12 from '../assets/test_cinturon.webp';
 
 export default {
   components: {
-  
     Swiper,
     SwiperSlide,
     Navbar,
@@ -82,11 +110,14 @@ export default {
     ProductsNav,
     Menubar,
     ProfileNav,
+    Skeleton,
     SwiperHomeOfferts,
     SwiperCuponesOfferts,
+    MyCardSkeleton
       },
 
         mounted() {
+        this.onLoad();
         window.addEventListener('scroll', this.scrollHandler);
       },
        destroyed() {
@@ -96,8 +127,50 @@ export default {
       data()
       { 
         return { 
-          ShowSelectiontienda:false,
-
+           items: [
+        {
+          thumbnail: 'laptop.svg',
+          avatar: 'avatar_1.jpeg',
+          bgColor: '#BCD1FF',
+          tag: 'PRODUCTIVITY',
+          date: '3 days ago',
+          title: '7 Skills of Highly Effective Programmers',
+          desc: 'Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic. Here are our seven...',
+          author: 'Glen Williams',
+        },
+        {
+          thumbnail: 'socmed.svg',
+          avatar: 'avatar_2.jpeg',
+          bgColor: '#F395BA',
+          tag: 'MEDIA',
+          date: '17 days ago',
+          title: 'SMM starter pack, part 2: content promotion',
+          desc: 'This is the second part of the SMM starter pack series of articles. If you made it this far, you must be willing to learn about promoting business through social media.',
+          author: 'Patricia Kemp',
+        },
+        {
+          thumbnail: 'business.svg',
+          avatar: 'avatar_3.jpeg',
+          bgColor: '#D2EBF7',
+          tag: 'BUSINESS',
+          date: '1 month ago',
+          title: '11 Things I Wish I Knew When I Started My Business',
+          desc: 'Here are 11 things I wish I knew when I started my business. I hope they will save you some time and some anguish because (experience is a good teacher here) the sodium from...',
+          author: 'Lisa Barnes',
+        },
+        {
+          thumbnail: 'socmed.svg',
+          avatar: 'avatar_2.jpeg',
+          bgColor: '#F395BA',
+          tag: 'MEDIA',
+          date: '17 days ago',
+          title: 'SMM starter pack, part 2: content promotion',
+          desc: 'This is the second part of the SMM starter pack series of articles. If you made it this far, you must be willing to learn about promoting business through social media...',
+          author: 'Patricia Kemp',
+        },
+      ], 
+        ShowSelectiontienda:false,
+        isLoaded: false,
         tienda_icon:['start','fire','diamante','start','fire','diamante'],
    
          showProfileNav: false,
@@ -473,11 +546,17 @@ export default {
 
      methods: {
 
-          changeView(data) {
-      console.log('sasd',data);
+    onLoad() {
+      console.log("entro")
+        this.isLoaded = false
+        setTimeout(() => {
+        this.isLoaded = true
+      }, 5000)
+    },
+    changeView(data) {
+           this.onLoad()
       this.view = data;
     },
-    
         onTab(data){
           return this.color_tab = (data)?'black':'black';
         },
@@ -529,6 +608,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 
 .profile_nav{
 
@@ -538,5 +623,13 @@ export default {
    transition: all 0.1s linear 0.2s;
    border-top: 1px solid #EDEDED;
 }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
 
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

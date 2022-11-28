@@ -1,7 +1,7 @@
 <template>
 <div class="row mx-0 px-0 py-1">
 
-  <template  v-for="(item, index) in prodcuts" :key="index">
+  <template  v-for="(item, index) in prodcuts" :key="index" >
       <div class="col-6 mx-0 px-0   d-flex justify-content-between flex-column  my-2 "
       v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
        
@@ -44,8 +44,11 @@
             </div>       
         </div>
       </div>
+      
         <CuponesOfferts v-else :datos="item" :index="index"/>
+             <Skeletor  v-if="isPostLoading" width="100"/>
       </template>
+  
   </div>
     
 </template>
@@ -55,22 +58,34 @@ import oclock from '../assets/oclock.svg';
 import bg_white from '../assets/bg-white.svg';
 import CuponesOfferts from '../components/CuponsOffers.vue';
 import Timer from '../components/svg/oclock.vue';
-
+import { Skeletor } from 'vue-skeletor';
 export default {
   props: ["prodcuts"],
+    props: {
+    prodcuts: {
+      type: Array,
+      default: () => ([]),
+    },
+    isLoaded: {
+      type: Boolean,
+      default: true,
+    },
+  },
   components: {
     CuponesOfferts,
-    Timer  
+    Timer,
+    Skeletor   
   },
   data() {
     return { 
       oclock : oclock,
       bg_white : bg_white,
+    
  
     }
   },
   mounted() { 
-    console.log(this.details);
+    console.log(this.details + "--");
   },
   methods: {
   },
