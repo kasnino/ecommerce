@@ -55,9 +55,7 @@
                 </div>
               </div>
             </div>
-
   </div>
-
               <!-- Navigations tabs -->
               <div class="system_nav_profiles p-0 m-0">
                 <ProfileNav 
@@ -70,6 +68,7 @@
                     :onbackground="false"
                     :style="{ position: showProfileNav ? 'fixed' : '' }"  />
               </div>
+              
               <transition-group name="slide-up">
                 <template v-if="view=='0'">
                    <SwiperHomeOfferts :prodcuts="products"/> 
@@ -81,10 +80,6 @@
               <Menubar :showMenu="showMenu" />
   </section>
 </template>
-
-
-
-
 <script >
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import Navbar from '../components/Navbar.vue';
@@ -94,6 +89,8 @@ import Menubar from '../components/Menubar.vue';
 import FireIcon from '../components/svg/fire.vue';
 import SwiperHomeOfferts from '../components/SwiperHomeOfferts.vue';
 import SwiperCuponesOfferts from '../components/SwiperCuponesOfferts.vue';
+
+// assets
 import oferta7 from '../assets/images/short.webp';
 import oferta8 from '../assets/images/hansen.webp';
 import oferta9 from '../assets/images/heekpek-bufandas.webp';

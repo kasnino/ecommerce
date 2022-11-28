@@ -5,33 +5,30 @@
            class="nav_profiles ps-0 w-100  pe-2 d-flex"
            style="gap:1px; "
            >
-            <swiper-slide 
-               style="position:relative;" 
-               class=" + 'd-flex gap-2  ps-2 pe-2'" > 
-               <BrandTiendaTag :brands="brands" />
-            </swiper-slide>
+                  <swiper-slide 
+                        style="position:relative;" 
+                        class=" + 'd-flex gap-2  ps-2 pe-2'" > 
+                        <BrandTiendaTag :brands="brands" />
+                  </swiper-slide>
 
-              <swiper-slide 
-                  v-for="(item, index) in selection"
-                  :key="index.id"
-                  style="position:relative;" 
-                  class=" + 'd-flex gap-2  ps-2 pe-2'"> 
-                  <span 
-                   
-                        
-                        >
-                           <FormPrenda 
-                             
-                              label_input="" 
-                              :tallas="item"
-                              :border_btn="false"
-                              :index="index"
-                              @SelectProductForm="SelectProductForm"
-                           ></FormPrenda>
-                        </span>
-              </swiper-slide>
-           </swiper>
+                  <swiper-slide 
+                        v-for="(item, index) in selection"
+                        :key="index.id"
+                        style="position:relative;" 
+                        class=" + 'd-flex gap-2  ps-2 pe-2'"> 
+                       
+                  <FormPrenda 
+                        label_input="" 
+                        :tallas="item"
+                        :border_btn="false"
+                        :index="index"
+                        @SelectProductForm="SelectProductForm"
+                  ></FormPrenda>
+                
+                   </swiper-slide>
+         </swiper>
           </nav>
+          <!-- Item Selection -->
           <ShowSelectiontienda
                   v-if="onShowSelect"
                   :idSelection="idSelection"

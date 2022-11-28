@@ -10,9 +10,7 @@
       "
       >{{ label_input }}</label
     > 
-   
     <div v-for="(select, z) in tallas" :key="z.id">
-     
       <button
       v-for="(selecto, k) in select" :key="k.id"
       
@@ -26,11 +24,9 @@
         aria-expanded="true"
         @click="SelectProductForm(selecto.name_form, index),toggleSelect(k),(isShow = !isShow)"
       >
-    
       <small>
           {{ selecto.name_form}} 
       </small>
-    
       </button>
     </div>
   </div>
