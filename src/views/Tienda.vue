@@ -3,12 +3,13 @@
        <Navbar 
               :show="true" 
               :shadown="false"  
+              :searchIcon="true"
+              :alertIcon="true"
               name="" 
               color="#FFFFFF" 
               username="trajes de baño para mujer" 
               height="60px" 
               :isVerificate="false"/>
-
       <!-- Navigations tabs icono más texto -->
         <ProfileNav 
                 class="profile_nav my-1"
@@ -19,12 +20,23 @@
                 :colores_icon="colores_icons"
                 :style="{ position: showProfileNav ? 'fixed' : '' }"  
                 @changeView="changeView"
+                :slide_count="swiper.activeIndex"
                 />
 
+           
             <!-- Sub navegacion de tallas/tiendas/precios -->
                 <ProductsNav/>
-                <template  v-if="view=='0'">
+          
+                   <swiper 
+                   :slidesPerView="'auto'" 
+                   :spaceBetween="30"
+                   @swiper="onSwiper"
+           >
+                  <swiper-slide> 
+                <template  v-if="view=='0'" >
+                  <div style="">  
                   <SwiperHomeOfferts :prodcuts="products" v-if="isLoaded" /> 
+                  </div>
                   <!-- Skeleton card funcional -->
                       <div class="row mx-0 d-flex px-0  py-1">
                        <template class="" 
@@ -33,19 +45,22 @@
                                   class="col-6  d-grid mx-0 px-0 my-1  d-flex 
                                    justify-content-between flex-column"   
                                   :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
-                                <skeleton
-                                    skeleton-class=" h-12 "
-                                    w="100%"
-                                    h="271px"
-                                    :is-loaded="isLoaded">
-                                </skeleton>
+                                    <skeleton
+                                        skeleton-class=" h-12 "
+                                        w="100%"
+                                        h="271px"
+                                        :is-loaded="isLoaded">
+                                    </skeleton>
                               </div> 
                         </template> 
                           </div>
                 </template>
+                </swiper-slide>
              
                     <template v-for="(vistas, index) in 5" :key="index" >
-                      <template  v-if="view== index+1">
+                        <swiper-slide 
+                        > 
+                    
                          <SwiperHomeOfferts :prodcuts="products" v-if="isLoaded" /> 
                           <!-- Skeleton card funcional -->
                          <div class="row mx-0 d-flex px-0  py-1">
@@ -64,8 +79,10 @@
                               </div> 
                         </template> 
                           </div>
-                      </template>
+                     
+                        </swiper-slide>
                    </template>
+                   </swiper>
               <Menubar :showMenu="showMenu" />
     </section>
 </template>
@@ -115,10 +132,16 @@ export default {
     SwiperCuponesOfferts,
     MyCardSkeleton
       },
-
         mounted() {
         this.onLoad();
         window.addEventListener('scroll', this.scrollHandler);
+        console.log("Mounted add")
+          console.log("Swiper: "+ this.swiper.activeIndex)
+      
+      },
+      created(){
+        console.log("Created")
+   
       },
        destroyed() {
       window.removeEventListener('scroll', this.scrollHandler);
@@ -126,7 +149,8 @@ export default {
 
       data()
       { 
-        return { 
+        return {
+          swiper: 0,
            items: [
         {
           thumbnail: 'laptop.svg',
@@ -172,10 +196,11 @@ export default {
         ShowSelectiontienda:false,
         isLoaded: false,
         tienda_icon:['start','fire','diamante','start','fire','diamante'],
-   
+         selectedProducts:[],
          showProfileNav: false,
          showMenu: true,
            views: 795,
+           slideview:0,
           view: '0',
           logos_redes:['logo_youtube','logo_instagram','logo_twitter','logo_facebook','logo_tiktok'],
           name_tabs: ['Nuevo','Nuestra seleccion', 'Top Likes Hoy', 'Tu list', 'tab 4', 'tab 5' ],
@@ -546,8 +571,23 @@ export default {
 
      methods: {
 
+    onSwiper(swiper) {
+      this.swiper = swiper;
+     
+    },
+
+    handleSlideTo() {
+      this.swiper.slideTo(3);
+    },
+
+   changeSlide(dato)
+   {
+      console.log("Emtro tienda Slide")
+      this.$emit('changeslide', dato);
+    },
+
+
     onLoad() {
-      console.log("entro")
         this.isLoaded = false
         setTimeout(() => {
         this.isLoaded = true
@@ -555,7 +595,8 @@ export default {
     },
     changeView(data) {
            this.onLoad()
-      this.view = data;
+           this.swiper.slideTo(data);
+           this.view = data;
     },
         onTab(data){
           return this.color_tab = (data)?'black':'black';
@@ -603,7 +644,11 @@ export default {
         this.showProfileNav = false;
       }
     }
-      }
+      },
+
+        computed: {
+          
+  },
 }
 </script>
 

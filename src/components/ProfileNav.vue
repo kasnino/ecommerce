@@ -1,24 +1,32 @@
 <template>
   <nav class="w-100 my-0"  style=" position:relative; background:#FFF; ">
-           <swiper  :slidesPerView="'auto'" :spaceBetween="3" class="nav_profiles ps-2 w-100  pe-2"
-           style="gap:1px; position:relative;    "
+             
+           <swiper  
+                :slidesPerView="'auto'" 
+                :spaceBetween="3" 
+                class="nav_profiles ps-2 w-100  pe-2"
+                style="gap:1px; position:relative;    "
+                @swiper="onSwiper"
            >
-            <swiper-slide v-for="(items, i) in tabs" :key="i.id" 
-            style="position:relative;    " 
-            :class=" + 'd-flex gap-2  ps-2 pe-2'" @click="onStyle(i), changeView(i), ConvertiHexFondoColo(colores_icon[i], i)">
-            
-           
-                 
+            <swiper-slide 
+                v-for="(items, i) in tabs" :key="i.id" 
+                :class=" (((i == slide_count)) ? 'nuevo' : '' )" 
+                @click="onStyle(i), 
+                changeView(i), 
+                ConvertiHexFondoColo(colores_icon[slide_count], slide_count)"
+                @changeSlide="changeSlide"
+                
+                >
             <div 
                  @click="positionTab(i)"
                  :id="`Tab-${i}`"
                  class="pe-2 py-2 pb-2  d-flex justify-content-center align-items-center "  
-                 :class="[ (( (onbarra) && (active === i)) ? 'activo' : ''),
+                 :class="[ (( (onbarra) && (active === slide_count)) ? 'activo' : ''),
                           (i == 0 ? 'ps-1 ' : 'ps-2 '), 
-                          (( (onbackground) && (relleno_on == i)) ? 'rellenoo' : '' )
+                          
                          ]">
 
-          <div class=""   :id="`slider-${i}`"
+          <div class="" :id="`slider-${i}`"
                :class="(( (onbackground) && (relleno_on == i)) ? 'slider' : '' )"
                :style="`transform: translateX(${(0)}px) !important; transition: all 0.4s ease; `"
                >
@@ -76,7 +84,11 @@ export default {
        },
        colores_icon:{
          type:Array,
-         defaul:false
+         default:false
+       },
+       slide_count:{
+         type:Number,
+         default:'0'
        }
   },
   components: {
@@ -90,19 +102,32 @@ setup(){
 },
  data() {
     return {
-     color_icon:['black','yellow'],
+      swiper:null,
       active:0,
       relleno_on:0,
       posejeX:0,
       posejeY:0,
       opacity: 30,
+      newColor:'',
       indiceColor:0,
+      color_icon:['black','yellow'],
       colorgba:['rgba(255,189,99,0.3)']
     }
   },
-
- 
     methods: {
+      onSwiper(swiper) 
+      {
+        this.swiper = swiper;
+      },
+
+      changeSlide(dato)
+      {
+        console.log("EntroSlide Cahnged")
+      },
+
+      handleSlideTo() {
+        this.swiper.slideTo(3);
+      },
 
        ConvertiHexFondoColo(color, indice) {
         color = color.replace('#', '')
@@ -145,10 +170,16 @@ setup(){
 </script>
 
 <style scoped>
+
+.nuevo{
+  background:v-bind('colorgba[indiceColor]'); border-radius:15px;
+  transition: tramsform 0.4s cubic-bezier(.10, .10, .10, .84) !important;
+  transition-timing-function: cubic-bezier(.10, .10, .10, .84) !important; 
+}
 .relleno{
   /* background:v-bind('colorgba[indiceColor]'); */
   border-radius: 15px;
-    margin: 0.5px;
+  margin: 0.5px;
   position: relative;
   z-index: 1;
   cursor: pointer;
