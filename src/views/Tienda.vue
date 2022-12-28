@@ -11,6 +11,8 @@
               height="60px" 
               :isVerificate="false"/>
       <!-- Navigations tabs icono más texto -->
+
+    
         <ProfileNav 
                 class="profile_nav my-1"
                 :tabs="name_tabs"

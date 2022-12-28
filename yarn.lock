@@ -748,7 +748,7 @@
   "resolved" "https://registry.npmmirror.com/swipejs/-/swipejs-2.3.1.tgz"
   "version" "2.3.1"
 
-"swiper@^8.4.2":
+"swiper@^7.0.0  || ^8.0.0", "swiper@^8.4.2":
   "integrity" "sha512-jA/8BfOZwT8PqPSnMX0TENZYitXEhNa7ZSNj1Diqh5LZyUJoBQaZcqAiPQ/PIg1+IPaRn/V8ZYVb0nxHMh51yw=="
   "resolved" "https://registry.npmmirror.com/swiper/-/swiper-8.4.4.tgz"
   "version" "8.4.4"
@@ -799,6 +799,11 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
+"vue-awesome-swiper@^5.0.1":
+  "integrity" "sha512-mWjFJzUqA4lG+DmsmibvMpoiBnl+IH2SSeiiQ3i5M0t1y9FknTxnGT0DsMb2YdJLgjYMEK3sYOWzqgLnZMH8Lg=="
+  "resolved" "https://registry.npmmirror.com/vue-awesome-swiper/-/vue-awesome-swiper-5.0.1.tgz"
+  "version" "5.0.1"
+
 "vue-content-loading@^1.6.0":
   "integrity" "sha512-D8vVW8eUhDE1VsX/gMRKjgNEVlPG4E4jKCuQjiv75VwnznFRjCGpoU2LABrSzmf6V/hb8ow8rHrFPuz3jVNsqA=="
   "resolved" "https://registry.npmmirror.com/vue-content-loading/-/vue-content-loading-1.6.0.tgz"
@@ -831,7 +836,7 @@
     "@vue/compiler-sfc" "2.7.14"
     "csstype" "^3.1.0"
 
-"vue@^2.5.18", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.41", "vue@3.2.45":
+"vue@^2.5.18", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.41", "vue@3.2.45", "vue@3.x":
   "integrity" "sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA=="
   "resolved" "https://registry.npmmirror.com/vue/-/vue-3.2.45.tgz"
   "version" "3.2.45"
