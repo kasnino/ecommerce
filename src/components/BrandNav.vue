@@ -1,6 +1,6 @@
 <template>
   <nav class="brand-nav">
- <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation" 
         v-for="(brand, i) in brands" :key="i" @click="changeView(i)">
         <button class="nav-link brand-nav-item w-100" 

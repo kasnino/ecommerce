@@ -37,13 +37,15 @@
         <h2>{{products_offers.name}}</h2>
         </div>
            <div class=" d-flex  justify-content-between justify-content-center 
-           align-items-end pe-1">
-         <div style="width: 50%; display: flex;" class=" offer-grid-item-body-footer ">
-              <div v-for="(colour, index) in products_offers.colours" :key="index" :style="'background-color:'+colour"></div>            
+           align-items-end p-0 m-0 pe-0" >
+         <div style="width: 65%; display: flex; " 
+         class="  p-0 m-0 ">
+              <!-- <div v-for="(colour, index) in products_offers.colours" :key="index" :style="'background-color:'+colour"></div>             -->
+          <NavTallas/>
           </div> 
-         <div style="" class="p-0 m-0 justify-content-end d-flex w-100 ">
+         <div style="" class="p-0 m-0 justify-content-end d-flex w-50 ">
               <img :src="oclock" alt="" class="me-1 img-fluid" style="">
-               <span style=" " class="d-flex p-0 m-0 flex-inline text_footer--cupons">Desde 22 marzo</span>
+               <span style=" " class="d-flex p-0 m-0 flex-inline text_footer--cupons">22 marzo</span>
             </div>
           </div>       
       </div>
@@ -52,6 +54,7 @@
 </template>
 
 <script>
+import NavTallas from './NavTallas.vue'
 import Cupons from '../components/svg/cupons.vue';
 import Timer from '../components/svg/oclock.vue';
 import CuponsCode from '../components/svg/cupons_code.vue';
@@ -63,7 +66,8 @@ export default {
   components: {
       Cupons,
       CuponsCode,
-      Timer
+      Timer,
+      NavTallas
     
   },
   data(){

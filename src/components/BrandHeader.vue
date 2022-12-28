@@ -3,13 +3,13 @@
     <div>
       <header class="brands-header-title">
         <h1 class="p-0 m-0" style="font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 19px;">{{brandName}}</h1>
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;">{{brandName}}</h1>
         <span style="font-weight: 500;
-font-size: 12px;
-line-height: 15px; 
-color: #AEAEAE;">({{ views }})</span>
+        font-size: 12px;
+        line-height: 15px; 
+        color: #AEAEAE;">({{ views }})</span>
       </header>
       <img src="../assets/trash.png" alt="trash">
     </div>

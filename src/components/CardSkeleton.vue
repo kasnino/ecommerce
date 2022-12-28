@@ -1,9 +1,9 @@
 <template>
 <div class="row mx-0 px-0 py-1">
-
   <template  v-for="(item, index) in item" :key="index" >
-      <div class="col-6 mx-0 px-0   d-flex justify-content-between flex-column  my-2 "
-      v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
+  <div class="col-6 mx-0 px-0   d-flex justify-content-between flex-column  my-2 "
+       v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
+
     <skeleton
       :animation="false"
       :is-loaded="isLoaded"

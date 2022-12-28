@@ -1,5 +1,5 @@
 <template>
-     <div class="col-6 d-grid gap-2 mx-0 px-0  my-2  " 
+     <div class="col-6 d-grid gap-2 mx-0 px-0  my-2" 
    :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}"> 
      <div class="card_cuponds  m-0 position-relative">
        <span 
@@ -114,12 +114,9 @@
                   <span style="color:#232323;"  class="me-1 text_footer" v-if="datos.cupon.agotado">Caducado</span>
                   <span style="color:#9B9B9B" class="m-0 p-0 d-flex  text_footer" v-else>{{datos.cupon.fecha}}</span>
                </div>
-
                </div>       
               </div> 
-
               </div>
-
             </div>
          </div>   
           

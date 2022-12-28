@@ -119,15 +119,15 @@ export default {
     FireIcon
       },
 
-        mounted() {
+    mounted() {
         window.addEventListener('scroll', this.scrollHandler);
-      },
+    },
     destroyed() {
       window.removeEventListener('scroll', this.scrollHandler);
     },
 
     setup() {
-   const getImageUrl = (name_logo) => {
+        const getImageUrl = (name_logo) => {
         return new URL(`../assets/profile/redes_sociales/${name_logo}.svg`, import.meta.url).href
     }
   

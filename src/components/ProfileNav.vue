@@ -1,21 +1,22 @@
 <template>
+
   <nav class="w-100 my-0"  style=" position:relative; background:#FFF; ">
-             
+
            <swiper  
                 :slidesPerView="'auto'" 
                 :spaceBetween="3" 
                 class="nav_profiles ps-2 w-100  pe-2"
                 style="gap:1px; position:relative;    "
                 @swiper="onSwiper"
+                @slideChange="onChangeSwiper"
            >
             <swiper-slide 
                 v-for="(items, i) in tabs" :key="i.id" 
-                :class=" (((i == slide_count)) ? 'nuevo' : '' )" 
+                :class=" (((i == slide_count)) ? 'nuevo': '' )"
+                :style=" (((i == slide_count)) ? 'background:'+ colores_icon[slide_count]+'30;' : '' )"
                 @click="onStyle(i), 
-                changeView(i), 
-                ConvertiHexFondoColo(colores_icon[slide_count], slide_count)"
+                changeView(i)"
                 @changeSlide="changeSlide"
-                
                 >
             <div 
                  @click="positionTab(i)"
@@ -27,7 +28,7 @@
                          ]">
 
           <div class="" :id="`slider-${i}`"
-               :class="(( (onbackground) && (relleno_on == i)) ? 'slider' : '' )"
+               :class="(( (onbackground) && (relleno_on == i)) ? '' : '' )"
                :style="`transform: translateX(${(0)}px) !important; transition: all 0.4s ease; `"
                >
           </div>
@@ -88,7 +89,11 @@ export default {
        },
        slide_count:{
          type:Number,
-         default:'0'
+         default:0
+       },
+       swiperview:{
+         type:Number,
+         default:0
        }
   },
   components: {
@@ -99,10 +104,12 @@ export default {
 
 setup(){
   const Tab = ref(null);
+ 
 },
  data() {
     return {
       swiper:null,
+      changeSwiper:null,
       active:0,
       relleno_on:0,
       posejeX:0,
@@ -114,10 +121,25 @@ setup(){
       colorgba:['rgba(255,189,99,0.3)']
     }
   },
+  
+  computed: {
+    // un getter computado
+
+  },
     methods: {
+
+      getRef(swiperInstance) {
+        swiper.value = swiperInstance
+      },
+      next () {
+        swiper.value.slideNext() // should work
+      },
       onSwiper(swiper) 
       {
         this.swiper = swiper;
+      },
+      onChangeSwiper(changeSwiper){
+        this.changeSwiper = changeSwiper;
       },
 
       changeSlide(dato)
@@ -172,7 +194,7 @@ setup(){
 <style scoped>
 
 .nuevo{
-  background:v-bind('colorgba[indiceColor]'); border-radius:15px;
+   border-radius: 15px; 
   transition: tramsform 0.4s cubic-bezier(.10, .10, .10, .84) !important;
   transition-timing-function: cubic-bezier(.10, .10, .10, .84) !important; 
 }

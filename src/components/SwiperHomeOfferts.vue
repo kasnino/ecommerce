@@ -1,13 +1,9 @@
 <template>
 <div class="row mx-0 px-0 py-1 ">
-
-      
     <template v-for="(item, index) in  prodcuts"    :key="index" >
         <ProductsOfferts v-if="!item.is_cupon"      :products_offers="item" :index="index" />
         <CuponesOfferts  v-else  :datos="item"      :index="index"/>
     </template>
-
-
 </div>
     
 </template>

@@ -1,14 +1,17 @@
 <template>
       <nav class="w-100 my-0"  
            style=" position:relative; background:#FFF;">
-        <swiper :slidesPerView="'auto'" :spaceBetween="3" 
+        <swiper 
+           :slidesPerView="'auto'" 
+           :spaceBetween="3" 
            class="nav_profiles ps-0 w-100  pe-2 d-flex"
-           style="gap:1px; "
+           style="gap:1px;"
            >
                   <swiper-slide 
-                        style="position:relative;" 
-                        class=" + 'd-flex gap-2  ps-2 pe-2'" > 
-                        <BrandTiendaTag :brands="brands" />
+                  style="position:relative;" 
+                  class=" + 'd-flex gap-2  ps-2 pe-2'" > 
+                  <BrandTiendaTag :brands="brands" />
+                  
                   </swiper-slide>
 
                   <swiper-slide 
@@ -16,7 +19,7 @@
                         :key="index.id"
                         style="position:relative;" 
                         class=" + 'd-flex gap-2  ps-2 pe-2'"> 
-                       
+               <!-- Component show  lod inputs Select -->
                   <FormPrenda 
                         label_input="" 
                         :tallas="item"
@@ -24,7 +27,6 @@
                         :index="index"
                         @SelectProductForm="SelectProductForm"
                   ></FormPrenda>
-                
                    </swiper-slide>
          </swiper>
           </nav>
@@ -49,7 +51,6 @@ components: {
       Swiper,
       SwiperSlide,
       ShowSelectiontienda
-      
 },
 data(){
 return {
@@ -106,7 +107,6 @@ return {
                   { id:'5', nro:'39', available:true },
             ]
             },
-            
       ],
             },
                  {
@@ -121,7 +121,6 @@ return {
                   { id:'5', nro:'39', available:true },
             ]
             },
-            
       ],
             },
                  {
@@ -136,7 +135,6 @@ return {
                   { id:'5', nro:'39', available:true },
             ]
             },
-            
       ],
             },
                  {
@@ -151,15 +149,13 @@ return {
                   { id:'5', nro:'39', available:true },
             ]
             },
-            
       ],
             },
-            
       ],
 
       lista_Selection:[
       {
-             select:['Tienda1', 'Tipo1', 'Tienda1','Tienda1','Tienda1','Tienda1','Tienda1','Tienda1'],
+            select:['Tienda1', 'Tipo1', 'Tienda1','Tienda1','Tienda1','Tienda1','Tienda1','Tienda1'],
       },{ 
              select:['talla1','talla1','talla1','talla1','talla1','talla2'],
       },{  

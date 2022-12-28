@@ -1,6 +1,7 @@
 <template>
   <section class="registration"  style="height:calc(100% - 10px);">
-    <NavbarSearch :show="true" show_name_back="Atrás" :search="false" :white="true" name=""  route_to="/registration-step-three" />
+    <NavbarSearch :show="true" show_name_back="Atrás" :search="false" 
+    :white="true" name=""  route_to="/registration-step-three" />
     
     <div style="margin-top:75px"></div>
 

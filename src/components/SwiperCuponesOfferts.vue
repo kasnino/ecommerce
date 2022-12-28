@@ -4,7 +4,6 @@
   <template  v-for="(item, index) in prodcuts" :key="index" >
       <div class="col-6 mx-0 px-0   d-flex justify-content-between flex-column  my-2 "
       v-if="!item.is_cupon" :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
-       
         <figure class="img_card--products offer-grid-item-img text-center" style="display: flex; object-fit: contain !important;">
           <!-- <img :src="item.image" alt="grid item" style="height:220px; width: 170px;"> -->
           <img :src="item.image" alt="grid item img_card--products" 
@@ -33,8 +32,8 @@
           <h2>{{item.name}}</h2>
           </div>
           <div class=" d-flex  justify-content-between justify-content-center 
-          align-items-end pe-1">
-            <div style="width: 50%; display: flex;" class=" offer-grid-item-body-footer ">
+          align-items-end pe-1" >
+            <div style="width: 50%; display: flex; border:2px solid red;" class=" offer-grid-item-body-footer ">
                 <div v-for="(colour, index) in item.colours" :key="index" :style="'background-color:'+colour"></div>            
             </div> 
             <div style=" m-0 p-0" class="d-flex justify-content-end w-100  ">
@@ -80,8 +79,6 @@ export default {
     return { 
       oclock : oclock,
       bg_white : bg_white,
-    
- 
     }
   },
   mounted() { 
@@ -113,10 +110,10 @@ position: absolute;
 
 .countdown-date{
 text-align: center;
-    justify-content: flex-end;
-    align-items: center;
-    align-content: center;
-    display: flex;
+justify-content: flex-end;
+align-items: center;
+align-content: center;
+display: flex;
 }
 .badget-buttom{
   bottom: 30px !important;
@@ -128,9 +125,9 @@ text-align: center;
 
 .img_card--products{
   width: 100%;
-   height: 100%;
-          object-fit: contain;
-    background-size: contain;
+  height: 100%;
+  object-fit: contain;
+  background-size: contain;
 }
 .card_cuponds{
 width:100; 

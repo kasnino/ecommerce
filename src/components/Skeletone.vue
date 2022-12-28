@@ -92,7 +92,7 @@ export default {
   color: transparent;
   display: block;
   user-select: none;
-  background:  #dddbddbd;
+  background:  #dddbdd9d;
   position: relative;
 
   * {

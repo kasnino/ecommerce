@@ -22,11 +22,9 @@
                 @changeView="changeView"
                 :slide_count="swiper.activeIndex"
                 />
-
-           
             <!-- Sub navegacion de tallas/tiendas/precios -->
+           
                 <ProductsNav/>
-          
                    <swiper 
                    :slidesPerView="'auto'" 
                    :spaceBetween="30"
@@ -60,7 +58,6 @@
                     <template v-for="(vistas, index) in 5" :key="index" >
                         <swiper-slide 
                         > 
-                    
                          <SwiperHomeOfferts :prodcuts="products" v-if="isLoaded" /> 
                           <!-- Skeleton card funcional -->
                          <div class="row mx-0 d-flex px-0  py-1">
@@ -135,8 +132,7 @@ export default {
         mounted() {
         this.onLoad();
         window.addEventListener('scroll', this.scrollHandler);
-        console.log("Mounted add")
-          console.log("Swiper: "+ this.swiper.activeIndex)
+        
       
       },
       created(){
@@ -151,6 +147,7 @@ export default {
       { 
         return {
           swiper: 0,
+          swipervalue:0,
            items: [
         {
           thumbnail: 'laptop.svg',
@@ -573,6 +570,7 @@ export default {
 
     onSwiper(swiper) {
       this.swiper = swiper;
+      this.swipervalue = swiper.value
      
     },
 

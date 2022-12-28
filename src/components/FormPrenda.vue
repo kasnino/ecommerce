@@ -16,12 +16,13 @@
       
         type="button"
         style="justify-content: space-between; align-items: center; font-size:0.79rem;" 
-        class="rounded-2  dropdown-toggle d-flex d-flex "
+        class="rounded-2  d-flex d-flex "
         :class="[((border_btn)? '' : ' p-1'),
         (( (isShow) && (active === k)) ? 'active_btn' : 'border-btn'),
+        ((expandir) ? 'dropdown-toggle' : '' )
         ]"
         ref="aqui"
-        aria-expanded="true"
+        :aria-expanded="expandir"
         @click="SelectProductForm(selecto.name_form, index),toggleSelect(k),(isShow = !isShow)"
       >
       <small>
@@ -36,7 +37,6 @@
 import ButtonToSocial from "./ButtonToSocial.vue";
 import CustomInput from "./CustomInput.vue";
 import PrimaryButton from "./PrimaryButton.vue";
-
 import notification from "../assets/notification.svg";
 export default {
   data() {
@@ -101,6 +101,10 @@ export default {
         index:{
          type:Number,
          default:0
+       },
+        expandir:{
+         type:Boolean,
+         default:true
        }
     }
 }
@@ -112,7 +116,6 @@ export default {
 .border-btn{
    border: 2px solid #dedede;
 }
-
 .btn_products{
     background:#FFF;
 }

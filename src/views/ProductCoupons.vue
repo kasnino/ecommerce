@@ -26,11 +26,10 @@
     <div class="border border-danger">
 <BrandHeader  :style="{ paddingBottom: showBrandNav ? `${16 + 39}px` : '' }" :views="views" :brandName="brandName" />
     </div>
-    
-
     <hr style="color:#b4aeae">
   <div class="border border-warning">
-    <BrandNav :brands="brands" :style="{ position: showBrandNav ? 'fixed' : '' }" @changeView="changeView" />
+    <BrandNav :brands="brands" :style="{ position: showBrandNav ? 'fixed' : '' }" 
+    @changeView="changeView" />
   </div>
     <!-- <Button2Swiper :alerts="MoreLikeCardsSwiperItems"></Button2Swiper> -->
 
@@ -150,7 +149,6 @@ export default {
   },
   methods: {
     changeView(data) {
-      console.log('sasd',data);
       this.view = data;
     },
     scrollHandler() {
