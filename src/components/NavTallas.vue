@@ -1,7 +1,23 @@
 <template>
-      <nav class="w-100 my-0"  
-           style="position:relative; z-index:99;">
-       <swiper 
+
+
+      <nav class="w-100 my-0" style="position:relative; z-index:99;">
+
+           <div class="navigation-absolute" 
+            v-if="contandoClick && swiper.activeIndex > 0" >
+              <div class="d-flex direction_arrows">
+                  <button class="btn_arrow" @click="prev">
+                      <svg  width="7" 
+                           height="13" viewBox="0 0 8 14" fill="#000" 
+                           xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0 6.96165C0 7.22911 0.102262 7.45723 0.314651 7.66175L6.45034 13.6637C6.61554 13.8368 6.83579 13.9233 7.08751 13.9233C7.59882 13.9233 8 13.53 8 13.0108C8 12.7591 7.89774 12.531 7.72468 12.3579L2.19469 6.96165L7.72468 1.56539C7.89774 1.38446 8 1.15634 8 0.904621C8 0.393314 7.59882 0 7.08751 0C6.83579 0 6.61554 0.086529 6.45034 0.259587L0.314651 6.26155C0.102262 6.46608 0.00786627 6.6942 0 6.96165Z"
+                          fill="#000000" />
+                      </svg>
+                  </button>
+                  </div>
+              </div>
+          <swiper 
                 :slidesPerView="'auto'" 
                 :spaceBetween="3" 
                 class="nav_profiles  w-100 d-flex "
@@ -9,24 +25,23 @@
                 @slideChange="onSlideChange"
                 @swiper="onSwiper"    
              >
-                       
                                     <swiper-slide
-                                     v-for="(item, index) in selection"
+                                       v-for="(item, index) in selection"
                                        :key="index.id"
                                         type="button"
                                         style="justify-content: space-between; align-items: center; font-size:0.79rem;" 
                                         class="rounded-2  d-flex d-flex "
                                         ref="aqui"
-                                        :style="((k==1) ? 'margin-left:10%;' : '' )"
+                                        :style="((k==1) ? 'margin-left:11%;' : '' )"
                                     >
                         <div 
                         v-for="(select, z) in item" :key="z.id"
                         style="position:relative; " 
-                        class="d-flex  pe-2"> 
+                        class="d-flex  pe-1"> 
 
-                           <div   class="d-flex  pe-2"  v-for="(talla, k) in select" :key="k.id">
+                           <div   class="d-flex  pe-1"  v-for="(talla, k) in select" :key="k.id">
 
-                                    <button class="d-flex p-0 mx-1 border-btn"  
+                                    <button class="d-flex p-0 boton_tallas border-btn"  
                                     v-for="(numtalla, ke) in talla.sizes" :key="ke.id" >
                                        <div class="d-flex m-0 p-0"
                                        :class="[
@@ -42,24 +57,18 @@
                                     </swiper-slide>
      
        </swiper>
-          <div class="navigation-absolute">
-              <div class="d-flex direction_arrows">
-                  <button class="btn_arrow" @click="prev">
-      <svg width="8" height="14" viewBox="0 0 8 14" fill="#000" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M0 6.96165C0 7.22911 0.102262 7.45723 0.314651 7.66175L6.45034 13.6637C6.61554 13.8368 6.83579 13.9233 7.08751 13.9233C7.59882 13.9233 8 13.53 8 13.0108C8 12.7591 7.89774 12.531 7.72468 12.3579L2.19469 6.96165L7.72468 1.56539C7.89774 1.38446 8 1.15634 8 0.904621C8 0.393314 7.59882 0 7.08751 0C6.83579 0 6.61554 0.086529 6.45034 0.259587L0.314651 6.26155C0.102262 6.46608 0.00786627 6.6942 0 6.96165Z"
-          fill="#000000" />
-      </svg>
-                  </button>
+          <div class="navigation-absolute-right">
+              <div class="d-flex direction_arrows ">
                   <button class="btn_arrow" @click="next">
-       <svg width="8" height="14" class="arrow_right" viewBox="0 0 8 14" fill="#000" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M0 6.96165C0 7.22911 0.102262 7.45723 0.314651 7.66175L6.45034 13.6637C6.61554 13.8368 6.83579 13.9233 7.08751 13.9233C7.59882 13.9233 8 13.53 8 13.0108C8 12.7591 7.89774 12.531 7.72468 12.3579L2.19469 6.96165L7.72468 1.56539C7.89774 1.38446 8 1.15634 8 0.904621C8 0.393314 7.59882 0 7.08751 0C6.83579 0 6.61554 0.086529 6.45034 0.259587L0.314651 6.26155C0.102262 6.46608 0.00786627 6.6942 0 6.96165Z"
-          fill="#000000" />
-      </svg>
+                      <svg width="7" height="12" class="arrow_right" viewBox="0 0 8 14" 
+                           fill="#000" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0 6.96165C0 7.22911 0.102262 7.45723 0.314651 7.66175L6.45034 13.6637C6.61554 13.8368 6.83579 13.9233 7.08751 13.9233C7.59882 13.9233 8 13.53 8 13.0108C8 12.7591 7.89774 12.531 7.72468 12.3579L2.19469 6.96165L7.72468 1.56539C7.89774 1.38446 8 1.15634 8 0.904621C8 0.393314 7.59882 0 7.08751 0C6.83579 0 6.61554 0.086529 6.45034 0.259587L0.314651 6.26155C0.102262 6.46608 0.00786627 6.6942 0 6.96165Z"
+                          fill="#000000" />
+                      </svg>
                   </button>
+                  </div>
               </div>
-          </div>
           </nav>
       
 </template>
@@ -75,7 +84,7 @@ import 'swiper/swiper-bundle.css'
   // Import Swiper Vue.js components
   import "swiper/swiper-bundle.css";
   import { Swiper, SwiperSlide } from 'swiper/vue';
-
+  import { ref, reactive } from 'vue'
   // Import Swiper styles
   import 'swiper/css';
   import 'swiper/css/navigation';
@@ -90,8 +99,15 @@ import 'swiper/swiper-bundle.css'
       VueAwesomeSwiper,
       ShowSelectiontienda,
     },
+
+    data(){
+      return{
+      contandoClick:false,
+      }
+    },
     methods: {
-   onSwiper(swiper) 
+
+      onSwiper(swiper) 
       {
         console.log("Entro");
         this.swiper = swiper;
@@ -100,15 +116,18 @@ import 'swiper/swiper-bundle.css'
       prev() {
         this.swiper.slidePrev()
       },
+    
       next() {
-        this.swiper.slideNext()
+       this.swiper.slideNext();
+       this.contandoClick = true;
+       console.log(this.contadorClick)
       },
-      
    
      onSlideChange() {
       console.log("slide change");
-    },
-    chowSelect(tipo){
+     },
+
+     chowSelect(tipo){
       this.$emit('chowSelect', tipo);
     },
        toggleSelect(index) {
@@ -119,23 +138,37 @@ import 'swiper/swiper-bundle.css'
         }  
      },
      SelectProductForm(data, indice) {
-      return this.onShowSelect = true, this.nombre_selection = data, this.idSelection = indice;
+      return  this.onShowSelect = true, 
+              this.nombre_selection = data, 
+              this.idSelection = indice;
       },
 },
-    setup() {
-      const onSwiper = (swiper) => {
-         this.swiper = swiper;
+    setup() 
+    {
+
+      const state = reactive({
+        isVisible: true,
+      });
+
+      const isReading = ref(true);
+
+      const onSwiper  = (swiper) => {
+         this.swiper  = swiper;
       };
+
       const onSlideChange = () => {
         console.log('slide change');
       };
+
       return {
-         swiperOptionA: {
+        isReading,
+        swiperOptionA: {
             navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
       }
          },
+      
        onSlideChange,
        modules: [Navigation],
        swiper:null,
@@ -223,13 +256,19 @@ import 'swiper/swiper-bundle.css'
 
 <style lang="scss" scoped>
 
+.boton_tallas{
+  margin-left: 3px;
+}
+
 .arrow_right{
   transform: rotate(180Deg);
 }
+
 .btn_arrow{
-  padding: 2px;
+  padding: 0px;
   border:#858484;
-  width:25px;
+  width:20px;
+  height:25px;
   border-radius: 50%;
   background:#f7f4f8;
 }
@@ -238,6 +277,14 @@ import 'swiper/swiper-bundle.css'
   position: absolute;
   top:0px;
   z-index:100;
+  left:-9px;
+}
+
+.navigation-absolute-right{
+  position: absolute;
+  top:0px;
+  z-index:100;
+  right:-9px;
 }
 
 .direction-arrows{
@@ -247,18 +294,18 @@ import 'swiper/swiper-bundle.css'
 }
 
 .active_btn{
-      border: 1px solid #e8bf2e;
+  border: 1px solid #e8bf2e;
 }
 .swiper-button-disabled{
-    display:none;   
+  display:none;   
 }
 .active_btn{
   border: 1px solid #e8bf2e7a;
 }
 .border-btn{
-   border: 1px solid #dedede;
+  border: 1px solid #dedede;
 }
 .btn_products{
-    background:#FFF;
+  background:#FFF;
 }
 </style>
