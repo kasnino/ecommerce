@@ -24,7 +24,6 @@
                  class="pe-2 py-2 pb-2  d-flex justify-content-center align-items-center "  
                  :class="[ (( (onbarra) && (active === slide_count)) ? 'activo' : ''),
                           (i == 0 ? 'ps-1 ' : 'ps-2 '), 
-                          
                          ]">
 
           <div class="" :id="`slider-${i}`"

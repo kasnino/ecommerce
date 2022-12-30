@@ -15,7 +15,7 @@
                             font-size:0.76rem;"
                         >
 
-                       <button class="white p-1  ps-2 pe-2 m-1 rounded-3"
+                       <button class="btn_show-select p-1  ps-2 pe-2 "
                        :class="[selectionItems[key] ? 'active_btn' : 'border']"
                        @click="itemsCount(key)"
                        >
@@ -76,4 +76,9 @@ export default {
       border: 2px solid #e8bf2e;
 }
 
+.btn_show-select{
+  background: #FFF;
+  border-radius: 3px;
+  margin: 2px;
+}
 </style>

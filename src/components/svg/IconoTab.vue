@@ -11,6 +11,7 @@ import IconoStart from './start.vue';
 import IconoDiamante from './diamante.vue';
 import IconoActivity from './activity.vue';
 import IconoCampana from './campana.vue';
+import IconoComment from './commentario.vue';
 export default {
     props:  {
         name_icono:{
@@ -31,7 +32,8 @@ export default {
          IconoStart,
          IconoDiamante,
          IconoActivity,
-         IconoCampana
+         IconoCampana,
+         IconoComment
        },
        data(){
          return {

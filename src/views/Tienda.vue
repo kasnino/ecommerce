@@ -54,6 +54,8 @@
                               </div> 
                         </template> 
                           </div>
+
+
                 </template>
                 </swiper-slide>
              
@@ -198,13 +200,13 @@ export default {
          selectedProducts:[],
          showProfileNav: false,
          showMenu: true,
-           views: 795,
-           slideview:0,
+         views: 795,
+         slideview:0,
           view: '0',
           logos_redes:['logo_youtube','logo_instagram','logo_twitter','logo_facebook','logo_tiktok'],
-          name_tabs: ['Nuevo','Nuestra seleccion', 'Top Likes Hoy', 'Tu list', 'tab 4', 'tab 5' ],
-          name_iconos: ['IconoCampana','IconoFire','IconoDiamante','IconoStart','IconoActivity','IconoDiamante'],
-         colores_icons: ['#ffbd63', '#5bc6d6', '#ff8f8f', '#ffca9d', '#ffbd63', '#5bc6d6',],
+          name_tabs: ['Nuevo','Nuestra seleccion', 'Top Likes Hoy', 'Tus alertas', 'Mas Comentadas', 'Mis favoritos' ],
+          name_iconos: ['IconoCampana','IconoFire','IconoDiamante','IconoStart','IconoComment','IconoDiamante'],
+         colores_icons: ['#ffbd63', '#5bc6d6', '#ff8f8f', '#ffca9d', '#00b25e', '#5bc6d6',],
          color_tab:'black',
           profile_info:"Hola, me encantan las zapatillas y los chollos,intentaré publicar mucho contenido de ofertas de zapatillas, asi que sígueme :).",
           products: [
@@ -653,10 +655,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fade-enter-active, .fade-leave-active {
+
+.fade-enter-active, .fade-leave-active 
+{
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ 
+{
   opacity: 0;
 }
 
@@ -665,8 +672,8 @@ export default {
   z-index: 10;
   top:53px !important;
   background:#FFF;
-   transition: all 0.1s linear 0.2s;
-   border-top: 1px solid #EDEDED;
+  transition: all 0.1s linear 0.2s;
+  border-top: 1px solid #EDEDED;
 }
 .fade-enter-active,
 .fade-leave-active {

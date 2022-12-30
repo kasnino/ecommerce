@@ -16,8 +16,8 @@
       
         type="button"
         style="justify-content: space-between; align-items: center; font-size:0.79rem;" 
-        class="rounded-2  d-flex d-flex "
-        :class="[((border_btn)? '' : ' p-1'),
+        class="p-0  d-flex d-flex btn_fromprenda "
+        :class="[((border_btn)? '' : ' p-0'),
         (( (isShow) && (active === k)) ? 'active_btn' : 'border-btn'),
         ((expandir) ? 'dropdown-toggle' : '' )
         ]"
@@ -111,12 +111,23 @@ export default {
 </script>
 <style lang="scss" scoped>
 .active_btn{
-  border: 2px solid #e8bf2e7a;
+  border: 1px solid #e8bf2e7a;
 }
 .border-btn{
-   border: 2px solid #dedede;
+   border: 1px solid #ebebeb;
+    background:#FFFFFF;
+    color:#6f7072;
 }
 .btn_products{
     background:#FFF;
+}
+
+.btn_fromprenda{
+  border-radius: 2px;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  
 }
 </style>
