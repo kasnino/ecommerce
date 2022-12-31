@@ -38,12 +38,12 @@
         </div>
            <div class=" d-flex  justify-content-between justify-content-center 
            align-items-end p-0 m-0 pe-0" >
-         <div style="width: 65%; display: flex; " 
+         <div style="width: 58%; display: flex; " 
          class="  p-0 m-0 ">
               <!-- <div v-for="(colour, index) in products_offers.colours" :key="index" :style="'background-color:'+colour"></div>             -->
           <NavTallas/>
           </div> 
-         <div style="" class="p-0 m-0 justify-content-end d-flex w-50 ">
+         <div style="" class="p-0 m-0 justify-content-center mb-2   d-flex w-50 ">
               <img :src="oclock" alt="" class="me-1 img-fluid" style="">
                <span style=" " class="d-flex p-0 m-0 flex-inline text_footer--cupons">22 marzo</span>
             </div>

@@ -7,7 +7,8 @@
                  <div class="d-flex direction_arrows">
                     <button class="btn_arrow" @click="prev">
                         <svg  width="7" 
-                              height="13" viewBox="0 0 8 14" fill="#b9bbc2" 
+                        class="mb-1" 
+                              height="10" viewBox="0 0 8 14" fill="#b9bbc2" 
                               xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M0 6.96165C0 7.22911 0.102262 7.45723 0.314651 7.66175L6.45034 13.6637C6.61554 13.8368 6.83579 13.9233 7.08751 13.9233C7.59882 13.9233 8 13.53 8 13.0108C8 12.7591 7.89774 12.531 7.72468 12.3579L2.19469 6.96165L7.72468 1.56539C7.89774 1.38446 8 1.15634 8 0.904621C8 0.393314 7.59882 0 7.08751 0C6.83579 0 6.61554 0.086529 6.45034 0.259587L0.314651 6.26155C0.102262 6.46608 0.00786627 6.6942 0 6.96165Z"
@@ -19,49 +20,38 @@
 
           <swiper 
                 :slidesPerView="'auto'" 
-                :spaceBetween="3" 
+                :spaceBetween="2" 
                 class="nav_profiles  w-100 d-flex "
                 style="gap:1px; position:relative; z-index:99;"
-                @slideChange="onSlideChange"
+             
                 @swiper="onSwiper"    
              >
               
               <swiper-slide
-                    v-for="(item, index) in selection"
+                    v-for="(item, index) in tallas"
                     :key="index.id"
                     type="button"
                     style="justify-content: space-between; align-items: center; font-size:0.79rem;" 
                     class="rounded-2  d-flex d-flex "
-                    ref="aqui"
-                    :style="((k==1) ? 'margin-left:11%;' : '' )"
-                >
-                        <div 
-                        v-for="(select, z) in item" :key="z.id"
-                        style="position:relative; " 
-                        class="d-flex  pe-1"> 
+                    ref="aqui">
 
-                           <div   class="d-flex  pe-1"  v-for="(talla, k) in select" :key="k.id">
-
-                                    <button class="d-flex p-0 boton_tallas border-btn"  
-                                    v-for="(numtalla, ke) in talla.sizes" :key="ke.id" >
-                                       <div class="d-flex m-0 p-0"
-                                       :class="[
-                                       (( (isShow) && (active === ke)) ? 'active_btn' : 'border-btn')]"
-                                        @click="SelectProductForm(talla.name, ke),toggleSelect(ke),(isShow = !isShow)" 
-                                       > 
-                                          
-                                          <span class="mx-1">{{numtalla.nro}}</span>
-                                       </div>
-                                    </button>
-                           </div>
-                      </div>
+                    <div class="d-flex">
+                      <button class="d-flex p-0 boton_tallas " 
+                    :class="[(( (isShow) && (active == index)) ? 'active_btn' : 'border-btn')]">
+                        <div class="d-flex m-0 p-0"
+                        @click="SelectProductForm(item.nro, index),
+                                toggleSelect(index)"> 
+                                <span class="mx-1 name_talla">{{item.nro}}</span>
+                            </div>
+                          </button>
+                        </div>
                                     </swiper-slide>
      
        </swiper>
           <div class="navigation-absolute-right">
               <div class="d-flex direction_arrows ">
                   <button class="btn_arrow" @click="next">
-                      <svg width="7" height="12" class="arrow_right" viewBox="0 0 8 14" 
+                      <svg width="7" height="10" class="arrow_right mb-1" viewBox="0 0 8 14" 
                              xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M0 6.96165C0 7.22911 0.102262 7.45723 0.314651 7.66175L6.45034 13.6637C6.61554 13.8368 6.83579 13.9233 7.08751 13.9233C7.59882 13.9233 8 13.53 8 13.0108C8 12.7591 7.89774 12.531 7.72468 12.3579L2.19469 6.96165L7.72468 1.56539C7.89774 1.38446 8 1.15634 8 0.904621C8 0.393314 7.59882 0 7.08751 0C6.83579 0 6.61554 0.086529 6.45034 0.259587L0.314651 6.26155C0.102262 6.46608 0.00786627 6.6942 0 6.96165Z"
@@ -101,11 +91,27 @@ import 'swiper/swiper-bundle.css'
       ShowSelectiontienda,
     },
 
-    data(){
+    data()
+    {
       return{
       contandoClick:false,
+      swiper:null,
+       isShow:true,
+       nombre_selection:'',
+       idSelection:0,
+       active:0,
+       onShowSelect:false,
+       tallas : [
+                  { id:'1', nro:'XS', available:true },
+                  { id:'2', nro:'S', available:true },
+                  { id:'3', nro:'M', available:true },
+                  { id:'4', nro:'L', available:true },
+                  { id:'5', nro:'XL', available:true },
+                  { id:'5', nro:'XXL', available:true }
+            ],
       }
     },
+
     methods: {
 
       onSwiper(swiper) 
@@ -124,112 +130,34 @@ import 'swiper/swiper-bundle.css'
        console.log(this.contadorClick)
       },
    
-     onSlideChange() {
-      console.log("slide change");
-     },
+  
 
      chowSelect(tipo){
       this.$emit('chowSelect', tipo);
     },
        toggleSelect(index) {
        // toggle the active class
-         if(this.isShow)
-        {   
+       
           return this.active = index
-        }  
+        
      },
      SelectProductForm(data, indice) {
       return  this.onShowSelect = true, 
               this.nombre_selection = data, 
-              this.idSelection = indice;
+              this.idSelection = indice
+             
       },
 },
-    setup() 
-    {
-
-      const state = reactive({
-        isVisible: true,
-      });
-
-      const isReading = ref(true);
-
-      const onSwiper  = (swiper) => {
-         this.swiper  = swiper;
-      };
-
-      const onSlideChange = () => {
-        console.log('slide change');
-      };
-
-      return {
-        isReading,
-        swiperOptionA: {
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      }
-         },
-      
-       onSlideChange,
-       modules: [Navigation],
-       swiper:null,
-       isShow:true,
-       nombre_selection:'',
-       idSelection:0,
-       active:0,
-       onShowSelect:false,
-       brands: [
-        {
-          name: 'Ver agotadas',
-          amount: '',
-          img: '',
-          index: 0,
-          checking: true
-        },
-      ],
-      selection:[
-            {
-            tipoSelect:[{
-            name_form:'Talla',
-            name:'UE',
-            sizes : [
-                  { id:'1', nro:'XS', available:true },
-                  { id:'2', nro:'S', available:true },
-                  { id:'3', nro:'M', available:true },
-                  { id:'4', nro:'L', available:true },
-                  { id:'5', nro:'XL', available:true },
-                   { id:'5', nro:'XXL', available:true }
-            ]
-            },
-            ],
-                  },
-                 
-                 
-      ],
-
-      lista_Selection:[
-      {
-            select:['Tienda1', 'Tipo1', 'Tienda1','Tienda1','Tienda1','Tienda1','Tienda1','Tienda1'],
-      },{ 
-             select:['talla1','talla1','talla1','talla1','talla1','talla2'],
-      },{  
-             select:['5€ - 250€', '1€ - 300@', '30€ - 500€','9€ - 999€','5€ - 25€'],
-      },
-       {
-             select:['5€ - 250€', '1€ - 300@', '30€ - 500€','9€ - 999€','5€ - 25€'],
-      },{ 
-             select:['talla1','talla1','talla1','talla1','talla1','talla2'],
-      },{  
-             select:['5€ - 250€', '1€ - 300@', '30€ - 500€','9€ - 999€','5€ - 25€'],
-      }
-      ],
-      };
-    },
   };
 </script>
 
 
 <style lang="scss" scoped>
+
+.name_talla{
+
+font-size: 0.57rem;
+}
 
 .boton_tallas{
   margin-left: 3px;
@@ -244,8 +172,8 @@ import 'swiper/swiper-bundle.css'
   padding: 0px;
   border:#ebebeb;
   width:20px;
-  height:30px;
-  border-radius: 50%;
+  height:20px;
+
   background:#fff;
 }
 

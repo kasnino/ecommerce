@@ -73,7 +73,7 @@ export default {
 
 <style lang="scss" scoped>
 .active_btn{
-      border: 2px solid #e8bf2e;
+      border: 1px solid #e8bf2e;
 }
 
 .btn_show-select{

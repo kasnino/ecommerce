@@ -1,6 +1,8 @@
 <template>
       <nav class="w-100 my-0"  
-           style=" position:relative; background:#FFF;">
+           style="position:relative; 
+                  background:#FFF;"
+           >
         <swiper 
            :slidesPerView="'auto'" 
            :spaceBetween="3" 
@@ -10,7 +12,8 @@
                   <swiper-slide 
                   style="position:relative;" 
                   class=" + 'd-flex gap-2  ps-2 pe-2'" > 
-                  <BrandTiendaTag :brands="brands" />
+                  <BrandTiendaTag 
+                  :brands="brands" />
                   
                   </swiper-slide>
 
@@ -24,8 +27,8 @@
                         label_input="" 
                         :tallas="item"
                         :border_btn="false"
-                        :index="index"
-                        @SelectProductForm="SelectProductForm"
+                        :index_prop="index"
+                        @selectProductForm="SelectProductForm"
                   ></FormPrenda>
                    </swiper-slide>
          </swiper>
@@ -178,7 +181,10 @@ methods: {
       this.$emit('chowSelect', tipo);
     },
      SelectProductForm(data, indice) {
-      return this.onShowSelect = true, this.nombre_selection = data, this.idSelection = indice;
+      this.onShowSelect = true, 
+      this.nombre_selection = data, 
+      this.idSelection = indice;
+     
       },
 }
 }

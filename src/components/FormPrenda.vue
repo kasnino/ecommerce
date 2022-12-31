@@ -10,23 +10,23 @@
       "
       >{{ label_input }}</label
     > 
-    <div v-for="(select, z) in tallas" :key="z.id">
+    <div v-for="(select, tallaindex) in tallas" :key="tallaindex.id">
       <button
-      v-for="(selecto, k) in select" :key="k.id"
-      
+      v-for="(selecto, selectindex) in select" :key="selectindex.id"
         type="button"
         style="justify-content: space-between; align-items: center; font-size:0.79rem;" 
         class="p-0  d-flex d-flex btn_fromprenda "
-        :class="[((border_btn)? '' : ' p-0'),
-        (( (isShow) && (active === k)) ? 'active_btn' : 'border-btn'),
+        :class="[(( (isShow) && (active == index_prop)) ? 'active_btn' : 'border-btn'),
         ((expandir) ? 'dropdown-toggle' : '' )
         ]"
         ref="aqui"
         :aria-expanded="expandir"
-        @click="SelectProductForm(selecto.name_form, index),toggleSelect(k),(isShow = !isShow)"
+        @click="SelectProductForm(selecto.name_form, index_prop), 
+                toggleSelect(index_prop),
+                (isShow = !isShow)"
       >
       <small>
-          {{ selecto.name_form}} 
+         {{ selecto.name_form}} 
       </small>
       </button>
     </div>
@@ -39,6 +39,14 @@ import CustomInput from "./CustomInput.vue";
 import PrimaryButton from "./PrimaryButton.vue";
 import notification from "../assets/notification.svg";
 export default {
+
+    components: {
+    ButtonToSocial,
+    CustomInput,
+    PrimaryButton,
+  },
+
+
   data() {
     return {
       notification: notification,
@@ -52,11 +60,7 @@ export default {
       isShow:false
     };
   },
-  components: {
-    ButtonToSocial,
-    CustomInput,
-    PrimaryButton,
-  },
+
   
   methods: {
      SelectProductForm(name_btn, indice){
@@ -67,13 +71,9 @@ export default {
       this.size_selected = data.id;
       this.$refs.aqui.click();
     },
-     toggleSelect(index) {
-       // toggle the active class
-         if(this.isShow)
-        {   
-          return this.active = index
-        }
-      
+     toggleSelect(dato) {
+           this.active = dato
+           
      },
   },
   
@@ -98,7 +98,7 @@ export default {
          type:Boolean,
          default:true
        },
-        index:{
+        index_prop:{
          type:Number,
          default:0
        },
@@ -112,6 +112,7 @@ export default {
 <style lang="scss" scoped>
 .active_btn{
   border: 1px solid #e8bf2e7a;
+  background:#FFFFFF; 
 }
 .border-btn{
    border: 1px solid #ebebeb;
