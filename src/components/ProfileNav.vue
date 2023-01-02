@@ -8,16 +8,21 @@
                 class="nav_profiles ps-2 w-100  pe-2"
                 style="gap:1px; position:relative;    "
                 @swiper="onSwiper"
-                @slideChange="onChangeSwiper"
+                @slideChange="onChangeSwiper" 
+              
            >
+         
             <swiper-slide 
                 v-for="(items, i) in tabs" :key="i.id" 
                 :class=" (((i == slide_count)) ? 'nuevo': '' )"
-                :style=" (((i == slide_count)) ? 'background:'+ colores_icon[slide_count]+'30;' : '' )"
+                :style="[(((i == slide_count)) ? 'background:'+ colores_icon[slide_count]+ '30;' : '' ),
+                ((slide_count === 0) ? 'transition-duration: 0ms;transform: translate3d(75.6719px, 0px, 0px);' : '')]"
                 @click="onStyle(i), 
                 changeView(i)"
+               
                 @changeSlide="changeSlide"
                 >
+              
             <div 
                  @click="positionTab(i)"
                  :id="`Tab-${i}`"
@@ -107,7 +112,7 @@ setup(){
 },
  data() {
     return {
-      swiper:null,
+      swiper:0,
       changeSwiper:null,
       active:0,
       relleno_on:0,
@@ -122,11 +127,18 @@ setup(){
   },
   
   computed: {
-    // un getter computado
-
+    swiper() {
+      return this.swiper;
+    },
+    slide_count(){
+     if(this.slide_count > 0){ return this.toSlide(this.slide_count)};
+     return this.slide_count
+    }
   },
     methods: {
-
+  toSlide(i) {
+       return this.swiper.slideTo(i), this.slide_count;
+    },
       getRef(swiperInstance) {
         swiper.value = swiperInstance
       },
@@ -139,6 +151,10 @@ setup(){
       },
       onChangeSwiper(changeSwiper){
         this.changeSwiper = changeSwiper;
+      },
+      
+      animationSlide(indie, slide_count){
+      return alert(indice + "" + slide_count)
       },
 
       changeSlide(dato)

@@ -116,7 +116,7 @@ import 'swiper/swiper-bundle.css'
 
       onSwiper(swiper) 
       {
-        console.log("Entro");
+       
         this.swiper = swiper;
       },
 
@@ -135,6 +135,7 @@ import 'swiper/swiper-bundle.css'
      chowSelect(tipo){
       this.$emit('chowSelect', tipo);
     },
+    
        toggleSelect(index) {
        // toggle the active class
        

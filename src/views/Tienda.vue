@@ -5,13 +5,13 @@
               :shadown="false"  
               :searchIcon="true"
               :alertIcon="true"
-              name="" 
               color="#FFFFFF" 
               username="trajes de baño para mujer" 
               height="60px" 
               :isVerificate="false"/>
       <!-- Navigations tabs icono más texto -->
 
+   
     
         <ProfileNav 
                 class="profile_nav my-1"
@@ -24,13 +24,15 @@
                 @changeView="changeView"
                 :slide_count="swiper.activeIndex"
                 />
+                  
+ 
             <!-- Sub navegacion de tallas/tiendas/precios -->
-           
                 <ProductsNav/>
                    <swiper 
                    :slidesPerView="'auto'" 
                    :spaceBetween="30"
                    @swiper="onSwiper"
+                  
            >
                   <swiper-slide> 
                 <template  v-if="view=='0'" >
@@ -593,7 +595,7 @@ export default {
         this.isLoaded = false
         setTimeout(() => {
         this.isLoaded = true
-      }, 5000)
+      }, 2000)
     },
     changeView(data) {
            this.onLoad()
