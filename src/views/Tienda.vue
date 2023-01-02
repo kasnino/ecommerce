@@ -33,6 +33,7 @@
                    :spaceBetween="30"
                    @swiper="onSwiper"
                   
+                  
            >
                   <swiper-slide> 
                 <template  v-if="view=='0'" >
@@ -592,6 +593,7 @@ export default {
 
 
     onLoad() {
+     
         this.isLoaded = false
         setTimeout(() => {
         this.isLoaded = true

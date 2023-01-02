@@ -9,17 +9,15 @@
                 style="gap:1px; position:relative;    "
                 @swiper="onSwiper"
                 @slideChange="onChangeSwiper" 
-              
            >
          
             <swiper-slide 
                 v-for="(items, i) in tabs" :key="i.id" 
                 :class=" (((i == slide_count)) ? 'nuevo': '' )"
                 :style="[(((i == slide_count)) ? 'background:'+ colores_icon[slide_count]+ '30;' : '' ),
-                ((slide_count === 0) ? 'transition-duration: 0ms;transform: translate3d(75.6719px, 0px, 0px);' : '')]"
+                ((slide_count === 0 && activaSlide) ? 'transform: translate3d(80px, 0px, 0px);' : '' )]"
                 @click="onStyle(i), 
                 changeView(i)"
-               
                 @changeSlide="changeSlide"
                 >
               
@@ -120,6 +118,7 @@ setup(){
       posejeY:0,
       opacity: 30,
       newColor:'',
+      activaSlide:false,
       indiceColor:0,
       color_icon:['black','yellow'],
       colorgba:['rgba(255,189,99,0.3)']
@@ -131,13 +130,13 @@ setup(){
       return this.swiper;
     },
     slide_count(){
-     if(this.slide_count > 0){ return this.toSlide(this.slide_count)};
-     return this.slide_count
+     if(this.slide_count > 0){ return this.toSlide(this.slide_count)}; 
+     return this.slide_count;
     }
   },
     methods: {
   toSlide(i) {
-       return this.swiper.slideTo(i), this.slide_count;
+       return this.swiper.slideTo(i), this.activaSlide = true, this.slide_count;
     },
       getRef(swiperInstance) {
         swiper.value = swiperInstance
