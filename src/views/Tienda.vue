@@ -8,10 +8,11 @@
               color="#FFFFFF" 
               username="trajes de baño para mujer" 
               height="60px" 
+            
               :isVerificate="false"/>
       <!-- Navigations tabs icono más texto -->
 
-   
+ 
     
         <ProfileNav 
                 class="profile_nav my-1"
@@ -22,7 +23,7 @@
                 :colores_icon="colores_icons"
                 :style="{ position: showProfileNav ? 'fixed' : '' }"  
                 @changeView="changeView"
-                :slide_count="swiper.activeIndex"
+                :slide_count="swiper.realIndex"
                 />
                   
  
@@ -32,7 +33,7 @@
                    :slidesPerView="'auto'" 
                    :spaceBetween="30"
                    @swiper="onSwiper"
-                  
+                    loop
                   
            >
                   <swiper-slide> 

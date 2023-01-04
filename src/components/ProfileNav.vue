@@ -10,6 +10,7 @@
                 @swiper="onSwiper"
                 @slideChange="onChangeSwiper" 
                 :simulateTouch="true"
+                
            >
          
             <swiper-slide 
