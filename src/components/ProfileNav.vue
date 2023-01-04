@@ -209,7 +209,7 @@ setup(){
       },
     changeView(id, items){
       this.$emit('changeView', id);
-      alert("vista: " + id + " " + items);
+      
     },
   },
 
