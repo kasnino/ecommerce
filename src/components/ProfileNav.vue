@@ -23,7 +23,7 @@
                 ((slide_count >= 0) ? `transition-duration: 0ms; transform: translate3d(${animation_valor[slide_count]}px, 0px, 0px);` : '')
               ]" 
                 @click="onStyle(i), 
-                changeView(slide_count, items)"
+                changeView(i)"
                 @changeSlide="changeSlide"
                 >
               
@@ -207,7 +207,7 @@ setup(){
         }
       }
       },
-    changeView(id, items){
+    changeView(id){
       this.$emit('changeView', id);
       
     },

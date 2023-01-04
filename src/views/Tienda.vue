@@ -23,49 +23,24 @@
                 :colores_icon="colores_icons"
                 :style="{ position: showProfileNav ? 'fixed' : '' }"  
                 @changeView="changeView"
-                :slide_count="swiper.realIndex"
+                :slide_count="swiper.activeIndex"
                 />
                   
  
             <!-- Sub navegacion de tallas/tiendas/precios -->
                 <ProductsNav/>
                    <swiper 
-                 
                    :spaceBetween="0"
                    @swiper="onSwiper"
-                     :slidesPerView="'auto'" 
+                     :slidesPerView="1" 
                    :simulateTouch="true"
+                   loop
                  
                   
            >
-                  <swiper-slide> 
-                <template  v-if="view=='0'" >
-                  <div style="">  
-                  <SwiperHomeOfferts :prodcuts="products" v-if="isLoaded" /> 
-                  </div>
-                  <!-- Skeleton card funcional -->
-                      <div class="row mx-0 d-flex px-0  py-1">
-                       <template class="" 
-                       v-for="(item, index) in products" :key="index" >
-                            <div  
-                                  class="col-6  d-grid mx-0 px-0 my-1  d-flex 
-                                   justify-content-between flex-column"   
-                                  :class="{'pe-1':(index%2==0),'ps-1':(index%2!=0)}">
-                                    <skeleton
-                                        skeleton-class=" h-12 "
-                                        w="100%"
-                                        h="271px"
-                                        :is-loaded="isLoaded">
-                                    </skeleton>
-                              </div> 
-                        </template> 
-                          </div>
-
-
-                </template>
-                </swiper-slide>
              
-                    <template v-for="(vistas, index) in 5" :key="index" >
+             
+                    <template v-for="(vistas, index) in 6" :key="index" >
                         <swiper-slide 
                         > 
                          <SwiperHomeOfferts :prodcuts="products" v-if="isLoaded" /> 
