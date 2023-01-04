@@ -11,7 +11,7 @@
                 @slideChange="onChangeSwiper" 
                 :simulateTouch="true"
                 loop
-                :loopedSlides="5"
+                :loopedSlides="4"
                 
            >
          
