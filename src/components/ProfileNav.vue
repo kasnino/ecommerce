@@ -4,14 +4,15 @@
 
            <swiper  
                 :slidesPerView="'auto'" 
+                   :simulateTouch="true"
                 :spaceBetween="3" 
                 class="nav_profiles ps-2 w-100  pe-2"
                 style="gap:1px; position:relative;    "
                 @swiper="onSwiper"
                 @slideChange="onChangeSwiper" 
-                :simulateTouch="true"
-                loop
-                :loopedSlides="3"
+             
+                
+              
                 
            >
          
@@ -19,10 +20,10 @@
                 v-for="(items, i) in tabs" :key="i.id" 
                 :class=" (((i == slide_count)) ? 'nuevo': '' )"
                 :style="[(((i == slide_count)) ? 'background:'+ colores_icon[slide_count]+ '30;' : '' ),
-                ((slide_count > 0) ? `transition-duration: 0ms; transform: translate3d(${animation_valor[slide_count]}px, 0px, 0px);` : '')
+                ((slide_count >= 0) ? `transition-duration: 0ms; transform: translate3d(${animation_valor[slide_count]}px, 0px, 0px);` : '')
               ]" 
                 @click="onStyle(i), 
-                changeView(i)"
+                changeView(slide_count, items)"
                 @changeSlide="changeSlide"
                 >
               
@@ -136,12 +137,6 @@ setup(){
   computed: {
     swiper() {
       return this.swiper;
-    },
-    slide_count(){
-    //  if(this.slide_count > 0){ return this.toSlide(this.slide_count)}; 
- 
-     return this.slide_count
-    
     }
   },
     methods: {
@@ -212,8 +207,9 @@ setup(){
         }
       }
       },
-    changeView(id){
+    changeView(id, items){
       this.$emit('changeView', id);
+      alert("vista: " + id + " " + items);
     },
   },
 

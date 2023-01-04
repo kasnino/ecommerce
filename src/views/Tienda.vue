@@ -30,10 +30,12 @@
             <!-- Sub navegacion de tallas/tiendas/precios -->
                 <ProductsNav/>
                    <swiper 
-                   :slidesPerView="'auto'" 
-                   :spaceBetween="30"
+                 
+                   :spaceBetween="0"
                    @swiper="onSwiper"
-                    loop
+                     :slidesPerView="'auto'" 
+                   :simulateTouch="true"
+                 
                   
            >
                   <swiper-slide> 
