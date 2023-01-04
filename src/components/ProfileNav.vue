@@ -10,6 +10,8 @@
                 @swiper="onSwiper"
                 @slideChange="onChangeSwiper" 
                 :simulateTouch="true"
+                loop
+                :loopedSlides="5"
                 
            >
          

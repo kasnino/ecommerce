@@ -595,10 +595,9 @@ export default {
 
     onLoad() {
      
-        this.isLoaded = false
-        setTimeout(() => {
+      
         this.isLoaded = true
-      }, 2000)
+     
     },
     changeView(data) {
            this.onLoad()
