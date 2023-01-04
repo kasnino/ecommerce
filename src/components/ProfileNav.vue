@@ -9,18 +9,21 @@
                 style="gap:1px; position:relative;    "
                 @swiper="onSwiper"
                 @slideChange="onChangeSwiper" 
+                :simulateTouch="true"
            >
          
             <swiper-slide 
                 v-for="(items, i) in tabs" :key="i.id" 
                 :class=" (((i == slide_count)) ? 'nuevo': '' )"
                 :style="[(((i == slide_count)) ? 'background:'+ colores_icon[slide_count]+ '30;' : '' ),
-                ((slide_count === 0 && activaSlide) ? 'transform: translate3d(80px, 0px, 0px);' : '' )]"
+                ((slide_count > 0) ? `transition-duration: 0ms; transform: translate3d(${animation_valor[slide_count]}px, 0px, 0px);` : '')
+              ]" 
                 @click="onStyle(i), 
                 changeView(i)"
                 @changeSlide="changeSlide"
                 >
               
+             
             <div 
                  @click="positionTab(i)"
                  :id="`Tab-${i}`"
@@ -31,7 +34,7 @@
 
           <div class="" :id="`slider-${i}`"
                :class="(( (onbackground) && (relleno_on == i)) ? '' : '' )"
-               :style="`transform: translateX(${(0)}px) !important; transition: all 0.4s ease; `"
+              
                >
           </div>
 
@@ -42,11 +45,11 @@
                 class="d-flex  w-100  justify-content-center align-items-center" 
                 style="box-sizing:content-box; "
                 >
-                 <span  
-                 :class=" (items != '') ? '' : 'w-100 '"
-                 class="m-0 p-0 d-flex" >
-                 <IconoTab 
-                 class="d-flex"
+                      <span  
+                      :class=" (items != '') ? '' : 'w-100 '"
+                      class="m-0 p-0 d-flex" >
+                      <IconoTab 
+                      class="d-flex"
                       :name_icono="name_icono[i]"
                       :colores="colores_icon[i]" 
                       :oncolor="active === i ? '#F4C90C' : 'black'" />
@@ -114,9 +117,11 @@ setup(){
       changeSwiper:null,
       active:0,
       relleno_on:0,
+      num_slide:0,
       posejeX:0,
       posejeY:0,
       opacity: 30,
+      animation_valor:['0', '-75', '-211', '-306', '-347'],
       newColor:'',
       activaSlide:false,
       indiceColor:0,
@@ -130,11 +135,19 @@ setup(){
       return this.swiper;
     },
     slide_count(){
-     if(this.slide_count > 0){ return this.toSlide(this.slide_count)}; 
-     return this.slide_count;
+    //  if(this.slide_count > 0){ return this.toSlide(this.slide_count)}; 
+ 
+     return this.slide_count
+    
     }
   },
     methods: {
+      transition(){
+        if(this.slide_count >= 0){
+           
+        }
+        
+      },
   toSlide(i) {
        return this.swiper.slideTo(i), this.activaSlide = true, this.slide_count;
     },
