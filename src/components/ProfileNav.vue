@@ -4,29 +4,28 @@
 
            <swiper  
                 :slidesPerView="'auto'" 
-                   :simulateTouch="true"
+                :simulateTouch="true"
                 :spaceBetween="3" 
                 class="nav_profiles ps-2 w-100  pe-2"
                 style="gap:1px; position:relative;    "
                 @swiper="onSwiper"
                 @slideChange="onChangeSwiper" 
-             
-                
-              
+                loop
                 
            >
          
             <swiper-slide 
                 v-for="(items, i) in tabs" :key="i.id" 
-                :class=" (((i == slide_count)) ? 'nuevo': '' )"
-                :style="[(((i == slide_count)) ? 'background:'+ colores_icon[slide_count]+ '30;' : '' ),
-                ((slide_count >= 0) ? `transition-duration: 0ms; transform: translate3d(${animation_valor[slide_count]}px, 0px, 0px);` : '')
+                :class=" (((i === slide_count)) ? 'nuevo': '' )"
+                :style="[(((i === slide_count)) ? 'background:'+ colores_icon[slide_count]+ '30;' : '' ),
+                ((slide_count >= 0) ? `transition-duration: 0ms; transform: translate3d(${animation_valor[slide_count]}px, 0px, 0px);` : ''),
+                ('border-radius: 15px;')
               ]" 
                 @click="onStyle(i), 
-                changeView(i)"
+                changeView(i+1)"
                 @changeSlide="changeSlide"
                 >
-              
+            
              
             <div 
                  @click="positionTab(i)"
@@ -47,7 +46,7 @@
                 :for="items">
                 <div 
                 class="d-flex  w-100  justify-content-center align-items-center" 
-                style="box-sizing:content-box; "
+                style="box-sizing:content-box;  border-radius: 15px; "
                 >
                       <span  
                       :class=" (items != '') ? '' : 'w-100 '"
@@ -125,7 +124,7 @@ setup(){
       posejeX:0,
       posejeY:0,
       opacity: 30,
-      animation_valor:['0', '-75', '-211', '-306', '-347'],
+      animation_valor:['-745', '-75', '-211', '-306', '-347', '-415'],
       newColor:'',
       activaSlide:false,
       indiceColor:0,
@@ -209,6 +208,7 @@ setup(){
       },
     changeView(id){
       this.$emit('changeView', id);
+     
       
     },
   },
@@ -218,9 +218,11 @@ setup(){
 </script>
 
 <style scoped>
-
-.nuevo{
+#Tab-0{
    border-radius: 15px; 
+}
+.nuevo{
+   border-radius: 15px !important; 
   transition: tramsform 0.4s cubic-bezier(.10, .10, .10, .84) !important;
   transition-timing-function: cubic-bezier(.10, .10, .10, .84) !important; 
 }

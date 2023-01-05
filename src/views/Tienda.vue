@@ -8,11 +8,10 @@
               color="#FFFFFF" 
               username="trajes de baño para mujer" 
               height="60px" 
-            
               :isVerificate="false"/>
       <!-- Navigations tabs icono más texto -->
 
- 
+
     
         <ProfileNav 
                 class="profile_nav my-1"
@@ -23,7 +22,7 @@
                 :colores_icon="colores_icons"
                 :style="{ position: showProfileNav ? 'fixed' : '' }"  
                 @changeView="changeView"
-                :slide_count="swiper.activeIndex"
+                :slide_count="swiper.realIndex"
                 />
                   
  
@@ -32,13 +31,11 @@
                    <swiper 
                    :spaceBetween="0"
                    @swiper="onSwiper"
-                     :slidesPerView="1" 
+                   :slidesPerView="1" 
                    :simulateTouch="true"
                    loop
-                 
                   
            >
-             
              
                     <template v-for="(vistas, index) in 6" :key="index" >
                         <swiper-slide 
