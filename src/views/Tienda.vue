@@ -11,8 +11,6 @@
               :isVerificate="false"/>
       <!-- Navigations tabs icono más texto -->
 
-
-    
         <ProfileNav 
                 class="profile_nav my-1"
                 :tabs="name_tabs"
@@ -592,7 +590,8 @@ export default {
         this.ticking = true;
         }
       },
-          calculateOffset(scrollPos) {
+  calculateOffset(scrollPos) 
+  {
       const width = window.innerWidth / 2 / 2;
       const maxHeigth = 32 - 32;
       if (scrollPos > 0 && scrollPos < maxHeigth) {

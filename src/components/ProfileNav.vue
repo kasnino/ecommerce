@@ -11,21 +11,29 @@
                 @swiper="onSwiper"
                 @slideChange="onChangeSwiper" 
                 loop
+            
+                :initialSlide="0"
+               
                 
            >
          
             <swiper-slide 
+           
                 v-for="(items, i) in tabs" :key="i.id" 
                 :class=" (((i === slide_count)) ? 'nuevo': '' )"
                 :style="[(((i === slide_count)) ? 'background:'+ colores_icon[slide_count]+ '30;' : '' ),
                 ((slide_count >= 0) ? `transition-duration: 0ms; transform: translate3d(${animation_valor[slide_count]}px, 0px, 0px);` : ''),
-                ('border-radius: 15px;')
-              ]" 
+                ('border-radius: 15px;'),
+        
+
+              ]"
+               :id='`swiper-slides`' 
                 @click="onStyle(i), 
-                changeView(i+1)"
-                @changeSlide="changeSlide"
+                changeView(i+1),
+                animation_swiper(i)"
+                @changeSlide="changeSlide(i)"
                 >
-            
+          
              
             <div 
                  @click="positionTab(i)"
@@ -66,6 +74,7 @@
                 
             </swiper-slide>
       </swiper>
+      
   </nav>
 </template>
 
@@ -123,8 +132,9 @@ setup(){
       num_slide:0,
       posejeX:0,
       posejeY:0,
+      bloqueado:false,
       opacity: 30,
-      animation_valor:['-745', '-75', '-211', '-306', '-347', '-415'],
+      animation_valor:['-0', '-0', '-0', '-227', '-471', '-107'],
       newColor:'',
       activaSlide:false,
       indiceColor:0,
@@ -135,7 +145,7 @@ setup(){
   
   computed: {
     swiper() {
-      return this.swiper;
+      return this.swiper; 
     }
   },
     methods: {
@@ -158,6 +168,11 @@ setup(){
       {
         this.swiper = swiper;
       },
+      animation_swiper(i){
+        const slides_wipper =  document.getElementById('swiper-slides')
+      
+      return this.swiper.slideTo(i), this.bloqueado = true,  slides_wipper.style.transform=`translate3d(${this.swiper.translate}px, 0px, 0px) !important`;   
+      },
       onChangeSwiper(changeSwiper){
         this.changeSwiper = changeSwiper;
       },
@@ -168,7 +183,7 @@ setup(){
 
       changeSlide(dato)
       {
-        console.log("EntroSlide Cahnged")
+        this.toSlide(dato)
       },
 
       handleSlideTo() {
@@ -218,6 +233,10 @@ setup(){
 </script>
 
 <style scoped>
+
+.swiper-wrapper{
+ 
+}
 #Tab-0{
    border-radius: 15px; 
 }
@@ -268,5 +287,10 @@ input[type=radio]{
   border-radius: 5px;
 
 }
-
+    .swiper-slide.swiper-slide-prev{
+        transform: translateX(15%);
+    }           
+    .swiper-slide.swiper-slide-next{
+        transform: translateX(-15%);
+    }
 </style>
