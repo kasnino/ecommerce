@@ -19,7 +19,9 @@
                 :name_icono="name_iconos"
                 :colores_icon="colores_icons"
                 :style="{ position: showProfileNav ? 'fixed' : '' }"  
+                :bloquear_animation="active_animation"
                 @changeView="changeView"
+               
                 :slide_count="swiper.realIndex"
                 />
                   
@@ -32,6 +34,7 @@
                    :slidesPerView="1" 
                    :simulateTouch="true"
                    loop
+                    :slideChange="cambiandoSlides()"
                   
            >
              
@@ -128,6 +131,7 @@ export default {
         return {
           swiper: 0,
           swipervalue:0,
+          active_animation:false,
            items: [
         {
           thumbnail: 'laptop.svg',
@@ -562,9 +566,12 @@ export default {
    {
       console.log("Emtro tienda Slide")
       this.$emit('changeslide', dato);
+     
     },
 
-
+cambiandoSlides(){
+return this.active_animation = false
+},
     onLoad() {
      
       
@@ -573,8 +580,9 @@ export default {
     },
     changeView(data) {
            this.onLoad()
-           this.swiper.slideTo(data);
+           this.swiper.slideTo(data)
            this.view = data;
+          
     },
         onTab(data){
           return this.color_tab = (data)?'black':'black';

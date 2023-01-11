@@ -2,30 +2,27 @@
 
   <nav class="w-100 my-0"  style=" position:relative; background:#FFF; ">
 
+          
            <swiper  
-                :slidesPerView="'auto'" 
+                :slidesPerView="0" 
                 :simulateTouch="true"
                 :spaceBetween="3" 
                 class="nav_profiles ps-2 w-100  pe-2"
                 style="gap:1px; position:relative;    "
                 @swiper="onSwiper"
                 @slideChange="onChangeSwiper" 
-                loop
-            
+                :loop="true"
                 :initialSlide="0"
-               
-                
+                :roundLengths="true"
+                :loopAdditionalSlides="6"
            >
          
             <swiper-slide 
-           
                 v-for="(items, i) in tabs" :key="i.id" 
                 :class=" (((i === slide_count)) ? 'nuevo': '' )"
                 :style="[(((i === slide_count)) ? 'background:'+ colores_icon[slide_count]+ '30;' : '' ),
-                ((slide_count >= 0) ? `transition-duration: 0ms; transform: translate3d(${animation_valor[slide_count]}px, 0px, 0px);` : ''),
+                ((slide_count >= 0 ) ? `transition-duration: 0ms; transform: translate3d(${animation_valor[slide_count]}px, 0px, 0px);` : ''),
                 ('border-radius: 15px;'),
-        
-
               ]"
                :id='`swiper-slides`' 
                 @click="onStyle(i), 
@@ -111,6 +108,10 @@ export default {
        swiperview:{
          type:Number,
          default:0
+       },
+       bloquear_animation:{
+         type:Boolean,
+         default:false
        }
   },
   components: {
@@ -132,9 +133,9 @@ setup(){
       num_slide:0,
       posejeX:0,
       posejeY:0,
-      bloqueado:false,
       opacity: 30,
-      animation_valor:['-0', '-0', '-0', '-227', '-471', '-107'],
+      animation_valor:['-0', '-0', '-0', '-227', '-277', '-397'],
+      animation_valor_center:['-0', '-0', '-0', '-0', '0', '-0'],
       newColor:'',
       activaSlide:false,
       indiceColor:0,
@@ -171,7 +172,7 @@ setup(){
       animation_swiper(i){
         const slides_wipper =  document.getElementById('swiper-slides')
       
-      return this.swiper.slideTo(i), this.bloqueado = true,  slides_wipper.style.transform=`translate3d(${this.swiper.translate}px, 0px, 0px) !important`;   
+      return this.swiper.slideTo(i), slides_wipper.style.transform=`translate3d(${this.animation_valor_center[i]}px, 0px, 0px) !important`;   
       },
       onChangeSwiper(changeSwiper){
         this.changeSwiper = changeSwiper;
@@ -223,7 +224,6 @@ setup(){
       },
     changeView(id){
       this.$emit('changeView', id);
-     
       
     },
   },
